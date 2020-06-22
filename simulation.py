@@ -15,8 +15,6 @@ RADIUS = 0.1
 #ER PARAMETERS - erdos-renyi 
 K_MEAN = 6
 
-#CG PARAMETERS - complete graph
-NUM_NODES_CG = 100
 
 #WS PARAMETERS - watts strogatz
 WS_K = 4
@@ -34,8 +32,6 @@ R_H = 0.74
 U_H = 1/10
 R_U = 0.46
 U_U = 1/8
-
-
 
 class Node:
     def __init__(self, comp):
@@ -99,7 +95,7 @@ def GN_setup():
                 node1.add_edge(node2)
 
 def CG_setup():
-    for i in range(NUM_NODES_CG):
+    for i in range(NUM_NODES):
         if (i < INITIAL_INFECTED):
             nodes[i] = Node(2)
         else:
@@ -176,8 +172,42 @@ def step():
     for node in nodes:
         node.comp = node.next_comp
 
+def run(NUM_NODES_P, STEPS_P, INITIAL_INFECTED_P, RADIUS_P, K_MEAN_P, WS_K_P, WS_BETA_P, GAMMA_P, LAMBDA_P, U_E_P, R_C_P, U_C_P, R_I_P, U_I_P, U_H_P, R_H_P, R_U_P, U_U_P, SIM_TYPE):
+    SIMS = ["GN", "ER",  "CG", "WS"]
+    NUM_NODES = NUM_NODES_P
+    STEPS = STEPS_P
+    INITIAL_INFECTED = INITIAL_INFECTED_P
+    RADIUS = RADIUS_P
+    K_MEAN = K_MEAN_P
+    WS_K = WS_K_P
+    WS_BETA = WS_BETA_P
+    GAMMA = GAMMA_P
+    LAMBDA = LAMBDA_P
+    U_E = U_E_P
+    R_C = R_C_P
+    U_C = U_C_P
+    R_I = R_I_P
+    U_I = U_I_P
+    R_H = R_H_P
+    U_H = U_H_P
+    R_U = R_U_P
+    U_U = U_U_P
+    if (SIM_TYPE == 0):
+        GN_setup()
+    elif (SIM_TYPE == 1):
+        ER_setup()
+    elif (SIM_TYPE == 2):
+        CG_setup()
+    elif (SIM_TYPE == 3):
+        WS_setup()
+    else:
+        print("uhoh not a sim type")
+    for i in range (STEPS):
+        step()
 
-
+    
+    
+'''
 print(COMPARTMENTS)
 nodes = [None]*(NUM_NODES)
 GN_setup()
@@ -191,3 +221,4 @@ for i in range (STEPS):
         print ("steps were taken before eradication")
         break
     step()
+'''
