@@ -202,7 +202,7 @@ def run(NUM_NODES_P, STEPS_P, INITIAL_INFECTED_P, RADIUS_P, K_MEAN_P, WS_K_P, WS
         WS_setup()
     else:
         print("uhoh not a sim type")
-    for i in range (STEPS):
+    while (!(results[1] == 0 and results[2] == 0 and results[3] == 0 and results[4] == 0 and results[5] == 0)):
         step()
 
     
