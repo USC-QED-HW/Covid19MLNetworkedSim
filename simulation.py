@@ -1,5 +1,4 @@
 import random
-import math
 
 COMPARTMENTS = ['susceptible', 'exposed', 'carrier', 'infected', 'hospitalized', 'intensive care unit', 'recovered', 'dead']
 
