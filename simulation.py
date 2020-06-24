@@ -3,6 +3,8 @@ import math
 
 COMPARTMENTS = ['susceptible', 'exposed', 'carrier', 'infected', 'hospitalized', 'intensive care unit', 'recovered', 'dead']
 
+nodes = None
+
 #SIMULATION PARAMETERS
 NUM_NODES = 1000
 STEPS = 100
@@ -113,7 +115,7 @@ def ER_setup():
     for i in range((int)(K_MEAN*len(nodes)/2)):
         node1 = nodes[random.randint(0, NUM_NODES-1)]
         node2 = nodes[random.randint(0, NUM_NODES-1)]
-        while (node1 == node2 or node.has_neighbor(node2)):
+        while (node1 == node2 or node1.has_neighbor(node2)):
             node2 = nodes[random.randint(0, NUM_NODES-1)]
         node1.add_edge(node2)
 
@@ -172,10 +174,10 @@ def step():
     for node in nodes:
         node.comp = node.next_comp
 
-def run(NUM_NODES_P, STEPS_P, INITIAL_INFECTED_P, RADIUS_P, K_MEAN_P, WS_K_P, WS_BETA_P, GAMMA_P, LAMBDA_P, U_E_P, R_C_P, U_C_P, R_I_P, U_I_P, U_H_P, R_H_P, R_U_P, U_U_P, SIM_TYPE):
+def run(NUM_NODES_P, INITIAL_INFECTED_P, RADIUS_P, K_MEAN_P, WS_K_P, WS_BETA_P, GAMMA_P, LAMBDA_P, U_E_P, R_C_P, U_C_P, R_I_P, U_I_P, U_H_P, R_H_P, R_U_P, U_U_P, SIM_TYPE):
+    global nodes, NUM_NODES, INITIAL_INFECTED, RADIUS, K_MEAN, WS_K, WS_BETA, GAMMA, LAMBDA, U_E, R_C, U_C, R_I, U_I, R_H, U_H, R_U, U_U 
     SIMS = ["GN", "ER",  "CG", "WS"]
     NUM_NODES = NUM_NODES_P
-    STEPS = STEPS_P
     INITIAL_INFECTED = INITIAL_INFECTED_P
     RADIUS = RADIUS_P
     K_MEAN = K_MEAN_P
@@ -192,6 +194,8 @@ def run(NUM_NODES_P, STEPS_P, INITIAL_INFECTED_P, RADIUS_P, K_MEAN_P, WS_K_P, WS
     U_H = U_H_P
     R_U = R_U_P
     U_U = U_U_P
+
+    nodes = [None] * (NUM_NODES)
     if (SIM_TYPE == 0):
         GN_setup()
     elif (SIM_TYPE == 1):
@@ -202,23 +206,13 @@ def run(NUM_NODES_P, STEPS_P, INITIAL_INFECTED_P, RADIUS_P, K_MEAN_P, WS_K_P, WS
         WS_setup()
     else:
         print("uhoh not a sim type")
-    while (!(results[1] == 0 and results[2] == 0 and results[3] == 0 and results[4] == 0 and results[5] == 0)):
+    results = [1]*8
+    while (not(results[1] == 0 and results[2] == 0 and results[3] == 0 and results[4] == 0 and results[5] == 0)):
+        results = [0]*8
+        for node in nodes:
+            results[node.comp]+=1
+        print(results)
         step()
+    print("done")
 
-    
-    
-'''
-print(COMPARTMENTS)
-nodes = [None]*(NUM_NODES)
-GN_setup()
-for i in range (STEPS):
-    results = [0]*8
-    for node in nodes:
-        results[node.comp]+=1
-    print(results) 
-    if (results[1] == 0 and results[2] == 0 and results[3] == 0 and results[4] == 0 and results[5] == 0):
-        print(i)
-        print ("steps were taken before eradication")
-        break
-    step()
-'''
+run(1000, 3, 0.1, 6, 4, 0.2, 0.2, 0.03, 1/5.2, 0.08, 1/5, 0.8, 1/5, 0.74, 1/10, 0.46, 1/8, 0)
