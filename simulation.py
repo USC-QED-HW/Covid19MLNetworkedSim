@@ -16,7 +16,6 @@ RADIUS = 0.1
 #ER PARAMETERS - erdos-renyi 
 K_MEAN = 6
 
-
 #WS PARAMETERS - watts strogatz
 WS_K = 4
 WS_BETA = 0.2
@@ -120,10 +119,7 @@ def ER_setup():
 
 def WS_setup():
     for i in range(NUM_NODES):
-        if (i < INITIAL_INFECTED):
-            nodes[i] = WS_Node(2)
-        else:
-            nodes[i] = WS_Node(0)
+        nodes[i] = WS_Node(0)
     for i in range (NUM_NODES):
         for j in range ((int) (WS_K/2)):
             if (random.random() > WS_BETA):
@@ -135,8 +131,17 @@ def WS_setup():
             node2 = nodes[random.randint(0, NUM_NODES-1)]
             while (node1 == node2 or node1.has_neighbor(node2)):
                 node2 = nodes[random.randint(0, NUM_NODES-1)]
-            node1.add_edge(node2)
-
+            node1.add_edge(node2)  
+    set_initial_infected()
+    
+def set_initial_infected():
+    i = INITIAL_INFECTED
+    while (i > 0):
+        num = random.randint(0, NUM_NODES-1)
+        if (nodes[num].comp == 0):
+            nodes[num].comp = 2
+            nodes[num].next_comp = 2
+            i -= 1
 
 def step():
     for node in nodes:
