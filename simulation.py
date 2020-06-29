@@ -143,7 +143,12 @@ def er_setup(n, inf, k_mean):
             nodes[i] = Node(2)
         else:
             nodes[i] = Node(0)
-    for i in range((int) (k_mean * n / 2)):
+    for node1 in nodes:
+        node2 = nodes[random.randint(0, n - 1)]
+        while (node1 == node2 or node1.has_neighbor(node2)):
+            node2 = nodes[random.randint(0, n - 1)]
+        node1.add_edge(node2)
+    for i in range((int) ((k_mean - 2) * n / 2)):
         node1 = nodes[random.randint(0, n - 1)]
         node2 = nodes[random.randint(0, n - 1)]
         while (node1 == node2 or node1.has_neighbor(node2)):
@@ -269,7 +274,7 @@ def run_model(mp: ModelParameters):
         print(results)
         step(mp, nodes)
     print("done")
-'''
+
 mp = ModelParameters()
 mp.population = 1000
 mp.initial_infected = 3
@@ -277,25 +282,34 @@ mp.graph_type = 3
 mp.graph_specific_variables = (0.1)
 mp.infectiousness = 0.05
 mp.gamma = 0.2
-mp.e_c = 0.5
-mp.c_i = 0.25
+mp.e_c = 0.45
+mp.c_i = 0.17
 mp.i_h = 0.1
-mp.h_u = 0.1
-mp.u_d = 0.15
-mp.c_r = 0.1
-mp.i_r = 0.2
+mp.h_u = 0.12
+mp.u_d = 0.12
+mp.c_r = 0.06
+mp.i_r = 0.15
 mp.h_r = 0.2
-mp.u_r = 0.25
+mp.u_r = 0.2
 
+#distance between nodes for edge to be added (0, 1)
 #gn_radius = 0.1
+
+#mean degree of network [2, small) 
 #er_k_mean = 6
-#ws_k = 4
-#ws_beta = 0.2
+
+#number of neighbors per node initially (even positive int)
+#ws_k = 4 
+#probability to rewire each edge (0, 1)
+#ws_beta = 0.2 
+
+#amount of edges added to existing nodes for each node added
 ba_m = 2
+
 mp.graph_specific_variables = [ba_m]
 
 run_model(mp)
-'''
+
 
 ''' testing that graphs are correct
 nodes = gn_setup(20, 3, 0.1)
@@ -339,7 +353,6 @@ for node in nodes:
     if (len(node.neighbors)==0):
         x+=1
 print(x)
-
 nodes = gn_setup(1000, 3, 0.1)
 x = 0
 for node in nodes:
