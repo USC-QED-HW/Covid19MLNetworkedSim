@@ -67,7 +67,7 @@ class ModelParameters:
 
 
 class Node:
-    def __init__(self, comp):
+    def __init__(self, comp: Compartment):
         self.comp = comp
         self.next_comp = comp
         self.neighbors = []
@@ -80,22 +80,22 @@ class Node:
         self.neighbors.append(other)
         other.neighbors.append(self)
 
-    def num_neighbors(self, compartment):
+    def num_neighbors(self, comp: Compartment):
         out = 0
         for other in self.neighbors:
-            if (other.comp == compartment):
+            if (other.comp == comp):
                 out += 1
         return out
 
     def has_neighbor(self, other):
         return self.neighbors.count(other) > 0
 
-    def set_comp(self, comp):
+    def set_comp(self, comp: Compartment):
         self.comp = comp
         self.next_comp = comp
 
 class GN_Node(Node):
-    def __init__(self, x, y, comp):
+    def __init__(self, x: float, y: float, comp: Compartment):
         super().__init__(comp)
         self.x = x
         self.y = y
@@ -269,11 +269,11 @@ def run_model(mp: ModelParameters):
         print(results)
         step(mp, nodes)
     print("done")
-
+'''
 mp = ModelParameters()
 mp.population = 1000
 mp.initial_infected = 3
-mp.graph_type = 0
+mp.graph_type = 3
 mp.graph_specific_variables = (0.1)
 mp.infectiousness = 0.05
 mp.gamma = 0.2
@@ -287,11 +287,77 @@ mp.i_r = 0.2
 mp.h_r = 0.2
 mp.u_r = 0.25
 
-gn_radius = 0.1
+#gn_radius = 0.1
 #er_k_mean = 6
 #ws_k = 4
 #ws_beta = 0.2
-#ba_m = 2
-mp.graph_specific_variables = [gn_radius]
+ba_m = 2
+mp.graph_specific_variables = [ba_m]
 
 run_model(mp)
+'''
+
+''' testing that graphs are correct
+nodes = gn_setup(20, 3, 0.1)
+for node1 in nodes:
+    print("--------")
+    print(node1.x)
+    print(node1.y)
+    for node2 in node1.neighbors:
+        print("-")
+        print(node2.x)
+        print(node2.y)
+        
+nodes = er_setup(10, 3, 4)
+total = 0
+for node1 in nodes:
+    x = len(node1.neighbors)
+    total += x
+    print(x)
+print("---")
+print(total/10)
+
+nodes = ws_setup(10, 3, 4, 0.1)
+for node1 in nodes:
+    for node2 in nodes:
+        if (node1.has_neighbor(node2)):
+            print (str(nodes.index(node1)) + "-" + str(nodes.index(node2)))
+            
+nodes = ba_setup(10, 3, 2)
+for node1 in nodes:
+    for node2 in nodes:
+        if (node1.has_neighbor(node2)):
+            print (str(nodes.index(node1)) + "-" + str(nodes.index(node2)))
+'''
+
+
+#WE ARE GETTING ISOLATES ON ER SHIT SHIT SHIT
+'''
+nodes = er_setup(10000, 3, 6)
+x = 0
+for node in nodes:
+    if (len(node.neighbors)==0):
+        x+=1
+print(x)
+
+nodes = gn_setup(1000, 3, 0.1)
+x = 0
+for node in nodes:
+    if (len(node.neighbors)==0):
+        x+=1
+print(x)
+
+nodes = ws_setup(10000, 3, 4, 0.2)
+x = 0
+for node in nodes:
+    if (len(node.neighbors)==0):
+        x+=1
+print(x)
+
+nodes = ba_setup(1000, 3, 2)
+x = 0
+for node in nodes:
+    if (len(node.neighbors)==0):
+        x+=1
+print(x)
+'''
