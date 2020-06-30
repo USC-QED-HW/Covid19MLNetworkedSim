@@ -328,9 +328,12 @@ final = []
 with Pool(40) as p:
     final.append(p.map(run_model, total))
 
-df=pandas.DataFrame()
+#final is the output data
+
+
+'''df=pandas.DataFrame()
 for a in range (len(final[0])):
-    df=df.append(final[0][a])
+    df=df.append(final[0][a])'''
 
 
 
