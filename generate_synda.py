@@ -9,6 +9,9 @@ import sys
 import pandas as pd
 import random
 
+T_COLUMNS = None
+P_COLUMNS = None
+
 class ModelType(Enum):
     EPYDEMIC = 'epydemic'
 
@@ -19,9 +22,12 @@ class ModelType(Enum):
 Runs setup code needed depending on the model.
 """
 def setup(model):
+    global T_COLUMNS, P_COLUMNS
     if model == ModelType.EPYDEMIC:
-        from ..epydemic_model import setup
-        return setup()
+        import epydemic_model
+        T_COLUMNS = ['id'] + epydemic_model.T_COLUMNS
+        P_COLUMNS = ['id'] + epydemic_model.P_COLUMNS
+        return epydemic_model.setup()
     else:
         raise NotImplementedError('Rest of setup function has not been implemented.')
 
@@ -30,9 +36,38 @@ Returns the time-series data and parameters from a simulation with randomized pa
 """
 def random_simulation(model):
     if model == ModelType.EPYDEMIC:
-        from ..epydemic_model import ModelParameters, run_model
+        import epydemic_model
         simulation_id = uuid4().hex
-        # TODO(kosi): Implement more fine-tuned methods to generate randomized data.
+        
+        # choose a random graph
+        graph_type = random.choice(list(epydemic_model.GraphType))
+        
+        if graph_type == epydemic_model.GraphType.ERDOS_RENYI:
+            kmean = random.uniform(5, 7) # choose a random k_mean between 5 and 7
+            N = int(random.uniform(3000, 15_000)) # choose a random population between 3K and 15K
+            
+            # choose a proportion of the population between 0.01% and 1% to be infected
+            patients0 = int(random.uniform(0.0001, 0.01) * N)
+            
+            # choose the recovery rate to be between 0.02% and 10%
+            beta = random.uniform(0.002, 0.1)
+            
+            # choose the infection rate to be between 0.2% and 10%
+            alpha = random.uniform(0.02, 0.1)
+            
+            mp = epydemic_model.ModelParameters(
+                population=N,
+                graph_type=graph_type,
+                graph_params=[kmean/N],
+                patients0=patients0,
+                alpha=alpha,
+                beta=beta
+            )
+            
+            parameters_df = [simulation_id, N, kmean, patients0, beta, alpha, str(graph_type)]
+            timeseries_df = [[simulation_id] + t for t in epydemic_model.run_model(mp)]
+            
+            return (timeseries_df, parameters_df)
     else:
         raise Exception('Unknown simulation type')
 
@@ -71,8 +106,8 @@ def main():
 
     results = [random_simulation(model) for n in trange(number)]
     
-    timeseries_df = pd.concat([result[0] for result in results])
-    parameters_df = pd.concat([result[1] for result in results])
+    timeseries_df = pd.DataFrame([t for result in results for t in result[0]], columns=T_COLUMNS)
+    parameters_df = pd.DataFrame([result[1] for result in results], columns=P_COLUMNS)
 
     print('Outputting time-series data to %s' % output_timeseries)
     timeseries_df.to_csv(output_timeseries, index=False)

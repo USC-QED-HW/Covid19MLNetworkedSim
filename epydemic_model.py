@@ -4,16 +4,21 @@
 import epydemic
 import epyc
 import networkx as nx
-from dataclasses import *
+from dataclasses import dataclass
 from enum import Enum
-import pandas as pd
 
 m = None
 
+T_COLUMNS = ['timestamp', 'susceptible', 'infected', 'recovered']
+P_COLUMNS = ['N', 'extra', 'patients0', 'beta', 'alpha', 'graph_type']
+
 class GraphType(Enum):
-    ERDOS_RENYI = 0
-    WATTS_STROGATZ = 1
-    BARABASI_ALBERT = 2
+    ERDOS_RENYI = 'Erdos-Renyi'
+    # WATTS_STROGATZ = 1
+    # BARABASI_ALBERT = 2
+    
+    def __str__(self):
+        return self.value
     
 class MonitoredSIR(epydemic.SIR, epydemic.Monitor):
      def __init__(self):
@@ -42,6 +47,9 @@ class ModelParameters:
     # Probability of being removed from population
     beta: float
     
+    # Maximum number of steps that simulation will be tracked
+    maxtime: int = 1000
+    
 
 def run_model(params: ModelParameters):
     pInfected = float(params.patients0 / params.population)
@@ -69,25 +77,23 @@ def run_model(params: ModelParameters):
     e = epydemic.StochasticDynamics(m, g)
     
     # Set maxmimum run time to 1000 days
-    e.process().setMaximumTime(1000)
+    e.process().setMaximumTime(params.maxtime)
     
     rc = e.set(model_params).run()
     
-    I = rc['results'][epydemic.Monitor.TIMESERIES][epydemic.SIR.INFECTED];
-    R = rc['results'][epydemic.Monitor.TIMESERIES][epydemic.SIR.REMOVED];
-    S = rc['results'][epydemic.Monitor.TIMESERIES][epydemic.SIR.SUSCEPTIBLE];
+    I = rc[epyc.Experiment.RESULTS][epydemic.Monitor.TIMESERIES][epydemic.SIR.INFECTED];
+    R = rc[epyc.Experiment.RESULTS][epydemic.Monitor.TIMESERIES][epydemic.SIR.REMOVED];
+    S = rc[epyc.Experiment.RESULTS][epydemic.Monitor.TIMESERIES][epydemic.SIR.SUSCEPTIBLE];
     
-    SF = rc['results'][epydemic.SIR.SUSCEPTIBLE]
-    IF = rc['results'][epydemic.SIR.INFECTED]
-    RF = rc['results'][epydemic.SIR.REMOVED]
+    SF = rc[epyc.Experiment.RESULTS][epydemic.SIR.SUSCEPTIBLE]
+    IF = rc[epyc.Experiment.RESULTS][epydemic.SIR.INFECTED]
+    RF = rc[epyc.Experiment.RESULTS][epydemic.SIR.REMOVED]
     
     data = [[ts * 10, S[ts], I[ts], R[ts]] for ts in range(len(S))]
     
     data.append([len(data) * 10, SF, IF, RF])
     
-    df = pd.DataFrame(data, columns=['timestamp', 'susceptible', 'infected', 'recovered'])
-    
-    return df
+    return data
 
 def setup():
     global m
@@ -115,4 +121,7 @@ if __name__ == "__main__":
     df = run_model(test_params)
     exclude = ['timestamp']
     df.loc[:, df.columns.difference(exclude)].plot()
+    plt.title('Epidemic progress (\u03b1=%.3f, \u03b2=%.3f, kmean=%i)' % (0.02, 0.002, kmean))
+    plt.xlabel('time')
+    plt.ylabel('nodes')
     plt.show()
