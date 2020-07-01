@@ -1,6 +1,10 @@
 import random
 from enum import Enum
 
+T_COLUMNS = ['timestamp', 'susceptible', 'exposed', 'carrier', 'infected', 'hospitalized', 'icu', 'dead', 'recovered']
+P_COLUMNS = ['population', 'initial_infected', 'graph_type', 'graph_specific_variables', 'infectiousness',
+             'gamma', 'e_c', 'i_c', 'i_h', 'h_u', 'u_d', 'c_r', 'i_r', 'h_r', 'u_r']
+
 class Compartment(Enum):
     SUSCEPTIBLE = 0
     EXPOSED = 1
@@ -17,7 +21,10 @@ class GraphType(Enum):
     WATTS_STROGATZ = 2 #WS
     BARABASI_ALBERT = 3 #BA
     COMPLETE_GRAPH = 4 #CG
-    
+
+    def __str__(self):
+        return self.name
+
 class ModelParameters:
     #number of nodes in the network (10^2, 10^5)
     population: int
@@ -33,7 +40,7 @@ class ModelParameters:
 
     #probability of infection per infected neighbor (0,1)
     infectiousness: float
-    
+
     #ratio of contact maintianed when infected (0-1)
     gamma: float
 
@@ -63,6 +70,16 @@ class ModelParameters:
 
     #probability of moving from ICU to recovered (0-1)
     u_r: float
+
+    # maximum number of steps the epidemic will run for (in case it never terminates)
+    maxtime: int
+
+    # determines the sample rate of the simulation, time_series information should only be captured every delta steps of the simulation
+    delta: int
+
+    def __init__(self):
+        self.maxtime = 10_000
+        self.delta = 10
 
 
 
@@ -99,7 +116,7 @@ class GN_Node(Node):
         super().__init__(comp)
         self.x = x
         self.y = y
-       
+
     def dist(self, other):
         return ((self.x-other.x)**2 + (self.y-other.y)**2)**(1/2)
 
@@ -114,9 +131,9 @@ def gn_setup(n, inf, radius):
     nodes = [None] * n
     for i in range(n):
         if (i < inf):
-           nodes[i] = GN_Node(random.random(), random.random(), 2)
+            nodes[i] = GN_Node(random.random(), random.random(), 2)
         else:
-           nodes[i] = GN_Node(random.random(), random.random(), 0)
+            nodes[i] = GN_Node(random.random(), random.random(), 0)
     for i in range(n):
         node1 = nodes[i]
         for node2 in nodes[i+1:]:
@@ -250,10 +267,14 @@ def step(mp: ModelParameters, nodes):
                 node.next_comp = 7
     for node in nodes:
         node.comp = node.next_comp
-    
+
 
 def run_model(mp: ModelParameters):
     graph_params = mp.graph_specific_variables
+    maxtime, time_left = mp.maxtime, mp.maxtime
+    delta = mp.delta
+    timeseries_info = [None]*(maxtime // delta)
+
     if (mp.graph_type == 0):
         nodes = gn_setup(mp.population, mp.initial_infected, *graph_params)
     elif (mp.graph_type == 1):
@@ -265,50 +286,58 @@ def run_model(mp: ModelParameters):
     elif (mp.graph_type == 4):
         nodes = cg_setup(mp.population, mp.initial_infected, *graph_params)
     else:
-        print("uhoh not a sim type")
+        # print("uhoh not a sim type")
+        raise Exception("Not a valid simulation type")
     results = [-1]*8
-    while (not(results[1] == 0 and results[2] == 0 and results[3] == 0 and results[4] == 0 and results[5] == 0)):
+    while (not(results[1] == 0 and results[2] == 0 and results[3] == 0 and results[4] == 0 and results[5] == 0) and time_left > 0):
         results = [0]*8
         for node in nodes:
             results[node.comp]+=1
-        print(results)
+        # print(results)
+        if (maxtime - time_left) % delta == 0:
+            idx = (maxtime - time_left) // delta
+            timeseries_info[idx] = [maxtime - time_left] + results
+        time_left -= 1
         step(mp, nodes)
-    print("done")
+    # print("done")
+    timeseries_info = [inf for inf in timeseries_info if inf is not None]
+    return timeseries_info
 
-mp = ModelParameters()
-mp.population = 1000
-mp.initial_infected = 3
-mp.graph_type = 3
-mp.graph_specific_variables = (0.1)
-mp.infectiousness = 0.05
-mp.gamma = 0.2
-mp.e_c = 0.45
-mp.c_i = 0.17
-mp.i_h = 0.1
-mp.h_u = 0.12
-mp.u_d = 0.12
-mp.c_r = 0.06
-mp.i_r = 0.15
-mp.h_r = 0.2
-mp.u_r = 0.2
+# mp = ModelParameters()
+# mp.population = 1000
+# mp.initial_infected = 3
+# mp.graph_type = 3
+# mp.graph_specific_variables = (0.1)
+# mp.infectiousness = 0.05
+# mp.gamma = 0.2
+# mp.e_c = 0.45
+# mp.c_i = 0.17
+# mp.i_h = 0.1
+# mp.h_u = 0.12
+# mp.u_d = 0.12
+# mp.c_r = 0.06
+# mp.i_r = 0.15
+# mp.h_r = 0.2
+# mp.u_r = 0.2
 
 #distance between nodes for edge to be added (0, 1)
-#gn_radius = 0.1
+# gn_radius = 0.1
 
 #mean degree of network [2, small) 
-#er_k_mean = 6
+# er_k_mean = 6
 
 #number of neighbors per node initially (even positive int)
-#ws_k = 4 
+# ws_k = 4
 #probability to rewire each edge (0, 1)
-#ws_beta = 0.2 
+#ws_beta = 0.2
 
 #amount of edges added to existing nodes for each node added
-ba_m = 2
+# ba_m = 2
 
-mp.graph_specific_variables = [ba_m]
+# mp.graph_specific_variables = [ba_m]
 
-run_model(mp)
+# results = run_model(mp)
+# print(results)
 
 
 ''' testing that graphs are correct
@@ -321,7 +350,7 @@ for node1 in nodes:
         print("-")
         print(node2.x)
         print(node2.y)
-        
+
 nodes = er_setup(10, 3, 4)
 total = 0
 for node1 in nodes:
@@ -336,7 +365,7 @@ for node1 in nodes:
     for node2 in nodes:
         if (node1.has_neighbor(node2)):
             print (str(nodes.index(node1)) + "-" + str(nodes.index(node2)))
-            
+
 nodes = ba_setup(10, 3, 2)
 for node1 in nodes:
     for node2 in nodes:
