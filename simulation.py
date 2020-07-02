@@ -284,7 +284,7 @@ def run_model(mp: ModelParameters):
     elif (mp.graph_type == 3):
         nodes = ba_setup(mp.population, mp.initial_infected, *graph_params)
     elif (mp.graph_type == 4):
-        nodes = cg_setup(mp.population, mp.initial_infected, *graph_params)
+        nodes = cg_setup(mp.population, mp.initial_infected)
     else:
         # print("uhoh not a sim type")
         raise Exception("Not a valid simulation type")
