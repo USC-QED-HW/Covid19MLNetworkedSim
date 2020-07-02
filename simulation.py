@@ -3,7 +3,7 @@ from enum import Enum
 
 T_COLUMNS = ['timestamp', 'susceptible', 'exposed', 'carrier', 'infected', 'hospitalized', 'icu', 'dead', 'recovered']
 P_COLUMNS = ['population', 'initial_infected', 'graph_type', 'graph_specific_variables', 'infectiousness',
-             'gamma', 'e_c', 'i_c', 'i_h', 'h_u', 'u_d', 'c_r', 'i_r', 'h_r', 'u_r']
+             'gamma', 'e_c', 'c_i', 'i_h', 'h_u', 'u_d', 'c_r', 'i_r', 'h_r', 'u_r']
 
 class Compartment(Enum):
     SUSCEPTIBLE = 0
@@ -16,7 +16,7 @@ class Compartment(Enum):
     RECOVERED = 7
 
 class GraphType(Enum):
-    GEOMATRIC_RANDOM = 0 #GN
+    GEOMETRIC_RANDOM = 0 #GN
     ERDOS_RENYI = 1 #ER
     WATTS_STROGATZ = 2 #WS
     BARABASI_ALBERT = 3 #BA
