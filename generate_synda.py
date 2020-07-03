@@ -6,16 +6,18 @@ from uuid import uuid4
 from enum import Enum
 import argparse
 import sys
-import pandas as pd
 import random
-import math
+import pandas as pd
+import EventBasedAlgSim as continuous
+import simulation as discrete
 
 T_COLUMNS = None
 P_COLUMNS = None
 
 class ModelType(Enum):
-    EPYDEMIC = 'epydemic'
+    # EPYDEMIC = 'epydemic'
     DISCRETE = 'discrete'
+    CONTINUOUS = 'continuous'
 
     def __str__(self):
         return self.value
@@ -25,18 +27,17 @@ Runs setup code needed depending on the model.
 """
 def setup(model):
     global T_COLUMNS, P_COLUMNS
-    if model == ModelType.EPYDEMIC:
-        import epydemic_model
-        T_COLUMNS = ['id'] + epydemic_model.T_COLUMNS
-        P_COLUMNS = ['id'] + epydemic_model.P_COLUMNS
-        return epydemic_model.setup()
-    elif model == ModelType.DISCRETE:
-        import simulation
-        T_COLUMNS = ['id'] + simulation.T_COLUMNS
-        P_COLUMNS = ['id'] + simulation.P_COLUMNS
+    # if model == ModelType.EPYDEMIC:
+    #     import epydemic_model
+    #     T_COLUMNS = ['id'] + epydemic_model.T_COLUMNS
+    #     P_COLUMNS = ['id'] + epydemic_model.P_COLUMNS
+    #     return epydemic_model.setup()
+    if model == ModelType.DISCRETE or model == ModelType.CONTINUOUS:
+        T_COLUMNS = ['id'] + discrete.T_COLUMNS
+        P_COLUMNS = ['id'] + discrete.P_COLUMNS
         return True
     else:
-        raise NotImplementedError('Rest of setup function has not been implemented.')
+        raise Exception('Unknown model type.')
 
 
 def random_fsm_prob():
@@ -46,48 +47,52 @@ def random_fsm_prob():
 Returns the time-series data and parameters from a simulation with randomized parameters.
 """
 def random_simulation(model):
-    if model == ModelType.EPYDEMIC:
-        import epydemic_model
+    # if model == ModelType.EPYDEMIC:
+    #     import epydemic_model
+    #     simulation_id = uuid4().hex
+        
+    #     # choose a random graph
+    #     graph_type = random.choice(list(epydemic_model.GraphType))
+        
+    #     if graph_type == epydemic_model.GraphType.ERDOS_RENYI:
+    #         kmean = random.uniform(5, 7) # choose a random k_mean between 5 and 7
+    #         N = int(random.uniform(3000, 15_000)) # choose a random population between 3K and 15K
+            
+    #         # choose a proportion of the population between 0.01% and 1% to be infected
+    #         patients0 = int(random.uniform(0.0001, 0.01) * N)
+            
+    #         # choose the recovery rate to be between 0.02% and 10%
+    #         beta = random.uniform(0.002, 0.1)
+            
+    #         # choose the infection rate to be between 0.2% and 10%
+    #         alpha = random.uniform(0.02, 0.1)
+            
+    #         mp = epydemic_model.ModelParameters(
+    #             population=N,
+    #             graph_type=graph_type,
+    #             graph_params=[kmean/N],
+    #             patients0=patients0,
+    #             alpha=alpha,
+    #             beta=beta
+    #         )
+            
+    #         parameters_df = [simulation_id, N, kmean, patients0, beta, alpha, str(graph_type)]
+    #         timeseries_df = [[simulation_id] + t for t in epydemic_model.run_model(mp)]
+            
+    #         return (timeseries_df, parameters_df)
+    if model == ModelType.DISCRETE or model == ModelType.CONTINUOUS:
         simulation_id = uuid4().hex
         
-        # choose a random graph
-        graph_type = random.choice(list(epydemic_model.GraphType))
+        model_module = discrete
         
-        if graph_type == epydemic_model.GraphType.ERDOS_RENYI:
-            kmean = random.uniform(5, 7) # choose a random k_mean between 5 and 7
-            N = int(random.uniform(3000, 15_000)) # choose a random population between 3K and 15K
-            
-            # choose a proportion of the population between 0.01% and 1% to be infected
-            patients0 = int(random.uniform(0.0001, 0.01) * N)
-            
-            # choose the recovery rate to be between 0.02% and 10%
-            beta = random.uniform(0.002, 0.1)
-            
-            # choose the infection rate to be between 0.2% and 10%
-            alpha = random.uniform(0.02, 0.1)
-            
-            mp = epydemic_model.ModelParameters(
-                population=N,
-                graph_type=graph_type,
-                graph_params=[kmean/N],
-                patients0=patients0,
-                alpha=alpha,
-                beta=beta
-            )
-            
-            parameters_df = [simulation_id, N, kmean, patients0, beta, alpha, str(graph_type)]
-            timeseries_df = [[simulation_id] + t for t in epydemic_model.run_model(mp)]
-            
-            return (timeseries_df, parameters_df)
-    elif model == ModelType.DISCRETE:
-        import simulation
-        simulation_id = uuid4().hex
+        if model == ModelType.CONTINUOUS:
+            model_module = continuous
         
-        graph_type = random.choice(list(simulation.GraphType))
+        graph_type = random.choice(list(model_module.GraphType))
         
         # We don't use complete graph since its slow
-        while graph_type == simulation.GraphType.COMPLETE_GRAPH:
-            graph_type = random.choice(list(simulation.GraphType))
+        while graph_type == model_module.GraphType.COMPLETE_GRAPH:
+            graph_type = random.choice(list(model_module.GraphType))
         
         # N = int([150,15_000])
         N = random.randint(150, 15_000)
@@ -101,22 +106,22 @@ def random_simulation(model):
         
         graph_specific_variables = None
         
-        if graph_type == simulation.GraphType.GEOMETRIC_RANDOM:
+        if graph_type == model_module.GraphType.GEOMETRIC_RANDOM:
             r = random.uniform(0.05, 0.15)
             graph_specific_variables = (r,)
-        elif graph_type == simulation.GraphType.ERDOS_RENYI:
+        elif graph_type == model_module.GraphType.ERDOS_RENYI:
             # kmean = [4,8]
             kmean = random.uniform(4, 8)
             graph_specific_variables = (kmean,)
-        elif graph_type == simulation.GraphType.WATTS_STROGATZ:
+        elif graph_type == model_module.GraphType.WATTS_STROGATZ:
             K = random.choice([2, 4, 6, 8])
             beta = random.uniform(0.05, 0.35)
             graph_specific_variables = (K, beta)
-        elif graph_type == simulation.GraphType.BARABASI_ALBERT:
+        elif graph_type == model_module.GraphType.BARABASI_ALBERT:
             m = random.choice([1, 2, 3, 4])
             graph_specific_variables = (m,)
         
-        mp = simulation.ModelParameters()
+        mp = model_module.ModelParameters()
         mp.population = N
         mp.initial_infected = inf
         mp.graph_type = graph_type.value
@@ -133,11 +138,22 @@ def random_simulation(model):
         mp.h_r = random_fsm_prob()
         mp.u_r = random_fsm_prob()
         
-        mp.delta = 1 # sample every step of the simulation
-        mp.maxtime = 10_000
+        if model == ModelType.DISCRETE:
+            mp.delta = 1 # sample every step of the simulation
+            mp.maxtime = 10_000
+        elif model == ModelType.CONTINUOUS:
+            mp.time = 10_000
+            mp.sample_time = 10
         
-        timeseries_df = [[simulation_id] + t for t in simulation.run_model(mp)]
+        timeseries_df = [[simulation_id] + t for t in model_module.run_model(mp)]
         parameters_df = [None]*len(P_COLUMNS)
+        
+        if model == ModelType.CONTINUOUS:
+            n = len(timeseries_df)
+            dt = mp.sample_time
+            
+            for i in range(n):
+                timeseries_df[i].insert(1, dt * i)
         
         mp.graph_type = graph_type
         
@@ -170,8 +186,8 @@ def main():
                         default=sys.stdout)
 
     parser.add_argument('--model', '-m', type=ModelType, choices=list(ModelType),
-                             default=ModelType.EPYDEMIC,
-                             help='which type of model to use (default is epydemic)')
+                             default=ModelType.DISCRETE,
+                             help='which type of model to use (default is discrete)')
 
     args = parser.parse_args()
 
