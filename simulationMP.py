@@ -198,15 +198,13 @@ def ba_setup(n, inf, m):
         while (count < m):
             edge = random.randint(0, total_edges * 2)
             for node in nodes[:i]:
-                for j in node.neighbors:
-                    if (edge == 0):
-                        if (not node.has_neighbor(nodes[i])):
-                            node.add_edge(nodes[i])
-                            count += 1
-                            total_edges += 1
-                        break
-                    else:
-                        edge -= 1
+                edge -= len(node.neighbors)
+                if (edge <= 0):
+                    if (not node.has_neighbor(nodes[i])):
+                        node.add_edge(nodes[i])
+                        count += 1
+                        total_edges += 1
+                    break
                 else:
                     continue
                 break
