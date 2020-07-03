@@ -19,7 +19,7 @@ class Compartment(Enum):
     RECOVERED = 7
 
 class GraphType(Enum):
-    GEOMETRIC_RANDOM = 0 #GN
+    GEOMATRIC_RANDOM = 0 #GN
     ERDOS_RENYI = 1 #ER
     WATTS_STROGATZ = 2 #WS
     BARABASI_ALBERT = 3 #BA
@@ -213,15 +213,13 @@ def ba_setup(n, inf, m):
         while (count < m):
             edge = random.randint(0, total_edges * 2)
             for node in nodes[:i]:
-                for j in node.neighbors:
-                    if (edge == 0):
-                        if (not node.has_neighbor(nodes[i])):
-                            node.add_edge(nodes[i])
-                            count += 1
-                            total_edges += 1
-                        break
-                    else:
-                        edge -= 1
+                edge -= len(node.neighbors)
+                if (edge <= 0):
+                    if (not node.has_neighbor(nodes[i])):
+                        node.add_edge(nodes[i])
+                        count += 1
+                        total_edges += 1
+                    break
                 else:
                     continue
                 break
@@ -372,7 +370,7 @@ def start(mp: ModelParameters):
     final = []
     with Pool(40) as p:
         final.append(p.map(run_model, total))
-
+    
     return final[0]
 
 if __name__ == "__main__":
