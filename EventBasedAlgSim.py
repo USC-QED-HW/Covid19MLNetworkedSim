@@ -19,7 +19,7 @@ class Compartment(Enum):
     RECOVERED = 7
 
 class GraphType(Enum):
-    GEOMATRIC_RANDOM = 0 #GN
+    GEOMETRIC_RANDOM = 0 #GN
     ERDOS_RENYI = 1 #ER
     WATTS_STROGATZ = 2 #WS
     BARABASI_ALBERT = 3 #BA
