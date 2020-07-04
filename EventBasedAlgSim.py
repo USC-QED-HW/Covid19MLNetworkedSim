@@ -351,7 +351,7 @@ def run_model(mp: ModelParameters):
 
             nodes[current_event[2]].comp = new_state
             #IF YOU ARE A CARRIER, YOU HAVE ENTERED THE TRANSMISSION STAGE
-            if new_state == 2:
+            if new_state == 2 or new_state == 3:
                 for n in nodes[current_event[2]].neighbors:
                     e=next_event(n, global_time, mp)
                     q.put(e)
@@ -370,7 +370,7 @@ def start(mp: ModelParameters):
     final = []
     with Pool(40) as p:
         final.append(p.map(run_model, total))
-    
+
     return final[0]
 
 if __name__ == "__main__":
