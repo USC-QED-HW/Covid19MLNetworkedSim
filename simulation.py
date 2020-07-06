@@ -127,13 +127,10 @@ class WS_Node(Node):
 
 
 
-def gn_setup(n, inf, radius):
+def gn_setup(n, radius):
     nodes = [None] * n
     for i in range(n):
-        if (i < inf):
-            nodes[i] = GN_Node(random.random(), random.random(), 2)
-        else:
-            nodes[i] = GN_Node(random.random(), random.random(), 0)
+        nodes[i] = GN_Node(random.random(), random.random(), 0)
     for i in range(n):
         node1 = nodes[i]
         for node2 in nodes[i+1:]:
@@ -141,25 +138,19 @@ def gn_setup(n, inf, radius):
                 node1.add_edge(node2)
     return nodes
 
-def cg_setup(n, inf):
+def cg_setup(n):
     nodes = [None] * n
     for i in range(n):
-        if (i < inf):
-            nodes[i] = Node(2)
-        else:
-            nodes[i] = Node(0)
+        nodes[i] = Node(0)
     for i in range(n):
         for node2 in nodes[i+1:]:
             nodes[i].add_edge(node2)
     return nodes
 
-def er_setup(n, inf, k_mean):
+def er_setup(n, k_mean):
     nodes = [None] * n
     for i in range(n):
-        if (i < inf):
-            nodes[i] = Node(2)
-        else:
-            nodes[i] = Node(0)
+        nodes[i] = Node(0)
     for node1 in nodes:
         node2 = nodes[random.randint(0, n - 1)]
         while (node1 == node2 or node1.has_neighbor(node2)):
@@ -173,7 +164,7 @@ def er_setup(n, inf, k_mean):
         node1.add_edge(node2)
     return nodes
 
-def ws_setup(n, inf, k, beta):
+def ws_setup(n, k, beta):
     nodes = [None] * n
     for i in range(n):
         nodes[i] = WS_Node(0)
@@ -189,14 +180,9 @@ def ws_setup(n, inf, k, beta):
             while (node1 == node2 or node1.has_neighbor(node2)):
                 node2 = nodes[random.randint(0, n - 1)]
             node1.add_edge(node2)
-    while (inf > 0):
-        i = random.randint(0, n - 1)
-        if (nodes[i].comp == 0):
-            nodes[i].set_comp(2)
-            inf -= 1
-    return nodes
+    
 
-def ba_setup(n, inf, m):
+def ba_setup(n, m):
     nodes = [None] * n
     total_edges = 0
     for i in range(n):
@@ -223,13 +209,13 @@ def ba_setup(n, inf, m):
                 break
             else:
                 continue
+
+def set_initial_infected(nodes, inf):
     while (inf > 0):
-        i = random.randint(0, n - 1)
+        i = random.randint(0, len(nodes) - 1)
         if (nodes[i].comp == 0):
             nodes[i].set_comp(2)
             inf -= 1
-    return nodes
-
 
 def step(mp: ModelParameters, nodes):
     for node in nodes:
@@ -272,20 +258,21 @@ def run_model(mp: ModelParameters):
     maxtime, time_left = mp.maxtime, mp.maxtime
     delta = mp.delta
     timeseries_info = [None]*(maxtime // delta)
-
+    
     if (mp.graph_type == 0):
-        nodes = gn_setup(mp.population, mp.initial_infected, *graph_params)
+        nodes = gn_setup(mp.population, *graph_params)
     elif (mp.graph_type == 1):
-        nodes = er_setup(mp.population, mp.initial_infected, *graph_params)
+        nodes = er_setup(mp.population, *graph_params)
     elif (mp.graph_type == 2):
-        nodes = ws_setup(mp.population, mp.initial_infected, *graph_params)
+        nodes = ws_setup(mp.population, *graph_params)
     elif (mp.graph_type == 3):
-        nodes = ba_setup(mp.population, mp.initial_infected, *graph_params)
+        nodes = ba_setup(mp.population, *graph_params)
     elif (mp.graph_type == 4):
-        nodes = cg_setup(mp.population, mp.initial_infected)
+        nodes = cg_setup(mp.population, *graph_params)
     else:
         # print("uhoh not a sim type")
         raise Exception("Not a valid simulation type")
+    set_initial_infected(nodes, mp.initial_infected)
     results = [-1]*8
     while (not(results[1] == 0 and results[2] == 0 and results[3] == 0 and results[4] == 0 and results[5] == 0) and time_left > 0):
         results = [0]*8
