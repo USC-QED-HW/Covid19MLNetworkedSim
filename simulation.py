@@ -180,6 +180,7 @@ def ws_setup(n, k, beta):
             while (node1 == node2 or node1.has_neighbor(node2)):
                 node2 = nodes[random.randint(0, n - 1)]
             node1.add_edge(node2)
+    return nodes
     
 
 def ba_setup(n, m):
@@ -209,6 +210,7 @@ def ba_setup(n, m):
                 break
             else:
                 continue
+    return nodes
 
 def set_initial_infected(nodes, inf):
     while (inf > 0):
