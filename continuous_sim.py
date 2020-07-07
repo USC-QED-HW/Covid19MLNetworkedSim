@@ -336,7 +336,7 @@ def run_model(mp: ModelParameters, nodes):
     global_time=0
     prev=copy.deepcopy(res[len(res)-1])
 
-    while global_time <= mp.time:
+    while (global_time <= mp.time) and not(prev[1] == 0 and prev[2] == 0 and prev[3] == 0 and prev[4] == 0 and prev[5] == 0):
         current_event = q.get()
 
         global_time = current_event[0]
@@ -344,7 +344,6 @@ def run_model(mp: ModelParameters, nodes):
             break
 
         #SAMPLING
-        #print(current_event)
         if current_event[2] == -1 and current_event[0] != 0:
             res.append(prev)
             prev=copy.deepcopy(res[len(res)-1])
@@ -370,19 +369,7 @@ def run_model(mp: ModelParameters, nodes):
         q.put(e)
     return res
 
-def start(mp: ModelParameters):
-    total=[]
-    #counter=0
-    for a in range(40):
-        total.append(mp)
-
-    final = []
-    with Pool(40) as p:
-        final.append(p.map(run_model, total))
-
-    return final[0]
-
-if __name__ == "__main__":
+"""if __name__ == "__main__":
 
     mp = ModelParameters()
     mp.population = 1000 #CHANGE BACK
@@ -421,4 +408,4 @@ if __name__ == "__main__":
 
     mp.graph_specific_variables = [ba_m]
 
-    start(mp)
+    run_model(mp, nodes)"""
