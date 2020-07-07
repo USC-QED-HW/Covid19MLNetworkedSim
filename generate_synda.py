@@ -11,6 +11,7 @@ import os
 import pickle
 import random
 import csv
+import copy
 import continuous_sim as continuous
 import discrete_sim as discrete
 
@@ -48,6 +49,10 @@ def setup(network_dir, results_dir):
         os.makedirs(results_dir)
 
     return graphs
+
+def reset_network(net):
+    for node in net:
+        node.set_comp(0)
 
 def random_fsm_prob():
     return max(0.0001, random.uniform(0.0, 0.5))
@@ -90,12 +95,13 @@ def random_simulation(model, graphs):
 
         if model == ModelType.DISCRETE:
             mp.delta = 1 # sample every step of the simulation
-            mp.maxtime = 10_000
+            mp.maxtime = 1000
         elif model == ModelType.CONTINUOUS:
-            mp.time = 10_000
-            mp.sample_time = 10
+            mp.time = 1000
+            mp.sample_time = 1
 
         timeseries_tbl = model_module.run_model(mp, network)
+        reset_network(network)
         parameters_tbl = [None]*len(P_COLUMNS)
 
         if model == ModelType.CONTINUOUS:
@@ -103,9 +109,10 @@ def random_simulation(model, graphs):
             dt = mp.sample_time
 
             for i in range(n):
-                timeseries_tbl[i].insert(1, dt * i)
+                timeseries_tbl[i].insert(0, dt * i)
 
         mp.network_name = network_name
+        mp.backend = model
 
         for idx, col in enumerate(P_COLUMNS):
             parameters_tbl[idx] = getattr(mp, col)

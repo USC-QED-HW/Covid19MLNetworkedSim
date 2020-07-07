@@ -2,7 +2,7 @@ import random
 from enum import Enum
 
 T_COLUMNS = ['timestamp', 'susceptible', 'exposed', 'carrier', 'infected', 'hospitalized', 'icu', 'dead', 'recovered']
-P_COLUMNS = ['population', 'initial_infected', 'network_name', 'infectiousness',
+P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness',
              'gamma', 'e_c', 'c_i', 'i_h', 'h_u', 'u_d', 'c_r', 'i_r', 'h_r', 'u_r']
 
 class Compartment(Enum):
@@ -119,92 +119,89 @@ class WS_Node(Node):
         super().__init__(comp)
         self.extra_edges = 0
 
+# def gn_setup(n, radius):
+#     nodes = [None] * n
+#     for i in range(n):
+#         nodes[i] = GN_Node(random.random(), random.random(), 0)
+#     for i in range(n):
+#         node1 = nodes[i]
+#         for node2 in nodes[i+1:]:
+#             if (node1.dist(node2) < radius):
+#                 node1.add_edge(node2)
+#     return nodes
 
+# def cg_setup(n):
+#     nodes = [None] * n
+#     for i in range(n):
+#         nodes[i] = Node(0)
+#     for i in range(n):
+#         for node2 in nodes[i+1:]:
+#             nodes[i].add_edge(node2)
+#     return nodes
 
-def gn_setup(n, radius):
-    nodes = [None] * n
-    for i in range(n):
-        nodes[i] = GN_Node(random.random(), random.random(), 0)
-    for i in range(n):
-        node1 = nodes[i]
-        for node2 in nodes[i+1:]:
-            if (node1.dist(node2) < radius):
-                node1.add_edge(node2)
-    return nodes
+# def er_setup(n, k_mean):
+#     nodes = [None] * n
+#     for i in range(n):
+#         nodes[i] = Node(0)
+#     for node1 in nodes:
+#         node2 = nodes[random.randint(0, n - 1)]
+#         while (node1 == node2 or node1.has_neighbor(node2)):
+#             node2 = nodes[random.randint(0, n - 1)]
+#         node1.add_edge(node2)
+#     for i in range((int) ((k_mean - 2) * n / 2)):
+#         node1 = nodes[random.randint(0, n - 1)]
+#         node2 = nodes[random.randint(0, n - 1)]
+#         while (node1 == node2 or node1.has_neighbor(node2)):
+#             node2 = nodes[random.randint(0, n - 1)]
+#         node1.add_edge(node2)
+#     return nodes
 
-def cg_setup(n):
-    nodes = [None] * n
-    for i in range(n):
-        nodes[i] = Node(0)
-    for i in range(n):
-        for node2 in nodes[i+1:]:
-            nodes[i].add_edge(node2)
-    return nodes
+# def ws_setup(n, k, beta):
+#     nodes = [None] * n
+#     for i in range(n):
+#         nodes[i] = WS_Node(0)
+#     for i in range (n):
+#         for j in range ((int) (k / 2)):
+#             if (random.random() > beta):
+#                 nodes[i].add_edge(nodes[(i + j + 1) % n])
+#             else:
+#                 nodes[i].extra_edges += 1
+#     for node1 in nodes:
+#         for i in range (node1.extra_edges):
+#             node2 = nodes[random.randint(0, n - 1)]
+#             while (node1 == node2 or node1.has_neighbor(node2)):
+#                 node2 = nodes[random.randint(0, n - 1)]
+#             node1.add_edge(node2)
+#     return nodes
 
-def er_setup(n, k_mean):
-    nodes = [None] * n
-    for i in range(n):
-        nodes[i] = Node(0)
-    for node1 in nodes:
-        node2 = nodes[random.randint(0, n - 1)]
-        while (node1 == node2 or node1.has_neighbor(node2)):
-            node2 = nodes[random.randint(0, n - 1)]
-        node1.add_edge(node2)
-    for i in range((int) ((k_mean - 2) * n / 2)):
-        node1 = nodes[random.randint(0, n - 1)]
-        node2 = nodes[random.randint(0, n - 1)]
-        while (node1 == node2 or node1.has_neighbor(node2)):
-            node2 = nodes[random.randint(0, n - 1)]
-        node1.add_edge(node2)
-    return nodes
-
-def ws_setup(n, k, beta):
-    nodes = [None] * n
-    for i in range(n):
-        nodes[i] = WS_Node(0)
-    for i in range (n):
-        for j in range ((int) (k / 2)):
-            if (random.random() > beta):
-                nodes[i].add_edge(nodes[(i + j + 1) % n])
-            else:
-                nodes[i].extra_edges += 1
-    for node1 in nodes:
-        for i in range (node1.extra_edges):
-            node2 = nodes[random.randint(0, n - 1)]
-            while (node1 == node2 or node1.has_neighbor(node2)):
-                node2 = nodes[random.randint(0, n - 1)]
-            node1.add_edge(node2)
-    return nodes
-    
-
-def ba_setup(n, m):
-    nodes = [None] * n
-    total_edges = 0
-    for i in range(n):
-        nodes[i] = Node(0)
-    for i in range(len(nodes[:m])):
-        node1 = nodes[i]
-        for node2 in nodes[i+1:m]:
-            node1.add_edge(node2)
-            total_edges += 1
-    for i in range(m, n):
-        count = 0
-        while (count < m):
-            edge = random.randint(0, total_edges * 2)
-            for node in nodes[:i]:
-                edge -= len(node.neighbors)
-                if (edge <= 0):
-                    if (not node.has_neighbor(nodes[i])):
-                        node.add_edge(nodes[i])
-                        count += 1
-                        total_edges += 1
-                    break
-                else:
-                    continue
-                break
-            else:
-                continue
-    return nodes
+# def ba_setup(n, m):
+#     nodes = [None] * n
+#     total_edges = 0
+#     for i in range(n):
+#         nodes[i] = Node(0)
+#     for i in range(len(nodes[:m])):
+#         node1 = nodes[i]
+#         for node2 in nodes[i+1:m]:
+#             node1.add_edge(node2)
+#             total_edges += 1
+#     for i in range(m, n):
+#         count = 0
+#         while (count < m):
+#             edge = random.randint(0, total_edges * 2)
+#             for node in nodes[:i]:
+#                 edge -= len(node.neighbors)
+#                 if (edge <= 0):
+#                     if (not node.has_neighbor(nodes[i])):
+#                         node.add_edge(nodes[i])
+#                         count += 1
+#                         total_edges += 1
+#                     break
+#                 else:
+#                     continue
+#                 break
+#             else:
+#                 continue
+#     return nodes
 
 def set_initial_infected(nodes, inf):
     while (inf > 0):
