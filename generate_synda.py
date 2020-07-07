@@ -4,41 +4,50 @@
 from tqdm import trange
 from uuid import uuid4
 from enum import Enum
+from deserialize_network import deserialize_network
 import argparse
 import sys
+import os
+import pickle
 import random
-import pandas as pd
-import EventBasedAlgSim as continuous
-import simulation as discrete
+import csv
+import continuous_sim as continuous
+import discrete_sim as discrete
 
 T_COLUMNS = None
 P_COLUMNS = None
 
 class ModelType(Enum):
-    # EPYDEMIC = 'epydemic'
-    DISCRETE = 'discrete'
-    CONTINUOUS = 'continuous'
+    DISCRETE = 'DISCRETE'
+    CONTINUOUS = 'CONTINUOUS'
 
     def __str__(self):
-        return self.value
-    
+        return self.name
+
 """
 Runs setup code needed depending on the model.
 """
-def setup(model):
+def setup(network_dir, results_dir):
     global T_COLUMNS, P_COLUMNS
-    # if model == ModelType.EPYDEMIC:
-    #     import epydemic_model
-    #     T_COLUMNS = ['id'] + epydemic_model.T_COLUMNS
-    #     P_COLUMNS = ['id'] + epydemic_model.P_COLUMNS
-    #     return epydemic_model.setup()
-    if model == ModelType.DISCRETE or model == ModelType.CONTINUOUS:
-        T_COLUMNS = ['id'] + discrete.T_COLUMNS
-        P_COLUMNS = ['id'] + discrete.P_COLUMNS
-        return True
-    else:
-        raise Exception('Unknown model type.')
+    T_COLUMNS = discrete.T_COLUMNS
+    P_COLUMNS = discrete.P_COLUMNS
+    graphs = dict()
 
+    # Load in all the graphs
+    for file in os.listdir(network_dir):
+        filepath = os.path.join(network_dir, file)
+
+        with open(filepath, 'rb') as f:
+            graphs[file] = deserialize_network(pickle.load(f))
+
+    if len(graphs) == 0:
+        raise Exception(f"No graphs found in {network_dir}")
+
+    # Create a results directory if it does not exist
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+
+    return graphs
 
 def random_fsm_prob():
     return max(0.0001, random.uniform(0.0, 0.5))
@@ -46,86 +55,27 @@ def random_fsm_prob():
 """
 Returns the time-series data and parameters from a simulation with randomized parameters.
 """
-def random_simulation(model):
-    # if model == ModelType.EPYDEMIC:
-    #     import epydemic_model
-    #     simulation_id = uuid4().hex
-        
-    #     # choose a random graph
-    #     graph_type = random.choice(list(epydemic_model.GraphType))
-        
-    #     if graph_type == epydemic_model.GraphType.ERDOS_RENYI:
-    #         kmean = random.uniform(5, 7) # choose a random k_mean between 5 and 7
-    #         N = int(random.uniform(3000, 15_000)) # choose a random population between 3K and 15K
-            
-    #         # choose a proportion of the population between 0.01% and 1% to be infected
-    #         patients0 = int(random.uniform(0.0001, 0.01) * N)
-            
-    #         # choose the recovery rate to be between 0.02% and 10%
-    #         beta = random.uniform(0.002, 0.1)
-            
-    #         # choose the infection rate to be between 0.2% and 10%
-    #         alpha = random.uniform(0.02, 0.1)
-            
-    #         mp = epydemic_model.ModelParameters(
-    #             population=N,
-    #             graph_type=graph_type,
-    #             graph_params=[kmean/N],
-    #             patients0=patients0,
-    #             alpha=alpha,
-    #             beta=beta
-    #         )
-            
-    #         parameters_df = [simulation_id, N, kmean, patients0, beta, alpha, str(graph_type)]
-    #         timeseries_df = [[simulation_id] + t for t in epydemic_model.run_model(mp)]
-            
-    #         return (timeseries_df, parameters_df)
+def random_simulation(model, graphs):
     if model == ModelType.DISCRETE or model == ModelType.CONTINUOUS:
         simulation_id = uuid4().hex
-        
+
         model_module = discrete
-        
+
         if model == ModelType.CONTINUOUS:
             model_module = continuous
-        
-        graph_type = random.choice(list(model_module.GraphType))
-        
-        # We don't use complete graph since its slow
-        while graph_type == model_module.GraphType.COMPLETE_GRAPH:
-            graph_type = random.choice(list(model_module.GraphType))
-        
-        # N = int([150,15_000])
-        N = random.randint(150, 15_000)
-        
+
+        network_name, network = random.choice(list(graphs.items()))
+
         # Grossman paper has inf=3.
         inf = random.randint(1, 10)
-        
+
         infectiousness = random.uniform(0.01, 0.12)
-        
+
         gamma = random.uniform(0.1, 1.0)
-        
-        graph_specific_variables = None
-        
-        if graph_type == model_module.GraphType.GEOMETRIC_RANDOM:
-            r = random.uniform(0.05, 0.15)
-            graph_specific_variables = (r,)
-        elif graph_type == model_module.GraphType.ERDOS_RENYI:
-            # kmean = [4,8]
-            kmean = random.uniform(4, 8)
-            graph_specific_variables = (kmean,)
-        elif graph_type == model_module.GraphType.WATTS_STROGATZ:
-            K = random.choice([2, 4, 6, 8])
-            beta = random.uniform(0.05, 0.35)
-            graph_specific_variables = (K, beta)
-        elif graph_type == model_module.GraphType.BARABASI_ALBERT:
-            m = random.choice([1, 2, 3, 4])
-            graph_specific_variables = (m,)
-        
+
         mp = model_module.ModelParameters()
-        mp.population = N
+        mp.population = len(network)
         mp.initial_infected = inf
-        mp.graph_type = graph_type.value
-        mp.graph_specific_variables = graph_specific_variables
         mp.infectiousness = infectiousness
         mp.gamma = gamma
         mp.e_c = random_fsm_prob()
@@ -137,32 +87,31 @@ def random_simulation(model):
         mp.i_r = random_fsm_prob()
         mp.h_r = random_fsm_prob()
         mp.u_r = random_fsm_prob()
-        
+
         if model == ModelType.DISCRETE:
             mp.delta = 1 # sample every step of the simulation
             mp.maxtime = 10_000
         elif model == ModelType.CONTINUOUS:
             mp.time = 10_000
             mp.sample_time = 10
-        
-        timeseries_df = [[simulation_id] + t for t in model_module.run_model(mp)]
-        parameters_df = [None]*len(P_COLUMNS)
-        
+
+        timeseries_tbl = model_module.run_model(mp, network)
+        parameters_tbl = [None]*len(P_COLUMNS)
+
         if model == ModelType.CONTINUOUS:
-            n = len(timeseries_df)
+            n = len(timeseries_tbl)
             dt = mp.sample_time
-            
+
             for i in range(n):
-                timeseries_df[i].insert(1, dt * i)
-        
-        mp.graph_type = graph_type
-        
-        parameters_df[0] = simulation_id
-        for idx, col in enumerate(P_COLUMNS[1:]):
-            parameters_df[idx + 1] = str(getattr(mp, col))
-        
-        return (timeseries_df, parameters_df)
-        
+                timeseries_tbl[i].insert(1, dt * i)
+
+        mp.network_name = network_name
+
+        for idx, col in enumerate(P_COLUMNS):
+            parameters_tbl[idx] = getattr(mp, col)
+
+        return (timeseries_tbl, parameters_tbl, simulation_id)
+
     else:
         raise Exception('Unknown simulation type')
 
@@ -174,41 +123,51 @@ def main():
         Monte Carlo epidemic simulations''')
 
     parser.add_argument('--number', '-n', type=int,
-                        help='number of datasets to generate (default is 10000)',
-                        default=10_000)
-
-    parser.add_argument('--timeseries', '-t', type=argparse.FileType('w'),
-                        help='output csv file for time-series data (default is stdout)',
-                        default=sys.stdout)
-    
-    parser.add_argument('--params', '-p', type=argparse.FileType('w'),
-                        help='output csv file for parameters (default is stdout',
-                        default=sys.stdout)
+                        help='number of datasets to generate (default is 1)',
+                        default=1)
 
     parser.add_argument('--model', '-m', type=ModelType, choices=list(ModelType),
-                             default=ModelType.DISCRETE,
-                             help='which type of model to use (default is discrete)')
+                        default=ModelType.DISCRETE,
+                        help='which type of model to use (default is discrete)')
+
+    parser.add_argument('--network-dir', type=str, default='networks/',
+                        help='directory which networks are stored in (default is networks/)')
+
+    parser.add_argument('--results-dir', type=str, default='datasets/synthetic/',
+                        help='directory which simulation results are stored in (default is datasets/synthetic/)')
 
     args = parser.parse_args()
 
-    number = args.number
-    output_params = args.params
-    output_timeseries = args.timeseries
+    N = args.number
     model = args.model
-    
-    if not setup(model):
-        raise Exception('Error running setup code for %s model.' % str(model))
+    network_dir = args.network_dir
+    results_dir = args.results_dir
 
-    results = [random_simulation(model) for n in trange(number)]
-    
-    timeseries_df = pd.DataFrame([t for result in results for t in result[0]], columns=T_COLUMNS)
-    parameters_df = pd.DataFrame([result[1] for result in results], columns=P_COLUMNS)
+    graphs = setup(network_dir, results_dir)
 
-    print('Outputting time-series data to %s' % output_timeseries)
-    timeseries_df.to_csv(output_timeseries, index=False)
-    
-    print('Outputting parameter information to %s' % output_params)
-    parameters_df.to_csv(output_params, index=False)
+    for i in trange(N):
+        tt, pt, sim_id = random_simulation(model, graphs)
+
+        subdir = os.path.join(results_dir, sim_id)
+
+        # Create subdirectory (wont exist because UUID collisions are neigh impossible)
+        os.makedirs(subdir)
+
+        timeseries_path = os.path.join(subdir, 'timeseries.csv')
+        features_path = os.path.join(subdir, 'features.csv')
+
+        with open(timeseries_path, 'w') as f:
+            writer = csv.writer(f)
+            writer.writerow(T_COLUMNS)
+
+            for row in tt:
+                writer.writerow(row)
+
+        with open(features_path, 'w') as f:
+            writer = csv.writer(f)
+            writer.writerow(P_COLUMNS)
+            writer.writerow(pt)
+
 
 if __name__ == "__main__":
     main()

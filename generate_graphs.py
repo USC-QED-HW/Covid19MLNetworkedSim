@@ -1,21 +1,32 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
+# -*- coding: utf-8 -*- 
 import random
 import pickle
 from uuid import uuid4
 from enum import Enum
+from tqdm import tqdm
+import os
+import tempfile
+import shutil
 
-class Compartment(Enum):
-    SUSCEPTIBLE = 0
-    EXPOSED = 1
-    CARRIER = 2
-    INFECTED = 3
-    HOSPITALIZED = 4
-    ICU = 5
-    DEAD = 6
-    RECOVERED = 7
+def replace_dir(dir_name):
+    # Remove directory if it exists and create it
+    if (os.path.exists(dir_name)):
+        # `tempfile.mktemp` Returns an absolute pathname of a file that 
+        # did not exist at the time the call is made. We pass
+        # dir=os.path.dirname(dir_name) here to ensure we will move
+        # to the same filesystem. Otherwise, shutil.copy2 will be used
+        # internally and the problem remains.
+        tmp = tempfile.mktemp(dir=os.path.dirname(dir_name))
+        # Rename the dir.
+        shutil.move(dir_name, tmp)
+        # And delete it.
+        shutil.rmtree(tmp)
 
+
+    # At this point, even if tmp is still being deleted,
+    # there is no name collision.
+    os.makedirs(NETWORK_FOLDER)
 def dist(node1: tuple, node2: tuple):
     return ((node1[0] - node2[0])**2 + (node1[1] - node2[1])**2)**(1/2)
 
@@ -91,7 +102,7 @@ def ba_setup(n, m):
                 edge -= edges[j]
                 if (edge <= 0):
                     if (not(i == j or adj_list[i].count(j) > 0 or adj_list[j].count(i) > 0)):
-                        adj_list[i].append(j)        
+                        adj_list[i].append(j)
                         edges[i] += 1
                         edges[j] += 1
                         count += 1
@@ -117,29 +128,29 @@ if __name__ == "__main__":
     K = 4
     BETA = 0.2
     M = 2
-    NETWORK_FOLDER = "networks"e
+    NETWORK_FOLDER = "networks"
+    graphs = ['ERDOS-RENYI', 'GEOMETRIC-RANDOM', 'BARABASI-ALBERT', 'WATTS-STROGATZ']
 
-    for size in POPULATION_SIZES:
-        adj_list = er_setup(size, KMEAN)
+    N = len(POPULATION_SIZES) * len(graphs)
 
-        with open(f"{NETWORK_FOLDER}/er_{size}-{uuid4().hex}", 'wb') as output_file:
+    replace_dir(NETWORK_FOLDER)
+
+    for i in tqdm(range(N)):
+        size = POPULATION_SIZES[i // len(graphs)]
+        graph = graphs[i % len(graphs)]
+
+        adj_list = None
+
+        if graph == 'ERDOS-RENYI':
+            adj_list = er_setup(size, KMEAN)
+        elif graph == 'GEOMETRIC-RANDOM':
+            adj_list = gn_setup(size, R)
+        elif graph == 'BARABASI-ALBERT':
+            adj_list = ba_setup(size, M)
+        elif graph == 'WATTS-STROGATZ':
+            adj_list = ws_setup(size, K, BETA)
+        else:
+            raise Exception('Invalid graph')
+
+        with open(f"{NETWORK_FOLDER}/{graph}-{size:05}--{uuid4().hex}", 'wb') as output_file:
             pickle.dump(adj_list, output_file)
-
-#WS WORKS
-#print(ws_setup(10, 4, 0))
-#print(ws_setup(10, 4, 0.2))
-
-#ER WORKS
-#print(er_setup(10, 4))
-
-#GN WORKS
-#print(gn_setup(20, 0.1))
-'''
-for node in nodes:
-    for val in node:
-        x = int(100*val)
-        print(x, end = " ")
-    print("")
-'''
-#BA WORKS
-#print(ba_setup(10, 2))
