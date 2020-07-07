@@ -22,7 +22,7 @@ main() {
     echo "$((DATASETS_PER_CORE + EXTRA_DATASETS))" >> "$INPUT_FILE"
 
     set -x #echo on
-    cat "$INPUT_FILE" | parallel --lb -j "$VIRTUAL_CORES" make continuous N={1}
+    cat "$INPUT_FILE" | parallel -j "$VIRTUAL_CORES" make discrete N={1}
     set +x #echo off
  
     rm "$INPUT_FILE"
