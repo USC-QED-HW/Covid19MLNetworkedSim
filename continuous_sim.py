@@ -318,12 +318,9 @@ def run_model(mp: ModelParameters, nodes):
 
     #SETUP
     counter=0
-    initial=[]
     for node in nodes:
         if node.comp == 2:
             node.time = 0
-            #print(counter)
-            initial.append(counter)
         else:
             node.time = mp.time+1
         node.num=counter
