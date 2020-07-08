@@ -310,7 +310,7 @@ def run_model(mp: ModelParameters, nodes):
     res = []
     results = [mp.population-mp.initial_infected,0,mp.initial_infected,0,0,0,0,0]
     res.append(results)
-    q=queue.PriorityQueue() #MIGHT NOT BE PROCESS SAFE - TEST!!
+    q=queue.PriorityQueue()
     markers=0
     for a in range(int(mp.time/mp.sample_time)):
         q.put((mp.sample_time*a,-1,-1))
@@ -329,11 +329,6 @@ def run_model(mp: ModelParameters, nodes):
         node.num=counter
         e=next_event(node, 0, mp)
         counter+=1
-        q.put(e)
-
-    #GENERATE FOR INITIAL NEIGHBORS
-    for i in initial:
-        e=next_event(nodes[i], 0, mp)
         q.put(e)
 
     global_time=0
@@ -373,7 +368,6 @@ def run_model(mp: ModelParameters, nodes):
     return res
 
 """if __name__ == "__main__":
-
     mp = ModelParameters()
     mp.population = 1000 #CHANGE BACK
     mp.initial_infected = 3
@@ -393,22 +387,15 @@ def run_model(mp: ModelParameters, nodes):
     mp.time = 100
     #don't make larger than 99999999999999999999999
     mp.sample_time = 10
-
-
     #distance between nodes for edge to be added (0, 1)
     #gn_radius = 0.1
-
     #mean degree of network [2, small) 
     #er_k_mean = 6
-
     #number of neighbors per node initially (even positive int)
     #ws_k = 4 
     #probability to rewire each edge (0, 1)
     #ws_beta = 0.2 
-
     #amount of edges added to existing nodes for each node added
     ba_m = 2
-
     mp.graph_specific_variables = [ba_m]
-
     run_model(mp, nodes)"""
