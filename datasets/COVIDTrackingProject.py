@@ -4,7 +4,7 @@ final = {'AK': [],'AL': [],'AR': [],'AS': [],'AZ': [],'CA': [],'CO': [],'CT': []
 
 def main():
 	output=open("CovidTrackingProject.csv","w+")
-	output.write("fips, date, state, county, cases, deaths\n")
+	output.write("fips,date,state,county,cases,deaths\n")
 
 	page = requests.get('https://covidtracking.com/api/v1/states/daily.json')
 	content = str(page.content)

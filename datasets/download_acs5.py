@@ -4,15 +4,22 @@ import requests
 import os
 import os.path as path
 import pandas as pd
-# from dotenv import load_dotenv
 from os.path import join, dirname
 from tqdm import tqdm
 
 VARIABLE_NAMES = {
     'median_income': 'S1901_C01_012E',
     'name': 'NAME',
-    'white_population': 'DP05_0064PE',
-    'total_population': 'B01003_001E'
+    'white_population': 'DP05_0037PE',
+    'total_population': 'B01003_001E',
+    'male_population': 'DP05_0002PE',
+    'median_age': 'B01002_001E',
+    'persons_per_household': 'B25010_001E',
+    'persons_in_poverty': 'DP03_0128PE',
+    'high_school_graduate': 'DP02_0066PE',
+    'bachelors': 'DP02_0067PE',
+    'married_female': 'DP02_0032PE',
+    'married_male': 'DP02_0026PE'
 }
 
 def ljoin(*args):
@@ -42,7 +49,13 @@ def retrieve_acs5():
         # 'key': CENSUS_KEY,
         'get': ljoin(
             VARIABLE_NAMES['name'],
-            VARIABLE_NAMES['white_population']
+            VARIABLE_NAMES['white_population'],
+            VARIABLE_NAMES['male_population'],
+            VARIABLE_NAMES['persons_in_poverty'],
+            VARIABLE_NAMES['high_school_graduate'],
+            VARIABLE_NAMES['bachelors'],
+            VARIABLE_NAMES['married_female'],
+            VARIABLE_NAMES['married_male'],
         ),
         'for': 'county:*'
     })
@@ -51,7 +64,9 @@ def retrieve_acs5():
         # 'key': CENSUS_KEY,
         'get': ljoin(
             VARIABLE_NAMES['name'],
-            VARIABLE_NAMES['total_population']
+            VARIABLE_NAMES['total_population'],
+            VARIABLE_NAMES['median_age'],
+            VARIABLE_NAMES['persons_per_household']
         ),
         'for': 'county:*'
     })
@@ -67,24 +82,45 @@ def retrieve_acs5():
         fips                = raw_subject[i + 1][2] + raw_subject[i + 1][3]
         county, state       = raw_subject[i + 1][0].split(', ')
         county              = county.replace(' County', '')
+
         median_income       = none_cast(raw_subject[i + 1][1], int)
+
+        total_population    = none_cast(raw_detailed[i + 1][1], int)
+        median_age          = none_cast(raw_detailed[i + 1][2], float)
+        household_size      = none_cast(raw_detailed[i + 1][3], float)
+
         white_population    = none_cast(raw_profile[i + 1][1], float)
-        total_population    = int(raw_detailed[i + 1][1])
+        male_population     = none_cast(raw_profile[i + 1][2], float)
+        poverty_percent     = none_cast(raw_profile[i + 1][3], float)
+        highschool          = none_cast(raw_profile[i + 1][4], float)
+        bachelors           = none_cast(raw_profile[i + 1][5], float)
+        married_female      = none_cast(raw_profile[i + 1][6], float)
+        married_male        = none_cast(raw_profile[i + 1][7], float)
 
-        raw_list[i] = [fips, state, county, total_population, median_income, white_population]
+        raw_list[i] = [fips, state, county,
+                       total_population, median_income, white_population, male_population,
+                       median_age, household_size, poverty_percent, highschool, bachelors,
+                       married_female, married_male]
 
-    df = pd.DataFrame(raw_list, columns=['fips', 'state', 'county', 'total_population',
-        'median_income (household)', 'white_population (proportion)'])
-    
+    df = pd.DataFrame(raw_list, columns=['fips',
+                                         'state',
+                                         'county',
+                                         'total population',
+                                         'median income (household)',
+                                         'white population (%)',
+                                         'male population (%)',
+                                         'median age',
+                                         'persons per household',
+                                         'persons in poverty (%)',
+                                         'high school graduates (%)',
+                                         'bachelor\'s degrees (%)',
+                                         'married female population (%)',
+                                         'married male population (%)'])
+
     df = df.sort_values(by=['state', 'county'])
 
     return df
 
-# def load_environment():
-#     dotenv_path = join(dirname(dirname(path.abspath(__file__))), '.env')
-#     load_dotenv(dotenv_path)
-
 if __name__ == "__main__":
-    # load_environment()
     acs5 = retrieve_acs5()
     acs5.to_csv('acs5.csv', index=False)
