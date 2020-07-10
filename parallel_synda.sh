@@ -15,7 +15,7 @@ main() {
 
     INPUT_FILE=$(mktemp /tmp/XXXXXX)
 
-    for (( i = 0 ; i <= "$((VIRTUAL_CORES - 1))" ; ++i)); do
+    for (( i = 0 ; i < "$((VIRTUAL_CORES - 1))" ; ++i)); do
         echo "$DATASETS_PER_CORE" >> "$INPUT_FILE"
     done
 

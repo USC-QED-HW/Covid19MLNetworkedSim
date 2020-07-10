@@ -10,6 +10,7 @@ parallel:
 
 clean:
 	$(RM) -R ./datasets/synthetic
+	$(RM) ./datasets/synthetic.tar.gz
 
 continuous:
 	./generate_synda.py -n $(N) -m CONTINUOUS --network-dir $(NETWORK_DIR) --results-dir $(RESULTS_DIR)
