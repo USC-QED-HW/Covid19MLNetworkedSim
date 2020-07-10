@@ -1,0 +1,2 @@
+population,backend,initial_infected,network_name,infectiousness,i_d,i_r
+4000,DISCRETE,9,BARABASI-ALBERT-04000.pkl,0.09130142446954487,0.08124606611533292,0.23480194816511743

@@ -84,8 +84,8 @@ def random_simulation(model, graphs):
             mp.delta = 1 # sample every step of the simulation
             mp.maxtime = 500
         elif model == ModelType.CONTINUOUS:
-            mp.time = 1000
-            mp.sample_time = 1
+            mp.time = 500
+            mp.sample_time = 1 # sample every step of the simulation
 
         timeseries_tbl = model_module.run_model(mp, network)
         reset_network(network)

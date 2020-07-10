@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*- 
 import random
 import pickle
-from uuid import uuid4
 from enum import Enum
 from tqdm import tqdm
 import os
@@ -149,5 +148,5 @@ if __name__ == "__main__":
         else:
             raise Exception('Invalid graph')
 
-        with open(f"{NETWORK_FOLDER}/{graph}-{size:05}--{uuid4().hex}", 'wb') as output_file:
+        with open(f"{NETWORK_FOLDER}/{graph}-{size:05}.pkl", 'wb') as output_file:
             pickle.dump(adj_list, output_file)
