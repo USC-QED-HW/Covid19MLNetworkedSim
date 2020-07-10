@@ -10,7 +10,7 @@ from enum import Enum
 import pandas
 import multiprocessing
 from multiprocessing import *
-from discrete_sim import T_COLUMNS, P_COLUMNS, ModelParameters, Node
+from discrete_sim import T_COLUMNS, P_COLUMNS, ModelParameters
 
 class State_Info():
     def __init__(self, inf_rate, state):
