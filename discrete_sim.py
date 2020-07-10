@@ -7,11 +7,12 @@ from enum import Enum
 T_COLUMNS = ['timestamp', 'susceptible', 'infected', 'dead', 'recovered']
 P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness', 'i_d', 'i_r']
 
-class Compartment(Enum):
+'''
     SUSCEPTIBLE = 0
     INFECTED = 1
     DEAD = 2
     RECOVERED = 3
+'''
 
 class ModelParameters:
     #number of nodes in the network (10^2, 10^5)
@@ -37,8 +38,8 @@ class ModelParameters:
 
 class Node:
     def __init__(self):
-        self.comp = Compartment.0
-        self.next_comp = Compartment.0
+        self.comp = 0
+        self.next_comp = 0
         self.neighbors = []
 
     def add_edge(self, other):
@@ -48,7 +49,7 @@ class Node:
     def num_neighbors(self, comp):
         out = 0
         for other in self.neighbors:
-            if (other.comp == Compartment.comp):
+            if (other.comp == comp):
                 out += 1
         return out
 
@@ -56,8 +57,8 @@ class Node:
         return self.neighbors.count(other) > 0
 
     def set_comp(self, comp):
-        self.comp = Compartment.comp
-        self.next_comp = Compartment.comp
+        self.comp = comp
+        self.next_comp = comp
 
 
 def set_initial_infected(nodes, inf):
@@ -71,13 +72,13 @@ def step(mp: ModelParameters, nodes):
     for node in nodes:
         if (node.comp.value == 0):
             if (random.random() < (mp.infectiousness * node.num_neighbors(1))):
-                node.next_comp = Compartment.1
+                node.next_comp = 1
         elif (node.comp.value == 1):
             x = random.random()
             if (x < mp.i_d):
-                node.next_comp = Compartment.2
+                node.next_comp = 2
             elif (x < mp.i_d + mp.i_r):
-                node.next_comp = Compartment.3
+                node.next_comp = 3
     for node in nodes:
         node.comp = node.next_comp
 
@@ -87,9 +88,9 @@ def run_model(mp: ModelParameters, nodes):
     timeseries_info = [None]*(maxtime // delta)
 
     set_initial_infected(nodes, mp.initial_infected)
-    results = [-1]*8
-    while (not(results[1] == 0 and results[2] == 0 and results[3] == 0 and results[4] == 0 and results[5] == 0) and time_left > 0):
-        results = [0]*8
+    results = [-1]*4
+    while (results[1] != 0 and time_left > 0):
+        results = [0]*4
         for node in nodes:
             results[node.comp]+=1
         # print(results)
