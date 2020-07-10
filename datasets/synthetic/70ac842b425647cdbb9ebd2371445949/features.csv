@@ -1,2 +1,0 @@
-population,backend,initial_infected,network_name,infectiousness,i_d,i_r
-10000,DISCRETE,9,GEOMETRIC-RANDOM-10000.pkl,0.1044282407020167,0.014250656897217828,0.24733375807443653

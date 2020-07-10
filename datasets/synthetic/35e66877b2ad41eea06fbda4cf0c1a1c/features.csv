@@ -1,2 +1,0 @@
-population,backend,initial_infected,network_name,infectiousness,i_d,i_r
-2000,DISCRETE,9,WATTS-STROGATZ-02000.pkl,0.043805758769899436,0.16104530200186512,0.01658079388345172

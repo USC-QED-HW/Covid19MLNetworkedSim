@@ -1,2 +1,0 @@
-population,backend,initial_infected,network_name,infectiousness,i_d,i_r
-7000,DISCRETE,10,ERDOS-RENYI-07000.pkl,0.2297256635960382,0.1986167728645928,0.13093907689957068
