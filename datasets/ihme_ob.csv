@@ -1,0 +1,3143 @@
+state,county,male obesity prevalence (%),female obesity prevalence (%)
+Alabama,Autauga,37.1,38.8
+Alabama,Baldwin,33.5,33.9
+Alabama,Barbour,41.5,51.6
+Alabama,Bibb,40.7,45.2
+Alabama,Blount,38.4,41.6
+Alabama,Bullock,41.9,56.0
+Alabama,Butler,39.8,50.3
+Alabama,Calhoun,38.0,41.4
+Alabama,Chambers,40.7,47.7
+Alabama,Cherokee,39.5,41.7
+Alabama,Chilton,41.8,44.3
+Alabama,Choctaw,41.2,49.9
+Alabama,Clarke,41.8,46.6
+Alabama,Clay,39.2,45.4
+Alabama,Cleburne,37.4,41.3
+Alabama,Coffee,39.1,39.7
+Alabama,Colbert,40.2,41.6
+Alabama,Conecuh,40.6,49.5
+Alabama,Coosa,41.6,48.4
+Alabama,Covington,40.9,40.3
+Alabama,Crenshaw,40.6,44.8
+Alabama,Cullman,37.4,40.5
+Alabama,Dale,39.1,44.1
+Alabama,Dallas,40.0,56.2
+Alabama,DeKalb,38.9,40.9
+Alabama,Elmore,36.9,39.3
+Alabama,Escambia,41.6,44.1
+Alabama,Etowah,38.1,39.6
+Alabama,Fayette,42.4,43.9
+Alabama,Franklin,38.4,39.1
+Alabama,Geneva,41.4,43.2
+Alabama,Greene,43.8,58.0
+Alabama,Hale,43.5,55.5
+Alabama,Henry,40.8,47.4
+Alabama,Houston,39.5,41.2
+Alabama,Jackson,37.8,39.8
+Alabama,Jefferson,33.5,43.8
+Alabama,Lamar,40.3,38.3
+Alabama,Lauderdale,34.9,38.8
+Alabama,Lawrence,40.6,46.1
+Alabama,Lee,36.3,39.5
+Alabama,Limestone,39.1,40.9
+Alabama,Lowndes,41.6,55.3
+Alabama,Macon,39.9,53.9
+Alabama,Madison,34.0,38.0
+Alabama,Marengo,41.9,50.6
+Alabama,Marion,38.9,39.1
+Alabama,Marshall,37.2,38.7
+Alabama,Mobile,38.1,42.1
+Alabama,Monroe,39.0,49.7
+Alabama,Montgomery,36.6,45.1
+Alabama,Morgan,38.3,40.4
+Alabama,Perry,42.7,57.4
+Alabama,Pickens,41.8,48.3
+Alabama,Pike,39.0,46.5
+Alabama,Randolph,40.2,44.0
+Alabama,Russell,41.3,48.3
+Alabama,Shelby,37.2,32.4
+Alabama,St. Clair,37.7,42.9
+Alabama,Sumter,41.1,54.8
+Alabama,Talladega,40.0,48.7
+Alabama,Tallapoosa,37.5,45.2
+Alabama,Tuscaloosa,37.2,43.0
+Alabama,Walker,39.0,42.5
+Alabama,Washington,40.6,46.2
+Alabama,Wilcox,41.9,57.8
+Alabama,Winston,38.5,41.9
+Alaska,Aleutians East,29.7,37.8
+Alaska,Aleutians West,30.7,36.2
+Alaska,Anchorage,31.8,36.7
+Alaska,Bethel,36.1,51.2
+Alaska,Bristol Bay,36.9,41.9
+Alaska,Dillingham,36.0,48.9
+Alaska,Fairbanks North Star,35.4,33.3
+Alaska,Haines,35.6,38.3
+Alaska,Hoonah-Angoon,38.8,41.7
+Alaska,Juneau City and,32.8,36.6
+Alaska,Kenai Peninsula,35.5,39.3
+Alaska,Ketchikan Gateway,37.1,39.0
+Alaska,Kodiak Island,32.9,35.8
+Alaska,Lake and Peninsula,40.2,52.0
+Alaska,Matanuska-Susitna,34.7,37.8
+Alaska,Nome,33.3,46.3
+Alaska,North Slope,37.4,43.8
+Alaska,Northwest Arctic,37.2,51.2
+Alaska,Petersburg,37.1,39.0
+Alaska,Prince of Wales-Hyder,37.1,39.0
+Alaska,Sitka City and,35.2,32.5
+Alaska,Skagway,38.8,41.7
+Alaska,Southeast Fairbanks,36.8,37.1
+Alaska,Valdez-Cordova,35.1,38.4
+Alaska,Wade Hampton,38.3,55.5
+Alaska,Wrangell City and,37.1,39.0
+Alaska,Yakutat City and,36.8,39.9
+Alaska,Yukon-Koyukuk,39.0,41.9
+Arizona,Apache,36.4,49.4
+Arizona,Cochise,31.0,36.1
+Arizona,Coconino,26.7,32.9
+Arizona,Gila,35.6,38.1
+Arizona,Graham,38.6,42.6
+Arizona,Greenlee,36.0,39.2
+Arizona,La Paz,41.2,41.5
+Arizona,Maricopa,31.6,32.6
+Arizona,Mohave,35.2,33.6
+Arizona,Navajo,35.4,42.6
+Arizona,Pima,31.4,33.4
+Arizona,Pinal,39.6,40.3
+Arizona,Santa Cruz,32.3,37.0
+Arizona,Yavapai,29.7,29.2
+Arizona,Yuma,39.0,41.4
+Arkansas,Arkansas,40.0,44.9
+Arkansas,Ashley,38.8,45.5
+Arkansas,Baxter,34.7,34.0
+Arkansas,Benton,35.8,34.0
+Arkansas,Boone,34.5,33.2
+Arkansas,Bradley,38.9,46.7
+Arkansas,Calhoun,39.3,44.7
+Arkansas,Carroll,36.0,33.6
+Arkansas,Chicot,41.8,52.4
+Arkansas,Clark,38.8,40.0
+Arkansas,Clay,42.0,42.4
+Arkansas,Cleburne,37.6,36.2
+Arkansas,Cleveland,38.4,40.6
+Arkansas,Columbia,39.0,43.5
+Arkansas,Conway,38.9,39.8
+Arkansas,Craighead,37.4,37.6
+Arkansas,Crawford,37.4,38.5
+Arkansas,Crittenden,38.2,50.2
+Arkansas,Cross,40.2,44.6
+Arkansas,Dallas,40.6,47.1
+Arkansas,Desha,40.2,48.6
+Arkansas,Drew,37.8,43.0
+Arkansas,Faulkner,37.3,34.2
+Arkansas,Franklin,35.7,36.9
+Arkansas,Fulton,38.4,36.8
+Arkansas,Garland,35.4,35.3
+Arkansas,Grant,38.3,40.1
+Arkansas,Greene,41.5,38.5
+Arkansas,Hempstead,41.8,43.7
+Arkansas,Hot Spring,38.5,40.8
+Arkansas,Howard,41.5,43.7
+Arkansas,Independence,36.9,37.2
+Arkansas,Izard,37.8,35.0
+Arkansas,Jackson,41.7,45.6
+Arkansas,Jefferson,39.0,49.4
+Arkansas,Johnson,39.6,39.4
+Arkansas,Lafayette,42.6,45.8
+Arkansas,Lawrence,43.2,40.4
+Arkansas,Lee,42.4,56.1
+Arkansas,Lincoln,42.7,47.1
+Arkansas,Little River,40.9,41.6
+Arkansas,Logan,38.0,38.3
+Arkansas,Lonoke,40.0,37.8
+Arkansas,Madison,38.1,38.9
+Arkansas,Marion,38.5,36.6
+Arkansas,Miller,40.3,44.0
+Arkansas,Mississippi,41.2,48.3
+Arkansas,Monroe,41.7,51.5
+Arkansas,Montgomery,38.8,37.8
+Arkansas,Nevada,42.9,44.3
+Arkansas,Newton,38.1,38.4
+Arkansas,Ouachita,39.8,47.5
+Arkansas,Perry,39.0,37.1
+Arkansas,Phillips,40.3,53.8
+Arkansas,Pike,40.6,37.3
+Arkansas,Poinsett,42.4,46.1
+Arkansas,Polk,38.5,39.4
+Arkansas,Pope,37.1,38.3
+Arkansas,Prairie,40.7,43.6
+Arkansas,Pulaski,34.3,37.9
+Arkansas,Randolph,41.9,37.0
+Arkansas,Saline,35.0,38.5
+Arkansas,Scott,37.4,39.3
+Arkansas,Searcy,38.7,42.3
+Arkansas,Sebastian,33.2,34.4
+Arkansas,Sevier,40.7,46.3
+Arkansas,Sharp,40.0,34.9
+Arkansas,St. Francis,40.8,52.1
+Arkansas,Stone,36.9,38.4
+Arkansas,Union,35.6,44.0
+Arkansas,Van Buren,36.5,39.3
+Arkansas,Washington,34.3,35.0
+Arkansas,White,37.9,39.6
+Arkansas,Woodruff,42.1,49.1
+Arkansas,Yell,40.0,40.4
+California,Alameda,24.1,30.6
+California,Alpine,32.1,34.0
+California,Amador,34.0,35.1
+California,Butte,31.6,34.3
+California,Calaveras,34.4,34.8
+California,Colusa,37.3,39.7
+California,Contra Costa,31.8,30.8
+California,Del Norte,37.0,40.2
+California,El Dorado,27.0,27.5
+California,Fresno,38.3,41.9
+California,Glenn,35.8,38.8
+California,Humboldt,31.8,34.8
+California,Imperial,37.0,42.9
+California,Inyo,34.5,34.8
+California,Kern,37.1,41.0
+California,Kings,37.4,41.6
+California,Lake,33.3,37.5
+California,Lassen,34.7,35.3
+California,Los Angeles,27.1,33.7
+California,Madera,39.2,42.3
+California,Marin,22.9,21.1
+California,Mariposa,36.3,35.4
+California,Mendocino,31.3,33.4
+California,Merced,41.8,45.4
+California,Modoc,34.6,36.1
+California,Mono,33.9,31.7
+California,Monterey,33.9,34.4
+California,Napa,31.5,32.9
+California,Nevada,28.0,27.3
+California,Orange,27.0,27.7
+California,Placer,28.0,26.0
+California,Plumas,32.2,32.5
+California,Riverside,35.2,36.0
+California,Sacramento,32.2,36.7
+California,San Benito,36.2,38.2
+California,San Bernardino,33.6,38.8
+California,San Diego,29.6,30.6
+California,San Francisco,18.3,20.9
+California,San Joaquin,35.5,40.2
+California,San Luis Obispo,29.9,29.3
+California,San Mateo,22.8,25.5
+California,Santa Barbara,30.1,29.8
+California,Santa Clara,23.9,28.0
+California,Santa Cruz,28.8,29.0
+California,Shasta,33.7,34.4
+California,Sierra,32.5,32.3
+California,Siskiyou,32.6,34.8
+California,Solano,32.6,37.0
+California,Sonoma,29.3,30.5
+California,Stanislaus,36.3,42.3
+California,Sutter,32.1,34.5
+California,Tehama,34.6,36.6
+California,Trinity,32.3,33.6
+California,Tulare,38.5,43.7
+California,Tuolumne,31.8,32.6
+California,Ventura,31.7,29.9
+California,Yolo,32.5,34.0
+California,Yuba,35.3,40.1
+Colorado,Adams,27.6,28.5
+Colorado,Alamosa,30.3,33.9
+Colorado,Arapahoe,25.7,27.2
+Colorado,Archuleta,27.9,26.4
+Colorado,Baca,35.9,37.3
+Colorado,Bent,38.2,43.8
+Colorado,Boulder,27.6,28.5
+Colorado,Broomfield,27.6,28.5
+Colorado,Chaffee,24.1,24.0
+Colorado,Cheyenne,36.7,37.4
+Colorado,Clear Creek,26.9,25.8
+Colorado,Conejos,30.6,33.6
+Colorado,Costilla,33.6,39.1
+Colorado,Crowley,37.7,46.9
+Colorado,Custer,32.4,31.0
+Colorado,Delta,28.1,27.7
+Colorado,Denver,23.8,28.2
+Colorado,Dolores,30.1,30.2
+Colorado,Douglas,24.3,18.6
+Colorado,Eagle,22.0,20.9
+Colorado,El Paso,25.9,28.5
+Colorado,Elbert,28.0,24.0
+Colorado,Fremont,31.3,29.8
+Colorado,Garfield,26.7,24.3
+Colorado,Gilpin,29.5,29.5
+Colorado,Grand,25.9,25.0
+Colorado,Gunnison,25.6,23.7
+Colorado,Hinsdale,29.6,27.4
+Colorado,Huerfano,35.1,38.7
+Colorado,Jackson,28.5,29.9
+Colorado,Jefferson,27.6,28.5
+Colorado,Kiowa,35.3,35.2
+Colorado,Kit Carson,36.7,38.0
+Colorado,La Plata,23.1,22.8
+Colorado,Lake,25.4,26.8
+Colorado,Larimer,24.9,24.3
+Colorado,Las Animas,33.9,36.2
+Colorado,Lincoln,35.0,36.7
+Colorado,Logan,32.8,36.3
+Colorado,Mesa,29.8,27.0
+Colorado,Mineral,30.6,29.7
+Colorado,Moffat,33.9,33.1
+Colorado,Montezuma,28.0,31.2
+Colorado,Montrose,28.7,28.2
+Colorado,Morgan,35.1,37.6
+Colorado,Otero,36.6,40.4
+Colorado,Ouray,26.9,25.4
+Colorado,Park,26.9,23.9
+Colorado,Phillips,35.8,37.2
+Colorado,Pitkin,21.3,18.5
+Colorado,Prowers,36.2,39.0
+Colorado,Pueblo,33.1,35.6
+Colorado,Rio Blanco,26.9,24.2
+Colorado,Rio Grande,31.3,33.5
+Colorado,Routt,23.3,19.0
+Colorado,Saguache,33.3,37.6
+Colorado,San Juan,31.1,32.3
+Colorado,San Miguel,29.6,28.8
+Colorado,Sedgwick,35.6,37.3
+Colorado,Summit,23.7,22.3
+Colorado,Teller,25.1,22.6
+Colorado,Washington,34.0,34.7
+Colorado,Weld,27.6,28.5
+Colorado,Yuma,35.7,35.8
+Connecticut,Fairfield,27.0,26.9
+Connecticut,Hartford,31.8,34.6
+Connecticut,Litchfield,30.1,28.7
+Connecticut,Middlesex,32.2,30.8
+Connecticut,New Haven,32.5,36.2
+Connecticut,New London,31.5,32.8
+Connecticut,Tolland,30.8,32.7
+Connecticut,Windham,35.5,36.6
+Delaware,Kent,40.2,44.2
+Delaware,New Castle,35.6,35.5
+Delaware,Sussex,38.0,39.7
+District of Columbia,District of Columbia,22.4,35.3
+Florida,Alachua,28.6,33.7
+Florida,Baker,42.7,42.1
+Florida,Bay,32.2,35.7
+Florida,Bradford,43.7,46.6
+Florida,Brevard,35.6,34.3
+Florida,Broward,33.4,30.5
+Florida,Calhoun,37.4,46.9
+Florida,Charlotte,33.0,34.9
+Florida,Citrus,38.8,35.3
+Florida,Clay,36.7,34.9
+Florida,Collier,33.8,27.6
+Florida,Columbia,41.2,41.8
+Florida,DeSoto,38.2,44.0
+Florida,Dixie,42.2,41.0
+Florida,Duval,36.1,37.5
+Florida,Escambia,33.8,36.3
+Florida,Flagler,35.8,33.2
+Florida,Franklin,36.9,38.2
+Florida,Gadsden,37.3,51.0
+Florida,Gilchrist,38.9,40.9
+Florida,Glades,37.7,40.0
+Florida,Gulf,35.0,38.5
+Florida,Hamilton,43.8,44.8
+Florida,Hardee,44.9,47.5
+Florida,Hendry,39.2,46.3
+Florida,Hernando,36.7,34.3
+Florida,Highlands,38.1,39.4
+Florida,Hillsborough,33.3,35.9
+Florida,Holmes,38.4,41.8
+Florida,Indian River,33.4,31.2
+Florida,Jackson,37.5,44.1
+Florida,Jefferson,37.3,45.6
+Florida,Lafayette,38.1,39.8
+Florida,Lake,36.8,35.0
+Florida,Lee,34.9,32.3
+Florida,Leon,33.3,37.1
+Florida,Levy,40.1,39.9
+Florida,Liberty,38.2,43.5
+Florida,Madison,39.7,47.3
+Florida,Manatee,34.5,32.9
+Florida,Marion,37.6,38.8
+Florida,Martin,30.4,26.0
+Florida,Miami-Dade,33.8,34.0
+Florida,Monroe,30.5,24.5
+Florida,Nassau,36.7,32.8
+Florida,Okaloosa,35.1,31.0
+Florida,Okeechobee,40.3,43.2
+Florida,Orange,33.0,35.4
+Florida,Osceola,36.1,39.6
+Florida,Palm Beach,31.3,30.5
+Florida,Pasco,35.7,33.8
+Florida,Pinellas,32.5,33.0
+Florida,Polk,38.6,42.0
+Florida,Putnam,42.0,44.0
+Florida,Santa Rosa,35.1,30.6
+Florida,Sarasota,31.8,25.9
+Florida,Seminole,33.9,31.1
+Florida,St. Johns,33.3,28.6
+Florida,St. Lucie,38.0,36.2
+Florida,Sumter,38.6,35.7
+Florida,Suwannee,38.5,41.0
+Florida,Taylor,40.1,42.3
+Florida,Union,45.5,47.7
+Florida,Volusia,34.9,34.4
+Florida,Wakulla,39.3,40.2
+Florida,Walton,34.5,32.6
+Florida,Washington,36.5,42.8
+Georgia,Appling,40.7,45.9
+Georgia,Atkinson,41.4,48.2
+Georgia,Bacon,40.0,46.4
+Georgia,Baker,39.0,47.9
+Georgia,Baldwin,38.0,45.0
+Georgia,Banks,38.7,39.4
+Georgia,Barrow,36.9,38.8
+Georgia,Bartow,37.3,36.3
+Georgia,Ben Hill,39.7,47.8
+Georgia,Berrien,41.0,43.9
+Georgia,Bibb,35.7,43.1
+Georgia,Bleckley,42.2,47.0
+Georgia,Brantley,41.3,42.1
+Georgia,Brooks,39.0,47.0
+Georgia,Bryan,33.2,36.8
+Georgia,Bulloch,36.7,43.0
+Georgia,Burke,41.6,53.2
+Georgia,Butts,40.6,44.1
+Georgia,Calhoun,42.7,56.5
+Georgia,Camden,36.9,37.2
+Georgia,Candler,39.7,46.8
+Georgia,Carroll,36.2,39.7
+Georgia,Catoosa,39.0,38.8
+Georgia,Charlton,44.3,49.5
+Georgia,Chatham,33.9,40.9
+Georgia,Chattahoochee,35.4,40.2
+Georgia,Chattooga,42.1,43.8
+Georgia,Cherokee,34.7,29.9
+Georgia,Clarke,34.8,38.0
+Georgia,Clay,40.4,53.1
+Georgia,Clayton,37.6,44.9
+Georgia,Clinch,44.1,48.8
+Georgia,Cobb,33.4,29.4
+Georgia,Coffee,39.5,44.5
+Georgia,Colquitt,39.3,44.9
+Georgia,Columbia,31.1,32.5
+Georgia,Cook,39.7,47.5
+Georgia,Coweta,34.3,36.6
+Georgia,Crawford,39.1,43.0
+Georgia,Crisp,38.9,49.2
+Georgia,Dade,39.1,36.9
+Georgia,Dawson,34.3,31.5
+Georgia,Decatur,40.2,47.0
+Georgia,DeKalb,28.3,38.1
+Georgia,Dodge,42.6,44.3
+Georgia,Dooly,40.8,51.5
+Georgia,Dougherty,37.6,49.2
+Georgia,Douglas,34.6,35.1
+Georgia,Early,41.6,49.7
+Georgia,Echols,44.2,45.3
+Georgia,Effingham,38.6,42.0
+Georgia,Elbert,40.3,44.3
+Georgia,Emanuel,40.8,48.9
+Georgia,Evans,38.7,48.0
+Georgia,Fannin,35.9,36.3
+Georgia,Fayette,29.6,30.4
+Georgia,Floyd,34.2,40.6
+Georgia,Forsyth,30.6,25.7
+Georgia,Franklin,37.9,41.4
+Georgia,Fulton,27.1,31.8
+Georgia,Gilmer,36.9,39.2
+Georgia,Glascock,40.6,43.7
+Georgia,Glynn,37.9,37.4
+Georgia,Gordon,37.0,38.9
+Georgia,Grady,39.3,47.8
+Georgia,Greene,38.1,45.1
+Georgia,Gwinnett,31.2,32.1
+Georgia,Habersham,35.9,38.5
+Georgia,Hall,34.0,35.0
+Georgia,Hancock,41.6,55.4
+Georgia,Haralson,38.2,41.1
+Georgia,Harris,35.8,37.3
+Georgia,Hart,37.9,41.5
+Georgia,Heard,41.1,44.0
+Georgia,Henry,34.7,35.7
+Georgia,Houston,35.7,39.1
+Georgia,Irwin,39.8,46.1
+Georgia,Jackson,38.5,35.2
+Georgia,Jasper,37.6,40.6
+Georgia,Jeff Davis,39.7,45.2
+Georgia,Jefferson,42.9,55.2
+Georgia,Jenkins,43.6,54.5
+Georgia,Johnson,43.3,51.1
+Georgia,Jones,36.4,39.3
+Georgia,Lamar,40.9,45.7
+Georgia,Lanier,41.6,44.7
+Georgia,Laurens,39.0,45.3
+Georgia,Lee,36.6,37.9
+Georgia,Liberty,34.9,43.8
+Georgia,Lincoln,40.0,45.2
+Georgia,Long,39.2,46.3
+Georgia,Lowndes,38.3,41.0
+Georgia,Lumpkin,34.9,36.7
+Georgia,Macon,40.8,50.0
+Georgia,Madison,40.2,39.8
+Georgia,Marion,39.7,46.1
+Georgia,McDuffie,42.4,48.8
+Georgia,McIntosh,40.9,44.9
+Georgia,Meriwether,41.6,48.4
+Georgia,Miller,38.5,43.4
+Georgia,Mitchell,42.1,50.8
+Georgia,Monroe,38.8,42.1
+Georgia,Montgomery,39.4,46.1
+Georgia,Morgan,38.1,40.0
+Georgia,Murray,40.4,42.7
+Georgia,Muscogee,37.4,44.9
+Georgia,Newton,38.1,38.8
+Georgia,Oconee,33.4,30.9
+Georgia,Oglethorpe,40.1,40.4
+Georgia,Paulding,38.0,33.1
+Georgia,Peach,39.8,43.9
+Georgia,Pickens,36.2,34.5
+Georgia,Pierce,39.5,43.7
+Georgia,Pike,38.6,41.1
+Georgia,Polk,36.5,40.4
+Georgia,Pulaski,41.4,47.2
+Georgia,Putnam,37.2,41.7
+Georgia,Quitman,45.3,54.4
+Georgia,Rabun,35.0,36.9
+Georgia,Randolph,43.9,55.0
+Georgia,Richmond,36.6,44.1
+Georgia,Rockdale,33.5,38.0
+Georgia,Schley,41.7,47.1
+Georgia,Screven,42.9,50.4
+Georgia,Seminole,38.5,44.9
+Georgia,Spalding,40.0,46.9
+Georgia,Stephens,37.8,43.4
+Georgia,Stewart,38.6,55.3
+Georgia,Sumter,37.8,48.0
+Georgia,Talbot,41.9,51.1
+Georgia,Taliaferro,45.2,55.9
+Georgia,Tattnall,39.9,49.8
+Georgia,Taylor,42.0,48.4
+Georgia,Telfair,39.8,47.0
+Georgia,Terrell,44.3,57.4
+Georgia,Thomas,34.6,44.5
+Georgia,Tift,37.1,45.4
+Georgia,Toombs,38.4,45.5
+Georgia,Towns,35.6,35.4
+Georgia,Treutlen,42.7,49.0
+Georgia,Troup,38.3,41.4
+Georgia,Turner,42.1,52.4
+Georgia,Twiggs,43.7,52.3
+Georgia,Union,33.4,33.9
+Georgia,Upson,41.1,45.9
+Georgia,Walker,40.5,41.2
+Georgia,Walton,36.8,38.3
+Georgia,Ware,38.0,44.6
+Georgia,Warren,42.5,53.0
+Georgia,Washington,40.8,50.2
+Georgia,Wayne,40.6,42.9
+Georgia,Webster,39.4,47.5
+Georgia,Wheeler,41.7,49.5
+Georgia,White,34.5,35.2
+Georgia,Whitfield,38.7,39.2
+Georgia,Wilcox,41.2,48.8
+Georgia,Wilkes,41.2,47.4
+Georgia,Wilkinson,39.5,45.9
+Georgia,Worth,40.9,45.7
+Hawaii,Hawaii,29.1,28.0
+Hawaii,Honolulu,28.0,25.5
+Hawaii,Kalawao,30.2,28.1
+Hawaii,Kauai,26.9,25.6
+Hawaii,Maui,30.2,28.1
+Idaho,Ada,31.4,30.2
+Idaho,Adams,36.5,36.7
+Idaho,Bannock,35.4,37.0
+Idaho,Bear Lake,33.0,32.3
+Idaho,Benewah,35.1,36.2
+Idaho,Bingham,38.3,42.6
+Idaho,Blaine,28.1,24.3
+Idaho,Boise,37.0,38.0
+Idaho,Bonner,29.9,31.2
+Idaho,Bonneville,36.9,34.3
+Idaho,Boundary,33.6,35.4
+Idaho,Butte,35.2,34.2
+Idaho,Camas,36.4,34.4
+Idaho,Canyon,35.5,41.2
+Idaho,Caribou,37.5,36.4
+Idaho,Cassia,39.2,39.5
+Idaho,Clark,38.9,41.0
+Idaho,Clearwater,34.6,36.2
+Idaho,Custer,34.3,33.2
+Idaho,Elmore,34.9,36.1
+Idaho,Franklin,34.5,33.9
+Idaho,Fremont,31.9,30.3
+Idaho,Gem,36.8,40.4
+Idaho,Gooding,38.3,40.7
+Idaho,Idaho,35.2,35.6
+Idaho,Jefferson,38.2,35.4
+Idaho,Jerome,38.3,44.0
+Idaho,Kootenai,31.6,32.5
+Idaho,Latah,30.8,33.7
+Idaho,Lemhi,34.0,33.0
+Idaho,Lewis,35.5,36.5
+Idaho,Lincoln,36.5,38.5
+Idaho,Madison,35.8,35.0
+Idaho,Minidoka,37.6,42.0
+Idaho,Nez Perce,37.7,38.5
+Idaho,Oneida,35.2,34.6
+Idaho,Owyhee,38.0,43.9
+Idaho,Payette,34.2,38.3
+Idaho,Power,37.4,37.8
+Idaho,Shoshone,36.8,36.9
+Idaho,Teton,31.2,29.2
+Idaho,Twin Falls,33.0,38.3
+Idaho,Valley,32.8,32.6
+Idaho,Washington,37.2,39.5
+Illinois,Adams,33.7,36.3
+Illinois,Alexander,41.7,48.5
+Illinois,Bond,35.9,37.4
+Illinois,Boone,35.7,36.9
+Illinois,Brown,38.4,39.5
+Illinois,Bureau,36.1,36.5
+Illinois,Calhoun,36.3,36.1
+Illinois,Carroll,37.2,36.7
+Illinois,Cass,38.7,39.2
+Illinois,Champaign,32.2,36.3
+Illinois,Christian,39.3,36.4
+Illinois,Clark,39.3,38.6
+Illinois,Clay,36.9,39.0
+Illinois,Clinton,38.2,36.6
+Illinois,Coles,36.8,37.9
+Illinois,Cook,31.3,37.3
+Illinois,Crawford,39.3,37.9
+Illinois,Cumberland,36.7,37.0
+Illinois,De Witt,39.8,36.7
+Illinois,DeKalb,35.3,36.0
+Illinois,Douglas,38.4,39.8
+Illinois,DuPage,32.9,28.4
+Illinois,Edgar,38.1,39.8
+Illinois,Edwards,37.8,37.2
+Illinois,Effingham,32.9,35.0
+Illinois,Fayette,37.5,40.8
+Illinois,Ford,39.0,38.2
+Illinois,Franklin,38.2,39.1
+Illinois,Fulton,38.3,40.1
+Illinois,Gallatin,41.4,41.3
+Illinois,Greene,37.1,38.9
+Illinois,Grundy,39.3,35.0
+Illinois,Hamilton,39.0,40.3
+Illinois,Hancock,36.3,32.8
+Illinois,Hardin,40.4,40.4
+Illinois,Henderson,38.4,37.3
+Illinois,Henry,37.9,34.6
+Illinois,Iroquois,38.1,38.4
+Illinois,Jackson,35.5,40.2
+Illinois,Jasper,37.0,36.7
+Illinois,Jefferson,36.8,39.4
+Illinois,Jersey,36.2,36.1
+Illinois,Jo Daviess,35.6,33.8
+Illinois,Johnson,39.0,39.9
+Illinois,Kane,37.1,36.3
+Illinois,Kankakee,40.9,42.6
+Illinois,Kendall,36.4,32.2
+Illinois,Knox,38.9,39.1
+Illinois,La Salle,37.7,35.5
+Illinois,Lake,30.1,30.8
+Illinois,Lawrence,42.7,39.6
+Illinois,Lee,36.0,35.4
+Illinois,Livingston,40.1,38.8
+Illinois,Logan,40.4,40.6
+Illinois,Macon,39.9,38.9
+Illinois,Macoupin,36.7,41.2
+Illinois,Madison,35.5,37.7
+Illinois,Marion,38.7,40.3
+Illinois,Marshall,37.0,35.9
+Illinois,Mason,37.9,39.3
+Illinois,Massac,39.3,40.3
+Illinois,McDonough,36.0,36.0
+Illinois,McHenry,32.8,33.1
+Illinois,McLean,35.9,35.5
+Illinois,Menard,38.0,37.4
+Illinois,Mercer,38.3,36.8
+Illinois,Monroe,37.0,34.1
+Illinois,Montgomery,37.7,37.7
+Illinois,Morgan,38.2,38.5
+Illinois,Moultrie,39.5,39.4
+Illinois,Ogle,36.1,36.1
+Illinois,Peoria,33.2,37.8
+Illinois,Perry,39.4,39.8
+Illinois,Piatt,36.6,35.2
+Illinois,Pike,36.6,36.8
+Illinois,Pope,37.6,38.5
+Illinois,Pulaski,40.4,46.2
+Illinois,Putnam,37.7,36.4
+Illinois,Randolph,40.7,40.4
+Illinois,Richland,37.8,37.8
+Illinois,Rock Island,35.3,37.3
+Illinois,Saline,39.3,40.5
+Illinois,Sangamon,35.3,37.3
+Illinois,Schuyler,37.4,37.0
+Illinois,Scott,37.2,36.0
+Illinois,Shelby,37.0,36.5
+Illinois,St. Clair,38.9,40.0
+Illinois,Stark,38.1,36.6
+Illinois,Stephenson,36.8,37.2
+Illinois,Tazewell,35.9,35.9
+Illinois,Union,38.2,40.5
+Illinois,Vermilion,37.4,41.4
+Illinois,Wabash,39.6,37.0
+Illinois,Warren,37.3,38.2
+Illinois,Washington,38.8,37.3
+Illinois,Wayne,39.6,40.6
+Illinois,White,39.6,39.4
+Illinois,Whiteside,36.0,35.4
+Illinois,Will,38.2,36.6
+Illinois,Williamson,38.0,37.3
+Illinois,Winnebago,35.5,38.5
+Illinois,Woodford,35.9,34.3
+Indiana,Adams,38.7,39.2
+Indiana,Allen,35.8,42.7
+Indiana,Bartholomew,35.8,35.3
+Indiana,Benton,36.2,36.8
+Indiana,Blackford,40.6,38.6
+Indiana,Boone,29.7,36.1
+Indiana,Brown,36.8,34.8
+Indiana,Carroll,39.0,37.5
+Indiana,Cass,40.2,41.7
+Indiana,Clark,36.9,38.6
+Indiana,Clay,40.2,41.6
+Indiana,Clinton,37.4,41.4
+Indiana,Crawford,38.6,41.2
+Indiana,Daviess,39.9,43.2
+Indiana,Dearborn,38.1,36.2
+Indiana,Decatur,39.2,35.8
+Indiana,DeKalb,34.7,38.4
+Indiana,Delaware,39.2,41.5
+Indiana,Dubois,35.5,37.9
+Indiana,Elkhart,33.3,41.6
+Indiana,Fayette,42.2,41.9
+Indiana,Floyd,36.6,35.4
+Indiana,Fountain,36.8,38.2
+Indiana,Franklin,38.3,34.9
+Indiana,Fulton,39.7,38.9
+Indiana,Gibson,37.3,37.0
+Indiana,Grant,37.9,41.4
+Indiana,Greene,36.6,39.3
+Indiana,Hamilton,27.3,29.3
+Indiana,Hancock,35.8,35.2
+Indiana,Harrison,38.5,36.1
+Indiana,Hendricks,35.7,37.9
+Indiana,Henry,40.9,39.2
+Indiana,Howard,38.2,42.0
+Indiana,Huntington,40.6,41.6
+Indiana,Jackson,36.6,36.7
+Indiana,Jasper,38.4,38.3
+Indiana,Jay,41.0,40.6
+Indiana,Jefferson,36.1,39.5
+Indiana,Jennings,38.2,37.1
+Indiana,Johnson,35.6,36.5
+Indiana,Knox,39.3,37.9
+Indiana,Kosciusko,36.0,39.3
+Indiana,LaGrange,39.5,45.8
+Indiana,Lake,39.2,43.7
+Indiana,LaPorte,40.2,40.5
+Indiana,Lawrence,36.2,39.4
+Indiana,Madison,41.0,44.7
+Indiana,Marion,34.2,41.3
+Indiana,Marshall,36.7,38.1
+Indiana,Martin,36.5,41.5
+Indiana,Miami,38.1,43.3
+Indiana,Monroe,32.1,32.6
+Indiana,Montgomery,36.1,39.9
+Indiana,Morgan,37.2,39.4
+Indiana,Newton,39.1,41.6
+Indiana,Noble,33.8,43.6
+Indiana,Ohio,38.2,36.6
+Indiana,Orange,36.8,42.0
+Indiana,Owen,39.5,39.9
+Indiana,Parke,39.3,42.5
+Indiana,Perry,37.4,39.4
+Indiana,Pike,38.9,39.0
+Indiana,Porter,36.3,37.3
+Indiana,Posey,37.8,37.1
+Indiana,Pulaski,40.2,38.4
+Indiana,Putnam,38.8,39.8
+Indiana,Randolph,39.1,41.0
+Indiana,Ripley,38.0,35.2
+Indiana,Rush,39.0,37.1
+Indiana,Scott,38.4,40.9
+Indiana,Shelby,39.5,38.4
+Indiana,Spencer,38.2,36.0
+Indiana,St. Joseph,35.5,39.4
+Indiana,Starke,42.0,41.3
+Indiana,Steuben,37.2,38.4
+Indiana,Sullivan,39.7,40.9
+Indiana,Switzerland,39.6,40.9
+Indiana,Tippecanoe,34.1,33.7
+Indiana,Tipton,35.7,38.3
+Indiana,Union,36.5,35.9
+Indiana,Vanderburgh,35.5,39.9
+Indiana,Vermillion,36.8,39.2
+Indiana,Vigo,37.6,40.5
+Indiana,Wabash,38.2,42.9
+Indiana,Warren,37.4,38.4
+Indiana,Warrick,35.6,35.1
+Indiana,Washington,38.1,39.1
+Indiana,Wayne,35.4,40.4
+Indiana,Wells,39.2,36.8
+Indiana,White,38.5,39.2
+Indiana,Whitley,36.5,42.3
+Iowa,Adair,37.3,33.9
+Iowa,Adams,36.8,36.1
+Iowa,Allamakee,36.7,34.8
+Iowa,Appanoose,36.9,38.5
+Iowa,Audubon,38.6,37.0
+Iowa,Benton,38.5,38.0
+Iowa,Black Hawk,35.8,37.0
+Iowa,Boone,39.9,37.3
+Iowa,Bremer,33.2,34.7
+Iowa,Buchanan,37.1,37.0
+Iowa,Buena Vista,38.9,36.0
+Iowa,Butler,35.8,33.7
+Iowa,Calhoun,36.5,35.7
+Iowa,Carroll,36.1,37.3
+Iowa,Cass,38.4,38.4
+Iowa,Cedar,39.9,37.1
+Iowa,Cerro Gordo,35.8,33.2
+Iowa,Cherokee,36.5,34.6
+Iowa,Chickasaw,36.5,35.5
+Iowa,Clarke,38.6,37.0
+Iowa,Clay,34.8,34.0
+Iowa,Clayton,36.5,35.7
+Iowa,Clinton,37.2,36.8
+Iowa,Crawford,39.5,37.8
+Iowa,Dallas,39.3,34.2
+Iowa,Davis,37.5,38.2
+Iowa,Decatur,36.3,36.0
+Iowa,Delaware,37.4,38.3
+Iowa,Des Moines,37.6,38.4
+Iowa,Dickinson,34.1,33.3
+Iowa,Dubuque,33.9,34.7
+Iowa,Emmet,36.9,37.8
+Iowa,Fayette,38.9,37.8
+Iowa,Floyd,35.3,34.9
+Iowa,Franklin,39.3,37.4
+Iowa,Fremont,38.7,37.2
+Iowa,Greene,38.8,38.8
+Iowa,Grundy,36.1,34.0
+Iowa,Guthrie,37.3,35.3
+Iowa,Hamilton,39.1,34.8
+Iowa,Hancock,36.4,36.1
+Iowa,Hardin,37.1,36.4
+Iowa,Harrison,39.1,35.7
+Iowa,Henry,37.4,35.6
+Iowa,Howard,37.0,36.0
+Iowa,Humboldt,36.7,37.7
+Iowa,Ida,37.4,34.3
+Iowa,Iowa,37.6,37.5
+Iowa,Jackson,37.4,36.6
+Iowa,Jasper,39.1,40.0
+Iowa,Jefferson,32.1,36.0
+Iowa,Johnson,25.3,27.2
+Iowa,Jones,36.4,36.2
+Iowa,Keokuk,36.1,37.1
+Iowa,Kossuth,34.8,36.8
+Iowa,Lee,38.5,37.7
+Iowa,Linn,36.3,35.2
+Iowa,Louisa,39.9,42.5
+Iowa,Lucas,37.6,40.2
+Iowa,Lyon,35.2,34.4
+Iowa,Madison,38.6,33.3
+Iowa,Mahaska,35.7,37.5
+Iowa,Marion,35.7,38.6
+Iowa,Marshall,38.8,39.7
+Iowa,Mills,38.2,33.4
+Iowa,Mitchell,37.5,35.4
+Iowa,Monona,36.9,35.0
+Iowa,Monroe,35.8,37.4
+Iowa,Montgomery,38.4,37.7
+Iowa,Muscatine,40.4,43.1
+Iowa,OBrien,35.4,35.8
+Iowa,Osceola,37.3,37.1
+Iowa,Page,38.4,37.3
+Iowa,Palo Alto,39.0,37.4
+Iowa,Plymouth,38.4,36.2
+Iowa,Pocahontas,35.5,34.9
+Iowa,Polk,35.9,35.4
+Iowa,Pottawattamie,38.8,37.4
+Iowa,Poweshiek,37.0,36.3
+Iowa,Ringgold,36.0,34.2
+Iowa,Sac,36.7,35.2
+Iowa,Scott,36.4,34.7
+Iowa,Shelby,38.9,36.0
+Iowa,Sioux,36.1,34.8
+Iowa,Story,34.7,34.3
+Iowa,Tama,38.1,37.7
+Iowa,Taylor,35.3,34.8
+Iowa,Union,36.8,33.6
+Iowa,Van Buren,37.6,36.7
+Iowa,Wapello,36.1,37.6
+Iowa,Warren,39.5,38.2
+Iowa,Washington,37.5,38.0
+Iowa,Wayne,36.1,37.4
+Iowa,Webster,38.0,36.8
+Iowa,Winnebago,36.1,33.7
+Iowa,Winneshiek,35.1,32.5
+Iowa,Woodbury,37.5,38.3
+Iowa,Worth,39.5,35.4
+Iowa,Wright,37.2,38.0
+Kansas,Allen,39.1,42.4
+Kansas,Anderson,38.5,40.8
+Kansas,Atchison,39.5,41.8
+Kansas,Barber,36.7,36.6
+Kansas,Barton,38.5,41.1
+Kansas,Bourbon,38.1,42.7
+Kansas,Brown,35.9,38.3
+Kansas,Butler,38.3,37.8
+Kansas,Chase,38.9,37.0
+Kansas,Chautauqua,37.5,40.4
+Kansas,Cherokee,41.1,41.8
+Kansas,Cheyenne,35.1,33.7
+Kansas,Clark,36.2,35.8
+Kansas,Clay,35.6,36.0
+Kansas,Cloud,37.4,36.6
+Kansas,Coffey,36.9,36.9
+Kansas,Comanche,37.2,37.0
+Kansas,Cowley,38.7,41.3
+Kansas,Crawford,39.5,40.2
+Kansas,Decatur,35.0,33.7
+Kansas,Dickinson,37.3,39.2
+Kansas,Doniphan,38.8,39.7
+Kansas,Douglas,31.8,32.6
+Kansas,Edwards,37.9,37.1
+Kansas,Elk,38.2,37.8
+Kansas,Ellis,35.8,34.1
+Kansas,Ellsworth,36.7,37.2
+Kansas,Finney,38.7,39.7
+Kansas,Ford,39.2,43.6
+Kansas,Franklin,38.3,39.5
+Kansas,Geary,35.2,38.6
+Kansas,Gove,34.4,33.1
+Kansas,Graham,34.7,35.5
+Kansas,Grant,37.5,38.0
+Kansas,Gray,41.0,41.2
+Kansas,Greeley,35.1,35.8
+Kansas,Greenwood,36.9,36.0
+Kansas,Hamilton,34.8,36.6
+Kansas,Harper,37.6,39.2
+Kansas,Harvey,37.7,38.3
+Kansas,Haskell,39.5,41.1
+Kansas,Hodgeman,37.2,36.4
+Kansas,Jackson,36.2,38.6
+Kansas,Jefferson,37.6,37.9
+Kansas,Jewell,36.0,34.9
+Kansas,Johnson,30.7,29.0
+Kansas,Kearny,37.4,39.1
+Kansas,Kingman,38.3,39.2
+Kansas,Kiowa,35.8,35.2
+Kansas,Labette,37.9,41.9
+Kansas,Lane,37.9,36.1
+Kansas,Leavenworth,36.7,39.5
+Kansas,Lincoln,35.6,37.4
+Kansas,Linn,37.7,40.5
+Kansas,Logan,34.8,32.6
+Kansas,Lyon,39.0,38.5
+Kansas,Marion,38.9,38.4
+Kansas,Marshall,37.3,34.9
+Kansas,McPherson,38.8,37.5
+Kansas,Meade,37.0,36.8
+Kansas,Miami,37.0,38.9
+Kansas,Mitchell,36.6,36.5
+Kansas,Montgomery,38.1,39.2
+Kansas,Morris,36.9,35.6
+Kansas,Morton,34.3,34.3
+Kansas,Nemaha,35.0,33.9
+Kansas,Neosho,39.3,39.1
+Kansas,Ness,36.7,34.7
+Kansas,Norton,35.8,35.6
+Kansas,Osage,38.5,40.9
+Kansas,Osborne,35.8,35.6
+Kansas,Ottawa,36.3,37.6
+Kansas,Pawnee,37.1,36.6
+Kansas,Phillips,36.0,34.9
+Kansas,Pottawatomie,37.3,35.8
+Kansas,Pratt,37.6,35.7
+Kansas,Rawlins,36.5,34.8
+Kansas,Reno,36.7,39.1
+Kansas,Republic,34.5,33.5
+Kansas,Rice,36.1,37.2
+Kansas,Riley,32.0,33.1
+Kansas,Rooks,35.4,34.5
+Kansas,Rush,37.4,36.7
+Kansas,Russell,36.6,36.7
+Kansas,Saline,37.1,41.6
+Kansas,Scott,37.8,37.1
+Kansas,Sedgwick,34.9,39.0
+Kansas,Seward,38.6,42.2
+Kansas,Shawnee,38.1,39.6
+Kansas,Sheridan,34.9,34.1
+Kansas,Sherman,37.4,35.5
+Kansas,Smith,35.2,34.5
+Kansas,Stafford,37.6,37.7
+Kansas,Stanton,38.9,40.5
+Kansas,Stevens,36.3,36.7
+Kansas,Sumner,39.6,41.5
+Kansas,Thomas,37.4,33.6
+Kansas,Trego,36.2,35.8
+Kansas,Wabaunsee,37.2,35.4
+Kansas,Wallace,36.9,36.7
+Kansas,Washington,36.6,35.9
+Kansas,Wichita,35.8,37.6
+Kansas,Wilson,39.4,38.7
+Kansas,Woodson,36.3,37.4
+Kansas,Wyandotte,41.1,50.1
+Kentucky,Adair,40.7,43.4
+Kentucky,Allen,38.2,42.2
+Kentucky,Anderson,39.2,35.7
+Kentucky,Ballard,38.2,38.1
+Kentucky,Barren,34.7,39.3
+Kentucky,Bath,41.4,43.5
+Kentucky,Bell,41.3,43.5
+Kentucky,Boone,35.8,34.6
+Kentucky,Bourbon,39.0,41.8
+Kentucky,Boyd,38.4,40.0
+Kentucky,Boyle,36.7,34.5
+Kentucky,Bracken,40.3,41.0
+Kentucky,Breathitt,44.2,50.3
+Kentucky,Breckinridge,38.1,40.5
+Kentucky,Bullitt,40.6,39.8
+Kentucky,Butler,40.9,42.5
+Kentucky,Caldwell,39.6,40.2
+Kentucky,Calloway,35.4,34.6
+Kentucky,Campbell,36.6,36.2
+Kentucky,Carlisle,38.4,37.8
+Kentucky,Carroll,40.0,43.2
+Kentucky,Carter,42.5,40.8
+Kentucky,Casey,42.4,45.0
+Kentucky,Christian,40.1,41.0
+Kentucky,Clark,38.4,37.6
+Kentucky,Clay,43.0,47.9
+Kentucky,Clinton,42.1,46.7
+Kentucky,Crittenden,42.0,42.4
+Kentucky,Cumberland,40.1,43.5
+Kentucky,Daviess,37.5,34.9
+Kentucky,Edmonson,38.5,39.6
+Kentucky,Elliott,40.3,42.8
+Kentucky,Estill,39.8,43.1
+Kentucky,Fayette,30.8,34.2
+Kentucky,Fleming,41.5,41.0
+Kentucky,Floyd,44.8,46.3
+Kentucky,Franklin,37.2,41.0
+Kentucky,Fulton,41.3,46.3
+Kentucky,Gallatin,40.6,42.4
+Kentucky,Garrard,40.9,39.8
+Kentucky,Grant,39.2,40.0
+Kentucky,Graves,38.7,39.4
+Kentucky,Grayson,40.1,42.2
+Kentucky,Green,38.4,42.0
+Kentucky,Greenup,43.3,42.3
+Kentucky,Hancock,36.2,35.5
+Kentucky,Hardin,35.0,36.9
+Kentucky,Harlan,43.4,42.6
+Kentucky,Harrison,38.0,41.4
+Kentucky,Hart,41.4,44.5
+Kentucky,Henderson,38.7,39.9
+Kentucky,Henry,38.6,41.5
+Kentucky,Hickman,40.0,42.5
+Kentucky,Hopkins,38.3,41.5
+Kentucky,Jackson,42.1,48.0
+Kentucky,Jefferson,34.6,39.5
+Kentucky,Jessamine,36.3,34.8
+Kentucky,Johnson,43.5,47.0
+Kentucky,Kenton,38.4,36.3
+Kentucky,Knott,45.0,47.7
+Kentucky,Knox,40.2,44.6
+Kentucky,Larue,37.1,40.2
+Kentucky,Laurel,38.6,41.5
+Kentucky,Lawrence,41.9,45.4
+Kentucky,Lee,41.6,47.7
+Kentucky,Leslie,45.0,44.7
+Kentucky,Letcher,44.5,44.3
+Kentucky,Lewis,46.1,45.6
+Kentucky,Lincoln,41.7,44.1
+Kentucky,Livingston,39.8,39.6
+Kentucky,Logan,39.3,40.4
+Kentucky,Lyon,39.1,38.7
+Kentucky,Madison,37.2,37.1
+Kentucky,Magoffin,42.9,46.8
+Kentucky,Marion,37.1,37.9
+Kentucky,Marshall,37.7,35.6
+Kentucky,Martin,43.1,50.4
+Kentucky,Mason,39.4,38.5
+Kentucky,McCracken,36.0,34.9
+Kentucky,McCreary,38.6,43.0
+Kentucky,McLean,39.3,41.4
+Kentucky,Meade,38.0,40.0
+Kentucky,Menifee,41.8,45.3
+Kentucky,Mercer,39.4,36.3
+Kentucky,Metcalfe,41.1,44.1
+Kentucky,Monroe,37.9,42.3
+Kentucky,Montgomery,39.4,40.0
+Kentucky,Morgan,40.3,45.0
+Kentucky,Muhlenberg,39.1,42.3
+Kentucky,Nelson,38.6,36.8
+Kentucky,Nicholas,40.8,42.5
+Kentucky,Ohio,38.8,42.2
+Kentucky,Oldham,34.9,32.7
+Kentucky,Owen,37.7,39.9
+Kentucky,Owsley,46.9,53.0
+Kentucky,Pendleton,38.5,40.3
+Kentucky,Perry,43.4,44.2
+Kentucky,Pike,41.1,43.2
+Kentucky,Powell,40.6,44.0
+Kentucky,Pulaski,37.8,37.5
+Kentucky,Robertson,41.9,43.6
+Kentucky,Rockcastle,42.3,45.4
+Kentucky,Rowan,38.6,38.6
+Kentucky,Russell,38.6,41.0
+Kentucky,Scott,37.8,40.3
+Kentucky,Shelby,38.2,39.2
+Kentucky,Simpson,38.1,37.5
+Kentucky,Spencer,38.6,35.6
+Kentucky,Taylor,36.5,41.1
+Kentucky,Todd,40.2,43.0
+Kentucky,Trigg,39.9,39.1
+Kentucky,Trimble,38.5,40.4
+Kentucky,Union,41.2,41.2
+Kentucky,Warren,34.0,36.6
+Kentucky,Washington,39.0,36.6
+Kentucky,Wayne,39.2,43.4
+Kentucky,Webster,41.4,42.4
+Kentucky,Whitley,38.1,41.2
+Kentucky,Wolfe,44.6,50.9
+Kentucky,Woodford,35.5,36.3
+Louisiana,Acadia,41.6,38.7
+Louisiana,Allen,45.6,44.9
+Louisiana,Ascension,39.4,37.7
+Louisiana,Assumption,43.1,46.1
+Louisiana,Avoyelles,44.4,46.9
+Louisiana,Beauregard,41.7,40.1
+Louisiana,Bienville,41.4,46.1
+Louisiana,Bossier,38.9,37.6
+Louisiana,Caddo,37.2,42.6
+Louisiana,Calcasieu,41.5,39.7
+Louisiana,Caldwell,41.2,40.4
+Louisiana,Cameron,42.0,40.5
+Louisiana,Catahoula,44.1,45.4
+Louisiana,Claiborne,41.0,47.8
+Louisiana,Concordia,44.9,45.4
+Louisiana,De Soto,42.5,46.9
+Louisiana,East Baton Rouge,38.0,39.4
+Louisiana,East Carroll,46.6,58.9
+Louisiana,East Feliciana,40.4,43.0
+Louisiana,Evangeline,43.6,44.3
+Louisiana,Franklin,43.1,47.1
+Louisiana,Grant,40.6,41.8
+Louisiana,Iberia,40.0,42.3
+Louisiana,Iberville,42.1,47.1
+Louisiana,Jackson,41.2,41.7
+Louisiana,Jefferson,38.2,40.6
+Louisiana,Jefferson Davis,44.5,43.0
+Louisiana,La Salle,41.1,40.4
+Louisiana,Lafayette,35.4,35.2
+Louisiana,Lafourche,45.4,43.9
+Louisiana,Lincoln,39.6,41.1
+Louisiana,Livingston,40.8,39.8
+Louisiana,Madison,42.9,53.5
+Louisiana,Morehouse,42.6,48.4
+Louisiana,Natchitoches,42.8,47.2
+Louisiana,Orleans,33.1,43.1
+Louisiana,Ouachita,39.6,41.3
+Louisiana,Plaquemines,40.8,41.4
+Louisiana,Pointe Coupee,41.7,45.4
+Louisiana,Rapides,39.7,42.9
+Louisiana,Red River,43.5,49.2
+Louisiana,Richland,44.3,49.6
+Louisiana,Sabine,42.8,45.4
+Louisiana,St. Bernard,38.1,39.3
+Louisiana,St. Charles,42.4,42.1
+Louisiana,St. Helena,41.0,48.4
+Louisiana,St. James,41.7,45.3
+Louisiana,St. John the Baptist,43.2,47.1
+Louisiana,St. Landry,41.9,46.4
+Louisiana,St. Martin,40.8,45.2
+Louisiana,St. Mary,41.9,47.5
+Louisiana,St. Tammany,37.4,34.1
+Louisiana,Tangipahoa,40.8,46.2
+Louisiana,Tensas,42.0,51.5
+Louisiana,Terrebonne,43.8,46.4
+Louisiana,Union,40.6,47.9
+Louisiana,Vermilion,41.3,39.8
+Louisiana,Vernon,40.7,43.2
+Louisiana,Washington,42.2,47.9
+Louisiana,Webster,42.6,43.4
+Louisiana,West Baton Rouge,40.7,41.3
+Louisiana,West Carroll,44.2,46.2
+Louisiana,West Feliciana,42.4,43.6
+Louisiana,Winn,41.8,43.6
+Maine,Androscoggin,35.1,40.0
+Maine,Aroostook,38.3,41.2
+Maine,Cumberland,27.8,28.2
+Maine,Franklin,34.4,37.6
+Maine,Hancock,31.5,32.2
+Maine,Kennebec,33.2,36.2
+Maine,Knox,31.0,30.0
+Maine,Lincoln,28.8,30.2
+Maine,Oxford,34.6,37.5
+Maine,Penobscot,36.3,39.6
+Maine,Piscataquis,37.5,39.5
+Maine,Sagadahoc,30.6,33.8
+Maine,Somerset,38.5,42.6
+Maine,Waldo,33.5,36.4
+Maine,Washington,37.1,40.3
+Maine,York,31.9,33.0
+Maryland,Allegany,37.4,39.7
+Maryland,Anne Arundel,35.9,33.8
+Maryland,Baltimore,33.7,36.0
+Maryland,Baltimore City,35.4,46.1
+Maryland,Calvert,37.4,37.1
+Maryland,Caroline,40.9,43.5
+Maryland,Carroll,36.9,36.0
+Maryland,Cecil,38.9,38.6
+Maryland,Charles,37.9,42.2
+Maryland,Dorchester,40.5,47.1
+Maryland,Frederick,34.2,33.4
+Maryland,Garrett,35.9,41.5
+Maryland,Harford,37.5,35.5
+Maryland,Howard,31.0,28.1
+Maryland,Kent,35.9,37.8
+Maryland,Montgomery,24.8,25.5
+Maryland,Prince Georges,35.9,45.5
+Maryland,Queen Annes,36.7,34.5
+Maryland,Somerset,42.7,51.7
+Maryland,St. Marys,36.7,39.0
+Maryland,Talbot,35.5,34.5
+Maryland,Washington,38.2,39.1
+Maryland,Wicomico,37.4,43.8
+Maryland,Worcester,37.4,41.3
+Massachusetts,Barnstable,27.9,24.0
+Massachusetts,Berkshire,27.9,31.7
+Massachusetts,Bristol,35.9,36.5
+Massachusetts,Dukes,29.1,25.3
+Massachusetts,Essex,33.2,30.6
+Massachusetts,Franklin,28.1,30.8
+Massachusetts,Hampden,35.1,38.1
+Massachusetts,Hampshire,28.0,29.1
+Massachusetts,Middlesex,30.4,29.9
+Massachusetts,Nantucket,30.8,26.3
+Massachusetts,Norfolk,28.1,25.1
+Massachusetts,Plymouth,33.0,31.3
+Massachusetts,Suffolk,26.1,33.0
+Massachusetts,Worcester,32.5,32.6
+Michigan,Alcona,38.2,39.1
+Michigan,Alger,38.1,38.1
+Michigan,Allegan,36.2,39.2
+Michigan,Alpena,36.3,37.6
+Michigan,Antrim,33.2,37.8
+Michigan,Arenac,41.6,42.6
+Michigan,Baraga,39.7,38.7
+Michigan,Barry,38.4,42.8
+Michigan,Bay,42.1,40.4
+Michigan,Benzie,33.6,35.0
+Michigan,Berrien,39.1,40.4
+Michigan,Branch,40.0,41.4
+Michigan,Calhoun,39.8,44.6
+Michigan,Cass,36.0,40.4
+Michigan,Charlevoix,32.8,34.9
+Michigan,Cheboygan,39.2,39.5
+Michigan,Chippewa,39.8,39.7
+Michigan,Clare,40.0,39.6
+Michigan,Clinton,39.1,38.8
+Michigan,Crawford,36.7,40.2
+Michigan,Delta,37.6,38.3
+Michigan,Dickinson,36.2,32.5
+Michigan,Eaton,39.7,40.9
+Michigan,Emmet,33.3,35.1
+Michigan,Genesee,41.1,46.2
+Michigan,Gladwin,41.1,40.8
+Michigan,Gogebic,35.8,34.1
+Michigan,Grand Traverse,31.6,34.7
+Michigan,Gratiot,41.3,45.1
+Michigan,Hillsdale,40.3,39.9
+Michigan,Houghton,34.5,32.7
+Michigan,Huron,39.3,36.8
+Michigan,Ingham,35.1,39.2
+Michigan,Ionia,40.2,44.7
+Michigan,Iosco,39.5,41.2
+Michigan,Iron,36.9,34.7
+Michigan,Isabella,40.5,39.3
+Michigan,Jackson,40.4,41.8
+Michigan,Kalamazoo,34.2,38.4
+Michigan,Kalkaska,35.6,38.9
+Michigan,Kent,35.7,38.1
+Michigan,Keweenaw,35.1,30.3
+Michigan,Lake,40.9,45.6
+Michigan,Lapeer,39.4,40.0
+Michigan,Leelanau,32.3,33.0
+Michigan,Lenawee,38.6,39.5
+Michigan,Livingston,35.3,33.0
+Michigan,Luce,38.5,38.8
+Michigan,Mackinac,37.7,38.0
+Michigan,Macomb,36.0,38.2
+Michigan,Manistee,34.1,37.0
+Michigan,Marquette,36.6,35.5
+Michigan,Mason,37.4,38.0
+Michigan,Mecosta,38.4,38.6
+Michigan,Menominee,39.6,37.4
+Michigan,Midland,39.0,36.2
+Michigan,Missaukee,37.7,40.6
+Michigan,Monroe,41.8,41.4
+Michigan,Montcalm,39.5,40.9
+Michigan,Montmorency,38.3,39.9
+Michigan,Muskegon,37.3,43.6
+Michigan,Newaygo,39.9,41.2
+Michigan,Oakland,31.7,32.9
+Michigan,Oceana,40.2,42.5
+Michigan,Ogemaw,39.0,40.5
+Michigan,Ontonagon,34.7,32.7
+Michigan,Osceola,40.1,39.4
+Michigan,Oscoda,39.7,41.8
+Michigan,Otsego,34.6,35.5
+Michigan,Ottawa,33.6,34.0
+Michigan,Presque Isle,39.7,39.2
+Michigan,Roscommon,38.0,41.0
+Michigan,Saginaw,42.2,47.5
+Michigan,Sanilac,40.2,39.3
+Michigan,Schoolcraft,37.3,38.3
+Michigan,Shiawassee,38.8,43.3
+Michigan,St. Clair,37.9,38.7
+Michigan,St. Joseph,35.8,43.2
+Michigan,Tuscola,42.4,39.3
+Michigan,Van Buren,36.3,40.2
+Michigan,Washtenaw,27.0,29.6
+Michigan,Wayne,38.1,44.5
+Michigan,Wexford,35.1,39.5
+Minnesota,Aitkin,36.6,35.5
+Minnesota,Anoka,37.5,35.8
+Minnesota,Becker,35.5,35.6
+Minnesota,Beltrami,35.1,37.3
+Minnesota,Benton,34.5,37.5
+Minnesota,Big Stone,35.6,35.5
+Minnesota,Blue Earth,33.2,34.7
+Minnesota,Brown,38.1,34.5
+Minnesota,Carlton,36.5,35.3
+Minnesota,Carver,35.9,31.2
+Minnesota,Cass,37.5,35.1
+Minnesota,Chippewa,37.2,37.0
+Minnesota,Chisago,36.6,33.0
+Minnesota,Clay,39.2,36.5
+Minnesota,Clearwater,37.3,38.4
+Minnesota,Cook,34.1,34.0
+Minnesota,Cottonwood,36.8,34.6
+Minnesota,Crow Wing,34.4,33.2
+Minnesota,Dakota,34.7,31.5
+Minnesota,Dodge,40.1,39.6
+Minnesota,Douglas,35.2,31.4
+Minnesota,Faribault,36.7,36.2
+Minnesota,Fillmore,38.4,35.3
+Minnesota,Freeborn,39.7,35.7
+Minnesota,Goodhue,38.6,35.3
+Minnesota,Grant,36.8,34.7
+Minnesota,Hennepin,28.4,30.4
+Minnesota,Houston,35.6,32.7
+Minnesota,Hubbard,35.3,36.0
+Minnesota,Isanti,36.1,34.8
+Minnesota,Itasca,35.1,33.2
+Minnesota,Jackson,36.0,34.9
+Minnesota,Kanabec,36.5,37.2
+Minnesota,Kandiyohi,35.6,35.8
+Minnesota,Kittson,36.4,34.4
+Minnesota,Koochiching,36.5,35.5
+Minnesota,Lac qui Parle,34.4,33.4
+Minnesota,Lake,35.2,34.3
+Minnesota,Lake of the Woods,37.4,35.5
+Minnesota,Le Sueur,36.8,37.7
+Minnesota,Lincoln,35.4,34.4
+Minnesota,Lyon,35.7,34.3
+Minnesota,Mahnomen,39.1,44.1
+Minnesota,Marshall,39.1,36.8
+Minnesota,Martin,34.8,35.8
+Minnesota,McLeod,39.1,35.7
+Minnesota,Meeker,39.6,36.2
+Minnesota,Mille Lacs,34.5,37.9
+Minnesota,Morrison,36.0,36.9
+Minnesota,Mower,38.8,38.6
+Minnesota,Murray,35.7,33.5
+Minnesota,Nicollet,34.9,36.4
+Minnesota,Nobles,35.8,35.1
+Minnesota,Norman,37.4,35.4
+Minnesota,Olmsted,27.0,31.0
+Minnesota,Otter Tail,36.9,34.1
+Minnesota,Pennington,37.3,34.9
+Minnesota,Pine,37.7,37.8
+Minnesota,Pipestone,37.4,36.5
+Minnesota,Polk,38.1,35.3
+Minnesota,Pope,35.8,33.6
+Minnesota,Ramsey,28.7,33.3
+Minnesota,Red Lake,38.3,34.4
+Minnesota,Redwood,37.4,35.7
+Minnesota,Renville,37.7,38.2
+Minnesota,Rice,36.7,34.8
+Minnesota,Rock,36.7,34.6
+Minnesota,Roseau,37.5,35.9
+Minnesota,Scott,35.0,31.6
+Minnesota,Sherburne,36.0,36.4
+Minnesota,Sibley,38.0,39.3
+Minnesota,St. Louis,33.3,35.0
+Minnesota,Stearns,35.8,33.0
+Minnesota,Steele,36.4,35.2
+Minnesota,Stevens,35.1,34.1
+Minnesota,Swift,37.0,36.3
+Minnesota,Todd,37.8,37.1
+Minnesota,Traverse,37.5,37.0
+Minnesota,Wabasha,39.7,36.2
+Minnesota,Wadena,37.2,37.0
+Minnesota,Waseca,38.7,36.2
+Minnesota,Washington,32.7,30.1
+Minnesota,Watonwan,38.3,38.1
+Minnesota,Wilkin,39.2,36.0
+Minnesota,Winona,39.3,37.7
+Minnesota,Wright,36.4,34.4
+Minnesota,Yellow Medicine,35.2,34.6
+Mississippi,Adams,39.7,48.6
+Mississippi,Alcorn,35.9,38.8
+Mississippi,Amite,42.5,48.6
+Mississippi,Attala,40.7,50.1
+Mississippi,Benton,42.1,50.2
+Mississippi,Bolivar,40.0,50.0
+Mississippi,Calhoun,42.4,44.1
+Mississippi,Carroll,37.7,43.4
+Mississippi,Chickasaw,42.6,43.3
+Mississippi,Choctaw,37.6,44.1
+Mississippi,Claiborne,37.5,55.6
+Mississippi,Clarke,39.4,45.0
+Mississippi,Clay,38.7,46.1
+Mississippi,Coahoma,41.6,55.7
+Mississippi,Copiah,39.2,49.1
+Mississippi,Covington,41.4,47.6
+Mississippi,DeSoto,38.0,39.4
+Mississippi,Forrest,38.4,42.1
+Mississippi,Franklin,42.8,48.2
+Mississippi,George,42.2,41.4
+Mississippi,Greene,44.7,47.9
+Mississippi,Grenada,39.0,46.2
+Mississippi,Hancock,41.7,38.9
+Mississippi,Harrison,39.7,41.2
+Mississippi,Hinds,35.2,47.7
+Mississippi,Holmes,41.4,57.6
+Mississippi,Humphreys,44.2,59.1
+Mississippi,Issaquena,46.7,59.3
+Mississippi,Itawamba,39.0,39.2
+Mississippi,Jackson,38.5,42.1
+Mississippi,Jasper,42.5,50.8
+Mississippi,Jefferson,41.5,57.7
+Mississippi,Jefferson Davis,39.8,50.8
+Mississippi,Jones,42.3,44.9
+Mississippi,Kemper,40.6,51.4
+Mississippi,Lafayette,37.3,39.1
+Mississippi,Lamar,37.1,39.9
+Mississippi,Lauderdale,37.1,45.3
+Mississippi,Lawrence,37.7,44.5
+Mississippi,Leake,39.1,46.9
+Mississippi,Lee,37.6,36.3
+Mississippi,Leflore,42.3,54.2
+Mississippi,Lincoln,40.0,47.9
+Mississippi,Lowndes,38.6,43.8
+Mississippi,Madison,33.3,37.1
+Mississippi,Marion,39.7,48.6
+Mississippi,Marshall,42.0,53.1
+Mississippi,Monroe,39.5,41.7
+Mississippi,Montgomery,39.7,48.3
+Mississippi,Neshoba,39.5,44.6
+Mississippi,Newton,36.6,46.2
+Mississippi,Noxubee,42.9,56.3
+Mississippi,Oktibbeha,34.2,41.6
+Mississippi,Panola,39.6,46.8
+Mississippi,Pearl River,40.8,39.8
+Mississippi,Perry,43.1,43.4
+Mississippi,Pike,39.9,49.7
+Mississippi,Pontotoc,40.1,41.3
+Mississippi,Prentiss,37.5,43.3
+Mississippi,Quitman,43.5,58.1
+Mississippi,Rankin,38.4,36.4
+Mississippi,Scott,44.7,48.3
+Mississippi,Sharkey,42.2,55.1
+Mississippi,Simpson,39.8,44.9
+Mississippi,Smith,40.9,46.4
+Mississippi,Stone,42.2,41.3
+Mississippi,Sunflower,44.0,56.4
+Mississippi,Tallahatchie,42.6,55.2
+Mississippi,Tate,39.3,42.8
+Mississippi,Tippah,40.9,42.8
+Mississippi,Tishomingo,36.7,35.2
+Mississippi,Tunica,42.3,56.6
+Mississippi,Union,40.1,41.9
+Mississippi,Walthall,41.4,51.7
+Mississippi,Warren,38.2,47.7
+Mississippi,Washington,41.1,52.2
+Mississippi,Wayne,43.1,47.6
+Mississippi,Webster,38.6,40.6
+Mississippi,Wilkinson,43.6,52.2
+Mississippi,Winston,37.6,45.0
+Mississippi,Yalobusha,41.3,44.2
+Mississippi,Yazoo,40.9,53.4
+Missouri,Adair,34.5,38.8
+Missouri,Andrew,36.7,39.6
+Missouri,Atchison,37.9,37.6
+Missouri,Audrain,37.8,42.7
+Missouri,Barry,36.6,35.6
+Missouri,Barton,37.9,39.7
+Missouri,Bates,39.7,41.4
+Missouri,Benton,38.8,39.6
+Missouri,Bollinger,40.3,40.0
+Missouri,Boone,31.7,32.1
+Missouri,Buchanan,41.0,43.4
+Missouri,Butler,38.6,43.4
+Missouri,Caldwell,38.5,38.5
+Missouri,Callaway,36.8,40.2
+Missouri,Camden,35.7,33.9
+Missouri,Cape Girardeau,36.2,34.7
+Missouri,Carroll,38.2,39.2
+Missouri,Carter,39.8,43.2
+Missouri,Cass,38.1,41.5
+Missouri,Cedar,36.6,40.8
+Missouri,Chariton,38.4,39.9
+Missouri,Christian,35.2,32.0
+Missouri,Clark,37.3,36.4
+Missouri,Clay,36.2,38.7
+Missouri,Clinton,39.2,41.0
+Missouri,Cole,36.0,33.8
+Missouri,Cooper,37.6,38.6
+Missouri,Crawford,41.4,41.9
+Missouri,Dade,37.8,39.4
+Missouri,Dallas,40.3,41.3
+Missouri,Daviess,38.1,37.2
+Missouri,DeKalb,39.2,40.9
+Missouri,Dent,40.0,40.4
+Missouri,Douglas,39.0,41.0
+Missouri,Dunklin,44.5,47.6
+Missouri,Franklin,40.0,37.3
+Missouri,Gasconade,38.8,37.9
+Missouri,Gentry,37.0,38.1
+Missouri,Greene,35.0,35.3
+Missouri,Grundy,37.8,37.6
+Missouri,Harrison,38.8,37.7
+Missouri,Henry,38.6,39.9
+Missouri,Hickory,38.5,40.2
+Missouri,Holt,36.2,37.2
+Missouri,Howard,39.5,38.7
+Missouri,Howell,36.9,38.2
+Missouri,Iron,40.8,43.2
+Missouri,Jackson,35.9,42.9
+Missouri,Jasper,37.7,39.9
+Missouri,Jefferson,41.2,36.5
+Missouri,Johnson,37.7,41.0
+Missouri,Knox,35.6,38.4
+Missouri,Laclede,38.9,39.4
+Missouri,Lafayette,37.0,38.9
+Missouri,Lawrence,37.8,37.2
+Missouri,Lewis,36.9,38.2
+Missouri,Lincoln,40.6,40.3
+Missouri,Linn,35.6,37.9
+Missouri,Livingston,37.0,36.9
+Missouri,Macon,36.0,39.9
+Missouri,Madison,40.6,42.4
+Missouri,Maries,39.9,41.1
+Missouri,Marion,36.3,38.2
+Missouri,McDonald,37.5,42.1
+Missouri,Mercer,37.2,36.4
+Missouri,Miller,39.1,38.6
+Missouri,Mississippi,43.7,48.7
+Missouri,Moniteau,39.8,38.0
+Missouri,Monroe,37.2,39.0
+Missouri,Montgomery,39.7,41.7
+Missouri,Morgan,37.4,39.5
+Missouri,New Madrid,43.2,44.5
+Missouri,Newton,35.1,40.3
+Missouri,Nodaway,35.7,39.0
+Missouri,Oregon,40.6,41.2
+Missouri,Osage,36.0,36.6
+Missouri,Ozark,39.1,39.4
+Missouri,Pemiscot,44.2,50.2
+Missouri,Perry,38.8,39.2
+Missouri,Pettis,37.1,41.3
+Missouri,Phelps,35.9,37.5
+Missouri,Pike,40.2,42.9
+Missouri,Platte,34.9,36.3
+Missouri,Polk,38.9,42.3
+Missouri,Pulaski,36.8,37.8
+Missouri,Putnam,36.6,37.9
+Missouri,Ralls,37.0,37.7
+Missouri,Randolph,40.0,40.6
+Missouri,Ray,38.5,41.2
+Missouri,Reynolds,41.3,42.8
+Missouri,Ripley,41.4,44.4
+Missouri,Saline,38.6,41.7
+Missouri,Schuyler,36.3,37.9
+Missouri,Scotland,38.3,39.9
+Missouri,Scott,41.3,41.0
+Missouri,Shannon,39.5,42.5
+Missouri,Shelby,35.7,37.4
+Missouri,St. Charles,36.9,35.3
+Missouri,St. Clair,37.6,40.0
+Missouri,St. Francois,39.9,41.5
+Missouri,St. Genevieve,39.9,38.3
+Missouri,St. Louis,32.9,36.8
+Missouri,St. Louis City,36.3,45.0
+Missouri,Stoddard,41.1,40.8
+Missouri,Stone,38.1,35.2
+Missouri,Sullivan,36.8,38.7
+Missouri,Taney,36.4,35.2
+Missouri,Texas,38.2,41.5
+Missouri,Vernon,36.9,40.2
+Missouri,Warren,40.8,38.4
+Missouri,Washington,43.9,46.8
+Missouri,Wayne,41.0,43.4
+Missouri,Webster,38.3,38.5
+Missouri,Worth,37.9,37.4
+Missouri,Wright,40.1,44.0
+Montana,Beaverhead,30.9,30.8
+Montana,Big Horn,37.8,48.7
+Montana,Blaine,38.5,45.2
+Montana,Broadwater,30.7,29.6
+Montana,Carbon,34.1,32.1
+Montana,Carter,36.1,36.5
+Montana,Cascade,34.8,34.5
+Montana,Chouteau,37.5,39.2
+Montana,Custer,36.6,33.9
+Montana,Daniels,31.3,30.3
+Montana,Dawson,33.9,37.4
+Montana,Deer Lodge,33.0,33.4
+Montana,Fallon,35.5,35.6
+Montana,Fergus,33.9,32.7
+Montana,Flathead,28.6,29.0
+Montana,Gallatin County and Yellowstone National Park,26.1,21.9
+Montana,Garfield,37.5,36.8
+Montana,Glacier,37.2,46.8
+Montana,Golden Valley,36.1,37.3
+Montana,Granite,32.2,30.9
+Montana,Hill,39.6,40.4
+Montana,Jefferson,29.6,27.7
+Montana,Judith Basin,35.1,34.5
+Montana,Lake,32.7,34.3
+Montana,Lewis and Clark,29.7,30.2
+Montana,Liberty,40.0,41.1
+Montana,Lincoln,31.9,33.6
+Montana,Madison,29.3,27.8
+Montana,McCone,34.4,34.8
+Montana,Meagher,34.3,34.4
+Montana,Mineral,33.3,35.9
+Montana,Missoula,26.0,28.9
+Montana,Musselshell,35.5,35.0
+Montana,Park,29.9,26.5
+Montana,Petroleum,35.9,35.3
+Montana,Phillips,34.3,35.6
+Montana,Pondera,37.4,39.1
+Montana,Powder River,37.9,36.3
+Montana,Powell,31.8,32.5
+Montana,Prairie,36.7,37.3
+Montana,Ravalli,29.1,26.3
+Montana,Richland,35.7,37.2
+Montana,Roosevelt,37.0,44.9
+Montana,Rosebud,39.5,42.3
+Montana,Sanders,30.9,34.2
+Montana,Sheridan,35.7,34.6
+Montana,Silver Bow,30.5,32.2
+Montana,Stillwater,33.3,31.5
+Montana,Sweet Grass,33.5,31.0
+Montana,Teton,34.9,35.0
+Montana,Toole,36.5,36.7
+Montana,Treasure,30.5,30.7
+Montana,Valley,34.4,34.1
+Montana,Wheatland,36.6,36.0
+Montana,Wibaux,37.1,39.2
+Montana,Yellowstone,33.5,34.7
+Nebraska,Adams,37.0,35.2
+Nebraska,Antelope,35.4,35.5
+Nebraska,Arthur,35.3,34.0
+Nebraska,Banner,37.4,36.3
+Nebraska,Blaine,34.9,34.5
+Nebraska,Boone,34.2,34.6
+Nebraska,Box Butte,38.0,37.1
+Nebraska,Boyd,34.4,33.9
+Nebraska,Brown,35.4,34.7
+Nebraska,Buffalo,36.4,35.5
+Nebraska,Burt,35.5,34.2
+Nebraska,Butler,38.3,37.0
+Nebraska,Cass,38.0,35.5
+Nebraska,Cedar,36.6,33.8
+Nebraska,Chase,35.3,34.3
+Nebraska,Cherry,34.5,34.5
+Nebraska,Cheyenne,34.2,33.5
+Nebraska,Clay,37.2,35.8
+Nebraska,Colfax,39.5,41.5
+Nebraska,Cuming,36.7,35.5
+Nebraska,Custer,36.8,35.9
+Nebraska,Dakota,42.3,41.9
+Nebraska,Dawes,35.6,36.3
+Nebraska,Dawson,41.2,40.5
+Nebraska,Deuel,32.7,32.0
+Nebraska,Dixon,38.0,36.6
+Nebraska,Dodge,37.5,37.0
+Nebraska,Douglas,35.0,37.1
+Nebraska,Dundy,31.2,30.1
+Nebraska,Fillmore,36.4,35.5
+Nebraska,Franklin,34.9,34.1
+Nebraska,Frontier,37.1,35.9
+Nebraska,Furnas,36.8,36.3
+Nebraska,Gage,39.5,39.9
+Nebraska,Garden,34.5,34.2
+Nebraska,Garfield,34.4,33.6
+Nebraska,Gosper,36.1,34.2
+Nebraska,Grant,35.8,34.6
+Nebraska,Greeley,36.1,35.7
+Nebraska,Hall,38.0,40.9
+Nebraska,Hamilton,37.1,34.9
+Nebraska,Harlan,35.6,34.4
+Nebraska,Hayes,37.8,37.8
+Nebraska,Hitchcock,36.7,36.4
+Nebraska,Holt,34.7,34.0
+Nebraska,Hooker,34.3,33.3
+Nebraska,Howard,37.3,36.5
+Nebraska,Jefferson,38.0,38.0
+Nebraska,Johnson,38.8,39.7
+Nebraska,Kearney,36.8,34.4
+Nebraska,Keith,36.6,36.2
+Nebraska,Keya Paha,36.1,36.8
+Nebraska,Kimball,32.1,33.5
+Nebraska,Knox,36.1,36.1
+Nebraska,Lancaster,33.3,35.0
+Nebraska,Lincoln,39.2,40.1
+Nebraska,Logan,36.3,35.5
+Nebraska,Loup,36.0,36.0
+Nebraska,Madison,34.7,37.8
+Nebraska,McPherson,37.5,37.0
+Nebraska,Merrick,36.9,36.8
+Nebraska,Morrill,37.8,37.6
+Nebraska,Nance,36.3,36.6
+Nebraska,Nemaha,36.6,35.8
+Nebraska,Nuckolls,33.9,32.9
+Nebraska,Otoe,39.6,40.5
+Nebraska,Pawnee,35.3,34.3
+Nebraska,Perkins,35.2,34.6
+Nebraska,Phelps,35.9,33.9
+Nebraska,Pierce,32.9,32.3
+Nebraska,Platte,35.4,37.5
+Nebraska,Polk,36.1,34.7
+Nebraska,Red Willow,34.9,33.2
+Nebraska,Richardson,35.8,35.2
+Nebraska,Rock,33.6,33.4
+Nebraska,Saline,38.0,41.3
+Nebraska,Sarpy,37.9,34.2
+Nebraska,Saunders,38.9,36.3
+Nebraska,Scotts Bluff,40.9,38.8
+Nebraska,Seward,37.5,33.9
+Nebraska,Sheridan,34.0,34.8
+Nebraska,Sherman,37.1,36.3
+Nebraska,Sioux,34.8,33.7
+Nebraska,Stanton,35.9,35.8
+Nebraska,Thayer,36.1,36.4
+Nebraska,Thomas,35.5,35.2
+Nebraska,Thurston,38.4,46.7
+Nebraska,Valley,33.6,32.7
+Nebraska,Washington,38.1,35.3
+Nebraska,Wayne,35.4,35.0
+Nebraska,Webster,36.8,35.6
+Nebraska,Wheeler,35.0,34.1
+Nebraska,York,39.7,38.8
+Nevada,Carson City,32.4,29.0
+Nevada,Churchill,35.5,37.6
+Nevada,Clark,33.2,32.4
+Nevada,Douglas,30.8,27.3
+Nevada,Elko,37.2,40.0
+Nevada,Esmeralda,37.7,38.7
+Nevada,Eureka,34.7,34.8
+Nevada,Humboldt,37.5,37.3
+Nevada,Lander,40.4,41.5
+Nevada,Lincoln,35.4,34.3
+Nevada,Lyon,37.7,38.7
+Nevada,Mineral,37.7,40.1
+Nevada,Nye,39.3,39.1
+Nevada,Pershing,36.2,38.4
+Nevada,Storey,34.1,30.8
+Nevada,Washoe,30.0,28.4
+Nevada,White Pine,35.6,36.7
+New Hampshire,Belknap,32.6,36.4
+New Hampshire,Carroll,29.3,30.9
+New Hampshire,Cheshire,31.5,34.7
+New Hampshire,Coos,35.7,38.6
+New Hampshire,Grafton,29.4,31.5
+New Hampshire,Hillsborough,34.6,32.9
+New Hampshire,Merrimack,33.0,32.9
+New Hampshire,Rockingham,34.4,29.0
+New Hampshire,Strafford,34.1,37.1
+New Hampshire,Sullivan,34.9,34.1
+New Jersey,Atlantic,35.7,35.2
+New Jersey,Bergen,27.9,26.1
+New Jersey,Burlington,36.8,32.4
+New Jersey,Camden,35.0,36.6
+New Jersey,Cape May,36.3,34.8
+New Jersey,Cumberland,41.2,41.7
+New Jersey,Essex,31.3,38.4
+New Jersey,Gloucester,36.8,35.7
+New Jersey,Hudson,30.8,35.9
+New Jersey,Hunterdon,27.7,25.1
+New Jersey,Mercer,32.1,33.2
+New Jersey,Middlesex,30.7,29.5
+New Jersey,Monmouth,33.2,28.2
+New Jersey,Morris,29.4,25.7
+New Jersey,Ocean,38.3,32.8
+New Jersey,Passaic,33.8,34.7
+New Jersey,Salem,42.2,40.2
+New Jersey,Somerset,29.1,26.4
+New Jersey,Sussex,35.2,30.4
+New Jersey,Union,30.5,34.4
+New Jersey,Warren,36.3,33.2
+New Mexico,Bernalillo,27.6,30.5
+New Mexico,Catron,34.9,37.2
+New Mexico,Chaves,36.8,42.3
+New Mexico,Cibola,35.4,44.0
+New Mexico,Colfax,32.4,32.8
+New Mexico,Curry,36.7,39.8
+New Mexico,De Baca,36.7,40.5
+New Mexico,Dona Ana,36.2,39.7
+New Mexico,Eddy,37.5,40.9
+New Mexico,Grant,31.5,35.5
+New Mexico,Guadalupe,33.3,36.9
+New Mexico,Harding,33.5,35.2
+New Mexico,Hidalgo,33.0,40.1
+New Mexico,Lea,41.5,42.3
+New Mexico,Lincoln,31.8,32.6
+New Mexico,Los Alamos,22.5,22.7
+New Mexico,Luna,36.8,42.7
+New Mexico,McKinley,37.6,48.2
+New Mexico,Mora,27.3,31.5
+New Mexico,Otero,33.4,39.8
+New Mexico,Quay,37.0,40.3
+New Mexico,Rio Arriba,30.5,36.6
+New Mexico,Roosevelt,37.9,41.6
+New Mexico,San Juan,36.0,39.0
+New Mexico,San Miguel,29.3,34.6
+New Mexico,Sandoval,30.0,33.1
+New Mexico,Santa Fe,21.0,23.6
+New Mexico,Sierra,35.0,35.4
+New Mexico,Socorro,33.0,40.0
+New Mexico,Taos,27.1,31.5
+New Mexico,Torrance,31.6,35.1
+New Mexico,Union,34.0,36.7
+New Mexico,Valencia,33.6,40.4
+New York,Albany,31.0,35.1
+New York,Allegany,39.4,36.4
+New York,Bronx,32.9,41.8
+New York,Broome,35.2,35.4
+New York,Cattaraugus,39.7,37.3
+New York,Cayuga,38.4,36.2
+New York,Chautauqua,37.6,38.4
+New York,Chemung,36.1,39.7
+New York,Chenango,37.9,37.5
+New York,Clinton,35.7,34.7
+New York,Columbia,34.3,35.2
+New York,Cortland,36.4,35.7
+New York,Delaware,35.4,36.9
+New York,Dutchess,34.1,31.8
+New York,Erie,35.6,36.9
+New York,Essex,33.5,34.1
+New York,Franklin,37.4,40.7
+New York,Fulton,37.7,37.1
+New York,Genesee,38.1,38.1
+New York,Greene,35.2,38.4
+New York,Hamilton,36.2,35.4
+New York,Herkimer,38.6,37.4
+New York,Jefferson,38.4,40.5
+New York,Kings,28.7,37.0
+New York,Lewis,39.0,37.9
+New York,Livingston,38.4,39.3
+New York,Madison,37.1,36.5
+New York,Monroe,35.1,39.8
+New York,Montgomery,37.9,39.8
+New York,Nassau,30.3,28.7
+New York,New York,19.1,25.4
+New York,Niagara,39.7,38.0
+New York,Oneida,36.5,35.1
+New York,Onondaga,37.2,35.2
+New York,Ontario,34.6,37.4
+New York,Orange,35.9,36.3
+New York,Orleans,40.0,42.6
+New York,Oswego,40.2,40.1
+New York,Otsego,34.6,34.8
+New York,Putnam,34.5,30.5
+New York,Queens,26.6,33.3
+New York,Rensselaer,33.5,35.4
+New York,Richmond,28.7,31.0
+New York,Rockland,34.4,29.7
+New York,Saratoga,33.4,31.8
+New York,Schenectady,33.9,36.3
+New York,Schoharie,36.0,37.6
+New York,Schuyler,35.4,36.5
+New York,Seneca,37.9,39.8
+New York,St. Lawrence,38.4,40.8
+New York,Steuben,36.4,39.0
+New York,Suffolk,35.2,30.5
+New York,Sullivan,36.1,38.2
+New York,Tioga,36.9,38.6
+New York,Tompkins,30.3,31.4
+New York,Ulster,35.4,35.1
+New York,Warren,33.0,33.5
+New York,Washington,35.0,37.2
+New York,Wayne,37.9,40.1
+New York,Westchester,27.6,24.9
+New York,Wyoming,40.3,36.2
+New York,Yates,35.9,38.5
+North Carolina,Alamance,37.9,40.5
+North Carolina,Alexander,38.3,37.8
+North Carolina,Alleghany,35.6,38.6
+North Carolina,Anson,37.7,47.4
+North Carolina,Ashe,32.7,34.2
+North Carolina,Avery,34.8,36.0
+North Carolina,Beaufort,39.6,49.0
+North Carolina,Bertie,41.4,54.2
+North Carolina,Bladen,42.6,51.0
+North Carolina,Brunswick,37.8,38.7
+North Carolina,Buncombe,29.4,30.3
+North Carolina,Burke,36.1,36.6
+North Carolina,Cabarrus,35.6,37.8
+North Carolina,Caldwell,37.8,37.6
+North Carolina,Camden,37.4,38.0
+North Carolina,Carteret,34.2,36.6
+North Carolina,Caswell,41.8,46.3
+North Carolina,Catawba,33.0,36.6
+North Carolina,Chatham,34.5,33.9
+North Carolina,Cherokee,32.2,35.7
+North Carolina,Chowan,38.6,47.8
+North Carolina,Clay,33.9,35.3
+North Carolina,Cleveland,34.7,40.7
+North Carolina,Columbus,39.5,45.9
+North Carolina,Craven,36.9,41.9
+North Carolina,Cumberland,38.4,44.1
+North Carolina,Currituck,37.3,39.1
+North Carolina,Dare,34.3,34.3
+North Carolina,Davidson,36.1,38.4
+North Carolina,Davie,36.0,35.9
+North Carolina,Duplin,40.7,50.7
+North Carolina,Durham,31.7,39.0
+North Carolina,Edgecombe,43.1,53.5
+North Carolina,Forsyth,30.8,34.2
+North Carolina,Franklin,40.2,45.6
+North Carolina,Gaston,34.0,37.7
+North Carolina,Gates,40.1,45.2
+North Carolina,Graham,35.2,41.2
+North Carolina,Granville,39.3,44.5
+North Carolina,Greene,39.5,49.7
+North Carolina,Guilford,32.9,36.9
+North Carolina,Halifax,44.3,53.4
+North Carolina,Harnett,37.9,42.3
+North Carolina,Haywood,32.6,34.3
+North Carolina,Henderson,29.2,32.4
+North Carolina,Hertford,39.0,52.5
+North Carolina,Hoke,38.0,45.3
+North Carolina,Hyde,41.3,48.5
+North Carolina,Iredell,36.8,35.0
+North Carolina,Jackson,33.7,37.3
+North Carolina,Johnston,39.8,43.5
+North Carolina,Jones,38.5,47.1
+North Carolina,Lee,37.0,38.8
+North Carolina,Lenoir,39.7,50.1
+North Carolina,Lincoln,33.3,35.1
+North Carolina,Macon,32.0,34.6
+North Carolina,Madison,34.5,38.6
+North Carolina,Martin,42.0,51.7
+North Carolina,McDowell,36.3,40.9
+North Carolina,Mecklenburg,32.3,33.6
+North Carolina,Mitchell,34.4,37.6
+North Carolina,Montgomery,37.3,45.2
+North Carolina,Moore,33.8,33.8
+North Carolina,Nash,37.5,45.5
+North Carolina,New Hanover,33.2,32.8
+North Carolina,Northampton,41.9,53.5
+North Carolina,Onslow,34.1,39.9
+North Carolina,Orange,22.5,25.8
+North Carolina,Pamlico,37.1,43.2
+North Carolina,Pasquotank,40.0,44.8
+North Carolina,Pender,38.8,41.9
+North Carolina,Perquimans,37.7,41.1
+North Carolina,Person,41.9,45.0
+North Carolina,Pitt,37.5,44.6
+North Carolina,Polk,28.9,31.1
+North Carolina,Randolph,35.3,38.0
+North Carolina,Richmond,37.2,43.8
+North Carolina,Robeson,41.3,54.0
+North Carolina,Rockingham,39.4,43.7
+North Carolina,Rowan,38.2,40.3
+North Carolina,Rutherford,34.4,39.5
+North Carolina,Sampson,41.2,51.5
+North Carolina,Scotland,39.8,47.7
+North Carolina,Stanly,35.2,38.4
+North Carolina,Stokes,35.8,39.6
+North Carolina,Surry,37.4,40.9
+North Carolina,Swain,36.2,41.1
+North Carolina,Transylvania,31.0,31.3
+North Carolina,Tyrrell,41.8,49.3
+North Carolina,Union,36.4,34.0
+North Carolina,Vance,43.0,51.1
+North Carolina,Wake,31.0,33.4
+North Carolina,Warren,42.4,52.5
+North Carolina,Washington,40.9,51.7
+North Carolina,Watauga,28.0,33.4
+North Carolina,Wayne,37.7,45.6
+North Carolina,Wilkes,35.4,40.5
+North Carolina,Wilson,39.4,48.5
+North Carolina,Yadkin,37.6,40.4
+North Carolina,Yancey,33.5,35.3
+North Dakota,Adams,32.2,31.9
+North Dakota,Barnes,36.9,35.3
+North Dakota,Benson,39.5,47.8
+North Dakota,Billings,35.7,35.5
+North Dakota,Bottineau,36.6,36.0
+North Dakota,Bowman,34.6,34.2
+North Dakota,Burke,38.9,35.7
+North Dakota,Burleigh,34.2,32.2
+North Dakota,Cass,35.2,34.1
+North Dakota,Cavalier,36.1,35.1
+North Dakota,Dickey,36.1,35.3
+North Dakota,Divide,38.2,35.9
+North Dakota,Dunn,36.3,37.5
+North Dakota,Eddy,35.6,35.2
+North Dakota,Emmons,38.5,38.1
+North Dakota,Foster,34.8,33.4
+North Dakota,Golden Valley,35.9,35.6
+North Dakota,Grand Forks,37.8,36.2
+North Dakota,Grant,36.2,37.5
+North Dakota,Griggs,36.1,34.9
+North Dakota,Hettinger,35.0,35.4
+North Dakota,Kidder,38.1,37.8
+North Dakota,LaMoure,36.4,35.3
+North Dakota,Logan,40.7,40.6
+North Dakota,McHenry,37.9,37.0
+North Dakota,McIntosh,40.0,40.3
+North Dakota,McKenzie,37.4,39.2
+North Dakota,McLean,37.4,36.7
+North Dakota,Mercer,37.3,36.7
+North Dakota,Morton,38.2,37.2
+North Dakota,Mountrail,38.2,40.5
+North Dakota,Nelson,37.7,36.5
+North Dakota,Oliver,36.3,35.2
+North Dakota,Pembina,35.9,35.1
+North Dakota,Pierce,37.9,37.5
+North Dakota,Ramsey,35.4,35.3
+North Dakota,Ransom,36.1,33.9
+North Dakota,Renville,36.4,34.4
+North Dakota,Richland,38.4,35.4
+North Dakota,Rolette,37.6,51.0
+North Dakota,Sargent,38.0,36.3
+North Dakota,Sheridan,36.5,36.5
+North Dakota,Sioux,40.6,55.1
+North Dakota,Slope,36.9,36.8
+North Dakota,Stark,36.5,37.2
+North Dakota,Steele,39.1,36.8
+North Dakota,Stutsman,37.2,35.8
+North Dakota,Towner,36.9,36.3
+North Dakota,Traill,39.1,36.1
+North Dakota,Walsh,37.7,37.0
+North Dakota,Ward,36.6,34.3
+North Dakota,Wells,36.5,35.7
+North Dakota,Williams,38.7,35.1
+Ohio,Adams,40.9,42.7
+Ohio,Allen,43.4,44.9
+Ohio,Ashland,39.0,37.5
+Ohio,Ashtabula,35.8,40.7
+Ohio,Athens,37.7,40.9
+Ohio,Auglaize,39.0,38.9
+Ohio,Belmont,37.6,40.8
+Ohio,Brown,40.6,40.2
+Ohio,Butler,37.4,35.9
+Ohio,Carroll,40.3,40.6
+Ohio,Champaign,39.1,39.2
+Ohio,Clark,36.3,40.7
+Ohio,Clermont,37.3,35.8
+Ohio,Clinton,36.4,36.1
+Ohio,Columbiana,39.5,43.0
+Ohio,Coshocton,38.1,40.5
+Ohio,Crawford,39.5,41.9
+Ohio,Cuyahoga,33.3,37.5
+Ohio,Darke,37.5,40.6
+Ohio,Defiance,36.9,37.4
+Ohio,Delaware,34.6,30.0
+Ohio,Erie,36.7,39.5
+Ohio,Fairfield,39.2,39.8
+Ohio,Fayette,38.0,41.1
+Ohio,Franklin,35.8,39.5
+Ohio,Fulton,38.9,37.5
+Ohio,Gallia,39.1,41.2
+Ohio,Geauga,32.6,33.6
+Ohio,Greene,33.1,34.8
+Ohio,Guernsey,37.5,41.6
+Ohio,Hamilton,32.7,38.1
+Ohio,Hancock,38.3,38.4
+Ohio,Hardin,41.4,40.9
+Ohio,Harrison,39.0,41.8
+Ohio,Henry,39.5,38.4
+Ohio,Highland,38.0,41.4
+Ohio,Hocking,39.4,42.3
+Ohio,Holmes,46.4,46.5
+Ohio,Huron,37.7,41.6
+Ohio,Jackson,40.9,45.4
+Ohio,Jefferson,41.3,40.2
+Ohio,Knox,36.0,37.8
+Ohio,Lake,35.1,33.2
+Ohio,Lawrence,44.6,43.7
+Ohio,Licking,38.6,38.7
+Ohio,Logan,40.2,39.8
+Ohio,Lorain,38.0,39.0
+Ohio,Lucas,38.9,42.2
+Ohio,Madison,39.2,39.1
+Ohio,Mahoning,36.5,36.9
+Ohio,Marion,38.7,41.3
+Ohio,Medina,35.3,33.2
+Ohio,Meigs,40.2,42.9
+Ohio,Mercer,36.5,36.2
+Ohio,Miami,37.1,37.8
+Ohio,Monroe,40.2,43.2
+Ohio,Montgomery,36.8,39.0
+Ohio,Morgan,39.3,42.4
+Ohio,Morrow,38.1,41.6
+Ohio,Muskingum,35.6,42.0
+Ohio,Noble,42.7,44.4
+Ohio,Ottawa,40.4,40.7
+Ohio,Paulding,38.0,40.3
+Ohio,Perry,38.8,43.7
+Ohio,Pickaway,41.4,42.7
+Ohio,Pike,38.9,46.1
+Ohio,Portage,37.1,36.2
+Ohio,Preble,37.1,38.0
+Ohio,Putnam,39.4,37.8
+Ohio,Richland,38.5,41.8
+Ohio,Ross,36.6,44.7
+Ohio,Sandusky,38.3,43.0
+Ohio,Scioto,42.6,44.3
+Ohio,Seneca,37.9,41.1
+Ohio,Shelby,37.3,38.6
+Ohio,Stark,38.8,39.5
+Ohio,Summit,35.8,35.7
+Ohio,Trumbull,35.8,39.0
+Ohio,Tuscarawas,40.3,40.1
+Ohio,Union,40.3,37.3
+Ohio,Van Wert,37.1,39.6
+Ohio,Vinton,39.7,45.8
+Ohio,Warren,35.5,30.8
+Ohio,Washington,41.5,37.3
+Ohio,Wayne,38.7,36.4
+Ohio,Williams,37.2,36.7
+Ohio,Wood,38.4,39.2
+Ohio,Wyandot,38.9,38.4
+Oklahoma,Adair,40.9,45.9
+Oklahoma,Alfalfa,37.7,39.3
+Oklahoma,Atoka,39.6,41.8
+Oklahoma,Beaver,36.9,36.9
+Oklahoma,Beckham,38.3,37.9
+Oklahoma,Blaine,40.7,39.2
+Oklahoma,Bryan,38.8,38.7
+Oklahoma,Caddo,40.7,42.6
+Oklahoma,Canadian,37.2,36.0
+Oklahoma,Carter,38.0,39.1
+Oklahoma,Cherokee,39.5,43.1
+Oklahoma,Choctaw,39.5,42.6
+Oklahoma,Cimarron,38.5,40.2
+Oklahoma,Cleveland,37.3,36.8
+Oklahoma,Coal,41.9,44.4
+Oklahoma,Comanche,36.6,42.7
+Oklahoma,Cotton,38.8,41.4
+Oklahoma,Craig,40.5,45.0
+Oklahoma,Creek,37.9,42.7
+Oklahoma,Custer,37.7,38.1
+Oklahoma,Delaware,40.4,41.1
+Oklahoma,Dewey,37.5,37.3
+Oklahoma,Ellis,34.8,34.8
+Oklahoma,Garfield,37.8,39.6
+Oklahoma,Garvin,40.9,39.5
+Oklahoma,Grady,40.2,43.8
+Oklahoma,Grant,39.1,39.5
+Oklahoma,Greer,38.0,41.1
+Oklahoma,Harmon,38.4,43.6
+Oklahoma,Harper,36.3,36.4
+Oklahoma,Haskell,40.9,42.6
+Oklahoma,Hughes,44.2,45.7
+Oklahoma,Jackson,34.8,40.8
+Oklahoma,Jefferson,38.9,41.3
+Oklahoma,Johnston,40.5,40.9
+Oklahoma,Kay,39.6,41.9
+Oklahoma,Kingfisher,38.7,37.4
+Oklahoma,Kiowa,37.7,40.5
+Oklahoma,Latimer,38.1,39.9
+Oklahoma,Le Flore,37.9,39.8
+Oklahoma,Lincoln,37.8,41.8
+Oklahoma,Logan,40.3,41.0
+Oklahoma,Love,37.9,39.0
+Oklahoma,Major,37.5,36.8
+Oklahoma,Marshall,40.0,40.0
+Oklahoma,Mayes,40.9,42.2
+Oklahoma,McClain,38.8,39.1
+Oklahoma,McCurtain,40.6,43.3
+Oklahoma,McIntosh,41.3,42.0
+Oklahoma,Murray,43.3,40.8
+Oklahoma,Muskogee,36.2,42.3
+Oklahoma,Noble,39.3,40.1
+Oklahoma,Nowata,39.6,45.0
+Oklahoma,Okfuskee,41.4,46.2
+Oklahoma,Oklahoma,36.0,38.0
+Oklahoma,Okmulgee,38.2,42.4
+Oklahoma,Osage,37.9,43.9
+Oklahoma,Ottawa,38.6,44.3
+Oklahoma,Pawnee,37.4,41.4
+Oklahoma,Payne,36.4,36.3
+Oklahoma,Pittsburg,40.9,40.2
+Oklahoma,Pontotoc,40.3,41.4
+Oklahoma,Pottawatomie,40.4,43.0
+Oklahoma,Pushmataha,40.0,42.3
+Oklahoma,Roger Mills,36.3,36.2
+Oklahoma,Rogers,36.8,39.4
+Oklahoma,Seminole,43.4,43.6
+Oklahoma,Sequoyah,39.8,42.5
+Oklahoma,Stephens,37.1,38.4
+Oklahoma,Texas,37.1,39.0
+Oklahoma,Tillman,38.5,44.3
+Oklahoma,Tulsa,34.0,37.3
+Oklahoma,Wagoner,37.1,38.8
+Oklahoma,Washington,35.8,39.3
+Oklahoma,Washita,39.4,37.5
+Oklahoma,Woods,35.8,36.8
+Oklahoma,Woodward,36.4,36.2
+Oregon,Baker,35.7,35.3
+Oregon,Benton,31.8,31.9
+Oregon,Clackamas,35.0,31.5
+Oregon,Clatsop,35.5,35.0
+Oregon,Columbia,38.2,37.4
+Oregon,Coos,36.8,41.5
+Oregon,Crook,35.1,35.8
+Oregon,Curry,36.8,36.7
+Oregon,Deschutes,27.3,28.5
+Oregon,Douglas,35.2,41.0
+Oregon,Gilliam,39.4,36.7
+Oregon,Grant,34.9,34.9
+Oregon,Harney,35.0,35.1
+Oregon,Hood River,34.8,35.6
+Oregon,Jackson,31.8,32.3
+Oregon,Jefferson,35.4,41.9
+Oregon,Josephine,36.0,36.6
+Oregon,Klamath,31.5,37.2
+Oregon,Lake,33.3,35.2
+Oregon,Lane,33.0,33.9
+Oregon,Lincoln,35.9,38.0
+Oregon,Linn,34.8,38.5
+Oregon,Malheur,35.7,38.9
+Oregon,Marion,36.2,40.2
+Oregon,Morrow,40.3,40.6
+Oregon,Multnomah,27.7,32.2
+Oregon,Polk,38.8,39.2
+Oregon,Sherman,39.3,36.8
+Oregon,Tillamook,37.0,35.8
+Oregon,Umatilla,39.7,43.2
+Oregon,Union,35.6,35.6
+Oregon,Wallowa,35.1,35.5
+Oregon,Wasco,40.0,40.0
+Oregon,Washington,32.0,31.9
+Oregon,Wheeler,35.6,35.6
+Oregon,Yamhill,37.4,36.3
+Pennsylvania,Adams,36.7,37.8
+Pennsylvania,Allegheny,35.5,35.5
+Pennsylvania,Armstrong,39.0,38.3
+Pennsylvania,Beaver,38.4,40.8
+Pennsylvania,Bedford,40.8,40.5
+Pennsylvania,Berks,36.1,37.5
+Pennsylvania,Blair,38.3,42.8
+Pennsylvania,Bradford,36.8,41.3
+Pennsylvania,Bucks,32.6,30.4
+Pennsylvania,Butler,36.2,36.2
+Pennsylvania,Cambria,42.1,42.4
+Pennsylvania,Cameron,39.1,40.0
+Pennsylvania,Carbon,37.7,39.6
+Pennsylvania,Centre,32.4,37.6
+Pennsylvania,Chester,31.8,29.5
+Pennsylvania,Clarion,37.6,38.3
+Pennsylvania,Clearfield,38.3,40.0
+Pennsylvania,Clinton,37.4,41.2
+Pennsylvania,Columbia,38.5,42.4
+Pennsylvania,Crawford,33.9,40.0
+Pennsylvania,Cumberland,34.3,33.7
+Pennsylvania,Dauphin,35.9,42.7
+Pennsylvania,Delaware,32.9,34.0
+Pennsylvania,Elk,36.6,36.7
+Pennsylvania,Erie,34.0,39.6
+Pennsylvania,Fayette,41.2,42.9
+Pennsylvania,Forest,39.4,42.2
+Pennsylvania,Franklin,38.5,39.7
+Pennsylvania,Fulton,39.8,41.4
+Pennsylvania,Greene,39.3,44.2
+Pennsylvania,Huntingdon,37.4,39.8
+Pennsylvania,Indiana,37.6,38.1
+Pennsylvania,Jefferson,36.7,37.1
+Pennsylvania,Juniata,39.4,43.8
+Pennsylvania,Lackawanna,33.7,34.9
+Pennsylvania,Lancaster,35.7,39.4
+Pennsylvania,Lawrence,37.9,39.4
+Pennsylvania,Lebanon,39.4,39.5
+Pennsylvania,Lehigh,34.3,37.3
+Pennsylvania,Luzerne,37.7,37.1
+Pennsylvania,Lycoming,36.9,40.9
+Pennsylvania,McKean,37.8,36.6
+Pennsylvania,Mercer,37.0,39.1
+Pennsylvania,Mifflin,39.8,41.6
+Pennsylvania,Monroe,35.2,36.8
+Pennsylvania,Montgomery,30.7,30.0
+Pennsylvania,Montour,25.2,30.6
+Pennsylvania,Northampton,36.0,37.5
+Pennsylvania,Northumberland,40.7,43.0
+Pennsylvania,Perry,36.7,43.3
+Pennsylvania,Philadelphia,32.7,43.9
+Pennsylvania,Pike,36.6,36.1
+Pennsylvania,Potter,37.6,40.0
+Pennsylvania,Schuylkill,39.2,41.4
+Pennsylvania,Snyder,40.0,41.6
+Pennsylvania,Somerset,39.2,43.7
+Pennsylvania,Sullivan,38.3,41.6
+Pennsylvania,Susquehanna,37.2,39.3
+Pennsylvania,Tioga,37.9,41.1
+Pennsylvania,Union,35.4,39.2
+Pennsylvania,Venango,36.5,40.4
+Pennsylvania,Warren,36.3,37.9
+Pennsylvania,Washington,39.4,38.1
+Pennsylvania,Wayne,35.9,36.7
+Pennsylvania,Westmoreland,36.3,35.1
+Pennsylvania,Wyoming,36.7,40.7
+Pennsylvania,York,39.3,38.7
+Rhode Island,Bristol,30.3,27.3
+Rhode Island,Kent,33.8,33.4
+Rhode Island,Newport,29.4,27.3
+Rhode Island,Providence,33.9,36.2
+Rhode Island,Washington,30.0,27.8
+South Carolina,Abbeville,38.5,42.5
+South Carolina,Aiken,37.9,42.2
+South Carolina,Allendale,43.2,58.0
+South Carolina,Anderson,35.4,38.2
+South Carolina,Bamberg,41.6,54.1
+South Carolina,Barnwell,42.0,48.7
+South Carolina,Beaufort,29.7,28.3
+South Carolina,Berkeley,37.5,48.6
+South Carolina,Calhoun,39.1,47.5
+South Carolina,Charleston,30.3,36.4
+South Carolina,Cherokee,35.2,43.8
+South Carolina,Chester,39.8,46.4
+South Carolina,Chesterfield,36.7,44.7
+South Carolina,Clarendon,41.0,52.0
+South Carolina,Colleton,38.3,49.6
+South Carolina,Darlington,34.3,47.0
+South Carolina,Dillon,41.3,52.6
+South Carolina,Dorchester,36.4,37.9
+South Carolina,Edgefield,40.8,47.0
+South Carolina,Fairfield,40.9,50.0
+South Carolina,Florence,34.9,46.5
+South Carolina,Georgetown,35.6,42.9
+South Carolina,Greenville,34.4,35.4
+South Carolina,Greenwood,38.8,42.0
+South Carolina,Hampton,42.2,51.2
+South Carolina,Horry,36.6,36.7
+South Carolina,Jasper,40.2,51.2
+South Carolina,Kershaw,33.8,42.0
+South Carolina,Lancaster,37.0,41.7
+South Carolina,Laurens,40.0,46.3
+South Carolina,Lee,39.2,56.1
+South Carolina,Lexington,35.3,39.4
+South Carolina,Marion,37.0,51.1
+South Carolina,Marlboro,40.8,54.3
+South Carolina,McCormick,41.3,48.8
+South Carolina,Newberry,41.1,45.4
+South Carolina,Oconee,36.0,38.1
+South Carolina,Orangeburg,39.3,52.3
+South Carolina,Pickens,33.9,34.9
+South Carolina,Richland,33.3,41.2
+South Carolina,Saluda,39.1,42.5
+South Carolina,Spartanburg,32.9,36.9
+South Carolina,Sumter,37.7,46.4
+South Carolina,Union,40.3,45.3
+South Carolina,Williamsburg,40.7,55.1
+South Carolina,York,34.6,36.8
+South Dakota,Aurora,37.9,36.2
+South Dakota,Beadle,40.7,35.5
+South Dakota,Bennett,37.2,48.0
+South Dakota,Bon Homme,37.7,36.8
+South Dakota,Brookings,33.3,33.4
+South Dakota,Brown,35.1,35.5
+South Dakota,Brule,35.6,36.1
+South Dakota,Buffalo,38.3,53.6
+South Dakota,Butte,35.3,36.0
+South Dakota,Campbell,38.5,37.7
+South Dakota,Charles Mix,37.1,41.9
+South Dakota,Clark,37.1,35.3
+South Dakota,Clay,37.0,35.2
+South Dakota,Codington,35.4,34.5
+South Dakota,Corson,37.5,49.2
+South Dakota,Custer,35.3,33.9
+South Dakota,Davison,40.3,35.7
+South Dakota,Day,36.2,37.6
+South Dakota,Deuel,36.8,36.1
+South Dakota,Dewey,41.0,53.2
+South Dakota,Douglas,40.8,38.9
+South Dakota,Edmunds,37.0,36.6
+South Dakota,Fall River,35.2,35.6
+South Dakota,Faulk,37.8,37.6
+South Dakota,Grant,37.4,36.6
+South Dakota,Gregory,36.2,37.6
+South Dakota,Haakon,33.2,32.6
+South Dakota,Hamlin,36.5,36.2
+South Dakota,Hand,37.4,34.9
+South Dakota,Hanson,38.8,35.9
+South Dakota,Harding,37.0,37.5
+South Dakota,Hughes,36.0,36.1
+South Dakota,Hutchinson,39.0,37.4
+South Dakota,Hyde,38.1,38.3
+South Dakota,Jackson,38.4,46.5
+South Dakota,Jerauld,37.0,35.7
+South Dakota,Jones,36.6,36.5
+South Dakota,Kingsbury,36.4,34.3
+South Dakota,Lake,35.0,33.5
+South Dakota,Lawrence,32.6,30.5
+South Dakota,Lincoln,34.4,33.3
+South Dakota,Lyman,38.0,43.6
+South Dakota,Marshall,37.2,38.2
+South Dakota,McCook,35.8,34.2
+South Dakota,McPherson,39.7,40.8
+South Dakota,Meade,33.5,34.4
+South Dakota,Mellette,38.9,49.1
+South Dakota,Miner,34.7,33.8
+South Dakota,Minnehaha,36.5,34.5
+South Dakota,Moody,35.6,35.8
+South Dakota,Pennington,33.8,32.1
+South Dakota,Perkins,36.5,37.0
+South Dakota,Potter,35.8,35.0
+South Dakota,Roberts,37.6,41.7
+South Dakota,Sanborn,39.6,36.8
+South Dakota,Shannon,40.0,57.7
+South Dakota,Spink,37.5,35.5
+South Dakota,Stanley,36.4,35.7
+South Dakota,Sully,36.4,35.3
+South Dakota,Todd,38.7,55.3
+South Dakota,Tripp,36.5,38.2
+South Dakota,Turner,38.1,35.0
+South Dakota,Union,36.4,35.0
+South Dakota,Walworth,36.9,38.4
+South Dakota,Yankton,37.0,33.6
+South Dakota,Ziebach,38.6,54.1
+Tennessee,Anderson,36.0,37.7
+Tennessee,Bedford,40.8,42.8
+Tennessee,Benton,40.5,41.5
+Tennessee,Bledsoe,41.2,42.3
+Tennessee,Blount,34.8,37.4
+Tennessee,Bradley,36.8,38.1
+Tennessee,Campbell,40.5,44.3
+Tennessee,Cannon,38.8,42.5
+Tennessee,Carroll,38.4,45.6
+Tennessee,Carter,36.7,41.3
+Tennessee,Cheatham,38.1,38.6
+Tennessee,Chester,39.4,46.5
+Tennessee,Claiborne,40.2,41.0
+Tennessee,Clay,41.7,45.1
+Tennessee,Cocke,38.5,43.1
+Tennessee,Coffee,37.0,41.2
+Tennessee,Crockett,38.2,45.0
+Tennessee,Cumberland,37.6,35.2
+Tennessee,Davidson,32.0,38.4
+Tennessee,Decatur,39.1,41.3
+Tennessee,DeKalb,40.0,41.6
+Tennessee,Dickson,37.6,39.1
+Tennessee,Dyer,37.6,43.9
+Tennessee,Fayette,39.0,44.6
+Tennessee,Fentress,43.1,42.0
+Tennessee,Franklin,38.1,40.1
+Tennessee,Gibson,38.3,43.9
+Tennessee,Giles,40.8,42.6
+Tennessee,Grainger,40.9,41.1
+Tennessee,Greene,35.7,44.1
+Tennessee,Grundy,42.6,44.8
+Tennessee,Hamblen,37.2,39.7
+Tennessee,Hamilton,36.2,36.6
+Tennessee,Hancock,40.2,45.2
+Tennessee,Hardeman,41.5,52.1
+Tennessee,Hardin,37.0,41.4
+Tennessee,Hawkins,37.5,42.0
+Tennessee,Haywood,40.0,52.0
+Tennessee,Henderson,38.7,43.4
+Tennessee,Henry,36.9,41.6
+Tennessee,Hickman,40.7,40.8
+Tennessee,Houston,39.2,40.8
+Tennessee,Humphreys,39.3,39.1
+Tennessee,Jackson,41.9,43.8
+Tennessee,Jefferson,37.5,35.4
+Tennessee,Johnson,37.9,42.6
+Tennessee,Knox,33.5,35.3
+Tennessee,Lake,43.4,52.1
+Tennessee,Lauderdale,40.7,49.8
+Tennessee,Lawrence,39.2,39.4
+Tennessee,Lewis,40.5,41.0
+Tennessee,Lincoln,39.8,40.5
+Tennessee,Loudon,36.0,37.1
+Tennessee,Macon,40.1,42.3
+Tennessee,Madison,35.0,46.0
+Tennessee,Marion,40.1,39.7
+Tennessee,Marshall,40.8,41.1
+Tennessee,Maury,39.3,40.2
+Tennessee,McMinn,37.5,40.4
+Tennessee,McNairy,37.3,43.7
+Tennessee,Meigs,40.1,41.6
+Tennessee,Monroe,37.5,43.8
+Tennessee,Montgomery,36.3,39.3
+Tennessee,Moore,40.5,41.0
+Tennessee,Morgan,39.7,39.9
+Tennessee,Obion,39.5,42.8
+Tennessee,Overton,41.4,41.8
+Tennessee,Perry,40.7,40.6
+Tennessee,Pickett,40.0,41.6
+Tennessee,Polk,36.6,39.1
+Tennessee,Putnam,38.4,36.6
+Tennessee,Rhea,40.0,41.9
+Tennessee,Roane,38.0,39.8
+Tennessee,Robertson,38.5,38.7
+Tennessee,Rutherford,35.5,39.1
+Tennessee,Scott,39.4,42.4
+Tennessee,Sequatchie,40.7,40.6
+Tennessee,Sevier,35.6,35.8
+Tennessee,Shelby,35.1,44.6
+Tennessee,Smith,40.1,39.8
+Tennessee,Stewart,38.2,37.5
+Tennessee,Sullivan,36.7,38.3
+Tennessee,Sumner,36.0,35.6
+Tennessee,Tipton,37.8,41.6
+Tennessee,Trousdale,39.6,41.7
+Tennessee,Unicoi,37.4,42.0
+Tennessee,Union,41.2,42.1
+Tennessee,Van Buren,40.6,40.2
+Tennessee,Warren,39.8,40.6
+Tennessee,Washington,31.8,37.2
+Tennessee,Wayne,38.4,40.1
+Tennessee,Weakley,37.3,42.5
+Tennessee,White,39.5,37.9
+Tennessee,Williamson,30.6,28.9
+Tennessee,Wilson,35.7,38.3
+Texas,Anderson,38.2,38.1
+Texas,Andrews,39.6,41.6
+Texas,Angelina,37.7,42.2
+Texas,Aransas,37.1,39.8
+Texas,Archer,37.6,37.0
+Texas,Armstrong,35.9,35.3
+Texas,Atascosa,35.8,41.9
+Texas,Austin,37.7,39.0
+Texas,Bailey,37.8,41.6
+Texas,Bandera,38.4,36.6
+Texas,Bastrop,36.5,38.4
+Texas,Baylor,35.2,37.4
+Texas,Bee,39.1,43.4
+Texas,Bell,33.6,37.7
+Texas,Bexar,37.4,41.1
+Texas,Blanco,33.8,32.7
+Texas,Borden,36.5,37.1
+Texas,Bosque,37.5,38.7
+Texas,Bowie,38.7,38.3
+Texas,Brazoria,33.9,35.9
+Texas,Brazos,34.9,36.8
+Texas,Brewster,34.8,36.7
+Texas,Briscoe,37.1,38.8
+Texas,Brooks,42.3,50.9
+Texas,Brown,36.9,37.4
+Texas,Burleson,40.0,41.0
+Texas,Burnet,34.7,34.5
+Texas,Caldwell,36.9,43.1
+Texas,Calhoun,37.3,39.9
+Texas,Callahan,38.2,35.7
+Texas,Cameron,41.9,46.7
+Texas,Camp,40.1,43.4
+Texas,Carson,37.5,35.4
+Texas,Cass,40.0,41.4
+Texas,Castro,38.3,41.9
+Texas,Chambers,36.8,38.1
+Texas,Cherokee,37.9,43.1
+Texas,Childress,35.8,39.5
+Texas,Clay,37.6,36.0
+Texas,Cochran,38.8,43.8
+Texas,Coke,35.7,37.6
+Texas,Coleman,38.8,39.1
+Texas,Collin,29.5,29.7
+Texas,Collingsworth,38.7,41.2
+Texas,Colorado,35.7,42.0
+Texas,Comal,35.1,33.7
+Texas,Comanche,38.4,39.2
+Texas,Concho,33.5,40.7
+Texas,Cooke,38.9,38.8
+Texas,Coryell,35.2,38.5
+Texas,Cottle,39.3,43.6
+Texas,Crane,40.0,41.3
+Texas,Crockett,42.0,44.6
+Texas,Crosby,37.9,43.5
+Texas,Culberson,37.2,46.0
+Texas,Dallam,38.1,39.4
+Texas,Dallas,35.2,39.4
+Texas,Dawson,40.3,45.1
+Texas,Deaf Smith,38.1,43.8
+Texas,Delta,37.3,40.6
+Texas,Denton,36.2,35.5
+Texas,DeWitt,38.9,39.8
+Texas,Dickens,38.7,42.9
+Texas,Dimmit,43.2,48.2
+Texas,Donley,37.6,38.8
+Texas,Duval,39.1,43.8
+Texas,Eastland,40.7,39.0
+Texas,Ector,38.9,43.4
+Texas,Edwards,37.3,43.3
+Texas,El Paso,35.9,40.4
+Texas,Ellis,37.2,38.7
+Texas,Erath,37.0,37.5
+Texas,Falls,38.0,45.7
+Texas,Fannin,36.6,38.6
+Texas,Fayette,36.2,39.8
+Texas,Fisher,36.0,37.0
+Texas,Floyd,38.4,41.9
+Texas,Foard,39.1,42.5
+Texas,Fort Bend,32.6,32.0
+Texas,Franklin,38.6,39.2
+Texas,Freestone,38.7,40.5
+Texas,Frio,37.2,47.3
+Texas,Gaines,42.3,46.7
+Texas,Galveston,33.3,37.3
+Texas,Garza,40.3,47.2
+Texas,Gillespie,33.3,33.0
+Texas,Glasscock,36.8,36.4
+Texas,Goliad,36.0,36.1
+Texas,Gonzales,38.8,45.5
+Texas,Gray,39.0,39.0
+Texas,Grayson,34.9,35.7
+Texas,Gregg,39.7,41.0
+Texas,Grimes,41.3,43.1
+Texas,Guadalupe,37.5,41.3
+Texas,Hale,38.7,41.7
+Texas,Hall,38.9,43.3
+Texas,Hamilton,36.3,36.5
+Texas,Hansford,39.6,38.7
+Texas,Hardeman,34.8,38.8
+Texas,Hardin,37.8,41.9
+Texas,Harris,35.0,38.6
+Texas,Harrison,42.5,42.9
+Texas,Hartley,39.2,39.4
+Texas,Haskell,37.3,41.2
+Texas,Hays,35.1,36.4
+Texas,Hemphill,37.7,38.1
+Texas,Henderson,37.7,39.6
+Texas,Hidalgo,44.2,49.4
+Texas,Hill,38.0,41.7
+Texas,Hockley,38.3,40.2
+Texas,Hood,36.9,35.9
+Texas,Hopkins,41.2,42.2
+Texas,Houston,39.1,41.6
+Texas,Howard,38.7,42.2
+Texas,Hudspeth,39.1,49.1
+Texas,Hunt,38.4,41.3
+Texas,Hutchinson,41.1,37.5
+Texas,Irion,37.5,38.3
+Texas,Jack,39.2,39.3
+Texas,Jackson,38.4,42.2
+Texas,Jasper,37.1,42.2
+Texas,Jeff Davis,34.0,37.0
+Texas,Jefferson,37.0,43.0
+Texas,Jim Hogg,41.6,46.7
+Texas,Jim Wells,38.6,45.2
+Texas,Johnson,39.5,37.7
+Texas,Jones,40.6,44.4
+Texas,Karnes,38.5,43.4
+Texas,Kaufman,38.6,40.0
+Texas,Kendall,31.5,29.4
+Texas,Kenedy,38.0,42.6
+Texas,Kent,35.3,35.7
+Texas,Kerr,32.7,34.4
+Texas,Kimble,37.6,40.3
+Texas,King,36.8,37.8
+Texas,Kinney,39.6,45.4
+Texas,Kleberg,36.1,42.8
+Texas,Knox,37.1,42.3
+Texas,La Salle,43.0,51.2
+Texas,Lamar,36.0,37.1
+Texas,Lamb,37.9,42.0
+Texas,Lampasas,35.8,37.0
+Texas,Lavaca,37.7,40.1
+Texas,Lee,38.6,39.5
+Texas,Leon,39.5,38.2
+Texas,Liberty,39.3,44.0
+Texas,Limestone,38.5,42.5
+Texas,Lipscomb,36.0,37.2
+Texas,Live Oak,37.2,40.8
+Texas,Llano,36.6,33.6
+Texas,Loving,36.4,37.8
+Texas,Lubbock,34.6,37.3
+Texas,Lynn,37.6,41.5
+Texas,Madison,40.6,42.8
+Texas,Marion,42.1,45.3
+Texas,Martin,38.3,41.0
+Texas,Mason,36.8,36.1
+Texas,Matagorda,37.7,40.9
+Texas,Maverick,42.9,48.4
+Texas,McCulloch,38.0,39.3
+Texas,McLennan,35.4,41.5
+Texas,McMullen,38.9,39.2
+Texas,Medina,37.0,41.4
+Texas,Menard,36.8,39.5
+Texas,Midland,37.4,35.3
+Texas,Milam,38.2,41.7
+Texas,Mills,36.6,37.9
+Texas,Mitchell,37.9,41.8
+Texas,Montague,38.5,38.2
+Texas,Montgomery,36.6,35.2
+Texas,Moore,39.1,41.1
+Texas,Morris,39.0,41.8
+Texas,Motley,35.4,36.6
+Texas,Nacogdoches,37.7,41.6
+Texas,Navarro,37.5,43.8
+Texas,Newton,41.0,44.1
+Texas,Nolan,37.8,40.1
+Texas,Nueces,35.7,40.4
+Texas,Ochiltree,39.5,40.3
+Texas,Oldham,37.9,39.0
+Texas,Orange,38.0,42.6
+Texas,Palo Pinto,38.7,40.1
+Texas,Panola,41.0,42.6
+Texas,Parker,37.9,35.8
+Texas,Parmer,39.1,43.8
+Texas,Pecos,40.0,40.4
+Texas,Polk,39.5,44.2
+Texas,Potter,35.7,42.0
+Texas,Presidio,38.3,46.6
+Texas,Rains,40.5,40.9
+Texas,Randall,32.4,31.2
+Texas,Reagan,41.2,42.3
+Texas,Real,38.4,40.6
+Texas,Red River,41.3,44.0
+Texas,Reeves,41.3,48.5
+Texas,Refugio,38.6,41.7
+Texas,Roberts,36.1,33.4
+Texas,Robertson,40.2,43.2
+Texas,Rockwall,33.7,32.8
+Texas,Runnels,38.4,40.7
+Texas,Rusk,40.0,44.1
+Texas,Sabine,39.8,41.8
+Texas,San Augustine,41.1,46.2
+Texas,San Jacinto,40.5,42.7
+Texas,San Patricio,39.0,43.0
+Texas,San Saba,35.5,36.5
+Texas,Schleicher,35.9,38.8
+Texas,Scurry,38.2,39.3
+Texas,Shackelford,38.1,36.9
+Texas,Shelby,41.1,44.9
+Texas,Sherman,39.4,39.2
+Texas,Smith,34.8,37.0
+Texas,Somervell,35.5,34.3
+Texas,Starr,46.2,55.7
+Texas,Stephens,39.1,38.8
+Texas,Sterling,39.5,40.9
+Texas,Stonewall,36.8,37.8
+Texas,Sutton,38.0,41.2
+Texas,Swisher,37.8,40.8
+Texas,Tarrant,35.7,37.5
+Texas,Taylor,35.7,35.7
+Texas,Terrell,36.6,38.5
+Texas,Terry,39.7,44.3
+Texas,Throckmorton,39.0,39.5
+Texas,Titus,37.6,40.8
+Texas,Tom Green,35.3,38.1
+Texas,Travis,29.3,33.5
+Texas,Trinity,40.6,42.5
+Texas,Tyler,38.0,43.4
+Texas,Upshur,40.7,40.2
+Texas,Upton,38.5,40.3
+Texas,Uvalde,37.8,43.0
+Texas,Val Verde,39.3,46.2
+Texas,Van Zandt,39.4,41.2
+Texas,Victoria,36.5,37.5
+Texas,Walker,39.7,41.4
+Texas,Waller,40.2,42.6
+Texas,Ward,40.3,43.4
+Texas,Washington,38.0,39.0
+Texas,Webb,44.3,45.7
+Texas,Wharton,38.8,43.4
+Texas,Wheeler,36.1,36.3
+Texas,Wichita,35.9,37.9
+Texas,Wilbarger,37.7,41.5
+Texas,Willacy,43.8,50.7
+Texas,Williamson,33.5,32.9
+Texas,Wilson,36.8,40.0
+Texas,Winkler,41.5,44.8
+Texas,Wise,39.1,38.7
+Texas,Wood,40.2,39.1
+Texas,Yoakum,39.8,42.3
+Texas,Young,38.1,38.1
+Texas,Zapata,45.2,51.3
+Texas,Zavala,39.8,49.1
+Utah,Beaver,32.9,33.4
+Utah,Box Elder,37.1,36.9
+Utah,Cache,32.4,34.1
+Utah,Carbon,34.5,34.7
+Utah,Daggett,34.3,33.9
+Utah,Davis,33.4,31.6
+Utah,Duchesne,33.7,34.2
+Utah,Emery,36.8,35.4
+Utah,Garfield,33.9,33.8
+Utah,Grand,32.2,29.7
+Utah,Iron,33.3,34.2
+Utah,Juab,36.6,35.8
+Utah,Kane,32.1,30.9
+Utah,Millard,33.2,34.2
+Utah,Morgan,28.7,27.6
+Utah,Piute,36.4,37.3
+Utah,Rich,31.3,30.3
+Utah,Salt Lake,30.9,32.5
+Utah,San Juan,34.1,42.8
+Utah,Sanpete,34.2,34.6
+Utah,Sevier,34.6,35.0
+Utah,Summit,22.4,20.0
+Utah,Tooele,38.4,37.3
+Utah,Uintah,37.1,35.9
+Utah,Utah,34.5,31.3
+Utah,Wasatch,31.0,27.5
+Utah,Washington,33.0,31.0
+Utah,Wayne,32.0,30.8
+Utah,Weber,33.5,35.5
+Vermont,Addison,27.9,29.3
+Vermont,Bennington,29.2,30.4
+Vermont,Caledonia,30.1,35.5
+Vermont,Chittenden,26.5,26.4
+Vermont,Essex,34.9,39.1
+Vermont,Franklin,35.4,36.8
+Vermont,Grand Isle,33.6,31.6
+Vermont,Lamoille,30.3,31.9
+Vermont,Orange,31.5,34.2
+Vermont,Orleans,34.6,35.8
+Vermont,Rutland,31.7,33.4
+Vermont,Washington,27.1,28.5
+Vermont,Windham,29.0,29.3
+Vermont,Windsor,30.2,29.7
+Virginia,Accomack,41.0,45.3
+Virginia,Albemarle,29.6,29.2
+Virginia,Alexandria City,25.7,26.9
+Virginia,Alleghany,37.3,36.7
+Virginia,Amelia,41.8,42.9
+Virginia,Amherst,37.5,40.9
+Virginia,Appomattox,39.2,41.1
+Virginia,Arlington,26.1,24.3
+Virginia,Augusta,34.6,38.4
+Virginia,Bath,36.6,37.7
+Virginia,Bedford,34.1,33.9
+Virginia,Bedford City,34.8,37.1
+Virginia,Bland,37.6,35.5
+Virginia,Botetourt,35.0,32.7
+Virginia,Bristol City,41.7,42.0
+Virginia,Brunswick,43.2,51.5
+Virginia,Buchanan,44.0,42.5
+Virginia,Buckingham,42.8,46.6
+Virginia,Buena Vista City,39.3,42.5
+Virginia,Campbell,37.6,39.9
+Virginia,Caroline,39.4,42.2
+Virginia,Carroll,38.3,42.0
+Virginia,Charles City,42.7,49.8
+Virginia,Charlotte,42.3,45.1
+Virginia,Charlottesville City,23.1,27.7
+Virginia,Chesapeake City,36.9,38.2
+Virginia,Chesterfield,34.4,34.2
+Virginia,Clarke,38.0,34.5
+Virginia,Colonial Heights City,33.4,34.2
+Virginia,Covington City,38.1,38.7
+Virginia,Craig,35.0,33.7
+Virginia,Culpeper,39.0,36.9
+Virginia,Cumberland,39.1,42.6
+Virginia,Danville City,36.0,44.6
+Virginia,Dickenson,44.3,41.7
+Virginia,Dinwiddie,41.1,45.7
+Virginia,Emporia City,40.8,50.8
+Virginia,Essex,38.8,42.9
+Virginia,Fairfax,25.7,26.5
+Virginia,Fairfax City,22.0,22.8
+Virginia,Falls Church City,19.5,17.6
+Virginia,Fauquier,37.1,31.7
+Virginia,Floyd,35.3,38.0
+Virginia,Fluvanna,38.7,36.4
+Virginia,Franklin,34.6,37.0
+Virginia,Franklin City,38.4,46.5
+Virginia,Frederick,37.4,36.5
+Virginia,Fredericksburg City,31.1,34.3
+Virginia,Galax City,33.4,38.4
+Virginia,Giles,38.9,36.7
+Virginia,Gloucester,34.9,36.5
+Virginia,Goochland,33.9,33.4
+Virginia,Grayson,38.4,41.1
+Virginia,Greene,38.2,38.4
+Virginia,Greensville,41.3,51.2
+Virginia,Halifax County with South Boston City,41.3,44.8
+Virginia,Hampton City,36.9,48.2
+Virginia,Hanover,34.0,33.6
+Virginia,Harrisonburg City,32.1,38.5
+Virginia,Henrico,30.6,35.9
+Virginia,Henry,37.4,43.7
+Virginia,Highland,39.0,40.5
+Virginia,Hopewell City,43.9,46.8
+Virginia,Isle of Wight,38.3,40.6
+Virginia,James City,32.7,32.8
+Virginia,King and Queen,39.8,44.7
+Virginia,King George,36.9,35.4
+Virginia,King William,36.3,38.7
+Virginia,Lancaster,36.1,42.7
+Virginia,Lee,39.7,42.2
+Virginia,Lexington City,33.9,40.2
+Virginia,Loudoun,28.9,28.2
+Virginia,Louisa,39.3,38.0
+Virginia,Lunenburg,43.5,46.4
+Virginia,Lynchburg City,32.6,41.1
+Virginia,Madison,38.2,38.8
+Virginia,Manassas City,33.5,36.1
+Virginia,Manassas Park City,35.4,37.6
+Virginia,Martinsville City,30.2,39.3
+Virginia,Mathews,37.2,38.1
+Virginia,Mecklenburg,42.4,44.2
+Virginia,Middlesex,35.8,37.8
+Virginia,Montgomery,30.3,36.1
+Virginia,Nelson,35.3,37.6
+Virginia,New Kent,36.5,38.9
+Virginia,Newport News City,37.0,44.3
+Virginia,Norfolk City,38.7,47.0
+Virginia,Northampton,39.5,43.6
+Virginia,Northumberland,36.6,40.5
+Virginia,Norton City,37.9,34.5
+Virginia,Nottoway,41.8,47.4
+Virginia,Orange,39.1,38.3
+Virginia,Page,40.0,43.2
+Virginia,Patrick,36.9,41.4
+Virginia,Petersburg City,42.3,55.4
+Virginia,Pittsylvania,38.3,41.2
+Virginia,Poquoson City,32.4,36.5
+Virginia,Portsmouth City,43.7,49.4
+Virginia,Powhatan,39.1,36.9
+Virginia,Prince Edward,40.2,46.1
+Virginia,Prince George,40.3,42.8
+Virginia,Prince William,34.2,35.6
+Virginia,Pulaski,35.8,38.0
+Virginia,Radford City,29.7,36.3
+Virginia,Rappahannock,38.3,36.4
+Virginia,Richmond,40.6,45.0
+Virginia,Richmond City,31.6,43.5
+Virginia,Roanoke,31.6,30.5
+Virginia,Roanoke City,37.3,43.2
+Virginia,Rockbridge,36.1,38.0
+Virginia,Rockingham,36.6,38.7
+Virginia,Russell,43.0,40.8
+Virginia,Salem City,33.2,34.0
+Virginia,Scott,40.0,42.2
+Virginia,Shenandoah,36.0,38.5
+Virginia,Smyth,40.5,39.8
+Virginia,Southampton,40.6,45.9
+Virginia,Spotsylvania,37.6,36.1
+Virginia,Stafford,36.6,35.0
+Virginia,Staunton City,33.0,42.3
+Virginia,Suffolk City,38.9,42.8
+Virginia,Surry,42.1,47.7
+Virginia,Sussex,44.2,53.3
+Virginia,Tazewell,42.3,37.9
+Virginia,Virginia Beach City,32.5,36.1
+Virginia,Warren,37.4,37.0
+Virginia,Washington,36.5,36.4
+Virginia,Waynesboro City,31.8,41.4
+Virginia,Westmoreland,41.0,43.5
+Virginia,Williamsburg City,32.2,35.0
+Virginia,Winchester City,31.3,34.0
+Virginia,Wise,44.9,42.3
+Virginia,Wythe,36.9,39.8
+Virginia,York,31.2,33.8
+Washington,Adams,44.6,45.1
+Washington,Asotin,36.8,37.9
+Washington,Benton,37.0,37.2
+Washington,Chelan,32.3,32.8
+Washington,Clallam,32.1,35.2
+Washington,Clark,34.3,37.0
+Washington,Columbia,39.5,40.4
+Washington,Cowlitz,41.4,42.1
+Washington,Douglas,33.7,39.9
+Washington,Ferry,37.0,38.7
+Washington,Franklin,42.5,44.5
+Washington,Garfield,35.0,35.7
+Washington,Grant,40.6,41.5
+Washington,Grays Harbor,39.1,42.8
+Washington,Island,31.1,32.0
+Washington,Jefferson,31.7,31.1
+Washington,King,28.1,29.4
+Washington,Kitsap,34.8,36.0
+Washington,Kittitas,31.9,35.2
+Washington,Klickitat,37.1,35.0
+Washington,Lewis,41.2,40.3
+Washington,Lincoln,36.8,37.5
+Washington,Mason,39.0,37.7
+Washington,Okanogan,32.6,39.9
+Washington,Pacific,40.2,42.7
+Washington,Pend Oreille,35.4,37.3
+Washington,Pierce,38.8,38.8
+Washington,San Juan,25.1,26.0
+Washington,Skagit,33.8,36.5
+Washington,Skamania,37.6,38.0
+Washington,Snohomish,35.1,36.0
+Washington,Spokane,34.1,34.9
+Washington,Stevens,35.3,36.3
+Washington,Thurston,36.3,35.2
+Washington,Wahkiakum,37.8,36.8
+Washington,Walla Walla,36.1,35.5
+Washington,Whatcom,31.1,32.2
+Washington,Whitman,34.4,36.6
+Washington,Yakima,38.2,43.7
+West Virginia,Barbour,39.7,41.9
+West Virginia,Berkeley,38.6,41.5
+West Virginia,Boone,43.4,44.8
+West Virginia,Braxton,38.6,42.9
+West Virginia,Brooke,40.4,39.5
+West Virginia,Cabell,40.3,41.2
+West Virginia,Calhoun,41.2,45.9
+West Virginia,Clay,41.7,49.2
+West Virginia,Doddridge,41.3,41.1
+West Virginia,Fayette,38.8,42.9
+West Virginia,Gilmer,39.5,44.3
+West Virginia,Grant,37.3,42.2
+West Virginia,Greenbrier,35.7,36.5
+West Virginia,Hampshire,39.7,41.8
+West Virginia,Hancock,39.0,42.1
+West Virginia,Hardy,36.0,41.1
+West Virginia,Harrison,38.3,37.9
+West Virginia,Jackson,39.9,42.3
+West Virginia,Jefferson,39.5,35.5
+West Virginia,Kanawha,35.4,40.0
+West Virginia,Lewis,38.7,38.9
+West Virginia,Lincoln,45.9,47.9
+West Virginia,Logan,41.8,48.1
+West Virginia,Marion,39.2,43.1
+West Virginia,Marshall,36.2,42.0
+West Virginia,Mason,43.8,42.6
+West Virginia,McDowell,46.0,47.1
+West Virginia,Mercer,39.7,38.7
+West Virginia,Mineral,38.3,41.3
+West Virginia,Mingo,41.5,46.5
+West Virginia,Monongalia,28.5,34.5
+West Virginia,Monroe,39.8,38.8
+West Virginia,Morgan,38.0,40.0
+West Virginia,Nicholas,37.6,41.8
+West Virginia,Ohio,34.3,36.1
+West Virginia,Pendleton,34.6,38.8
+West Virginia,Pleasants,39.2,36.0
+West Virginia,Pocahontas,36.5,37.7
+West Virginia,Preston,36.7,42.4
+West Virginia,Putnam,39.1,39.1
+West Virginia,Raleigh,37.3,42.4
+West Virginia,Randolph,36.1,39.5
+West Virginia,Ritchie,38.7,39.9
+West Virginia,Roane,41.7,46.5
+West Virginia,Summers,39.0,43.5
+West Virginia,Taylor,38.7,43.5
+West Virginia,Tucker,36.8,39.2
+West Virginia,Tyler,40.5,40.1
+West Virginia,Upshur,37.4,38.5
+West Virginia,Wayne,41.4,46.0
+West Virginia,Webster,40.2,44.4
+West Virginia,Wetzel,40.2,40.7
+West Virginia,Wirt,38.7,40.0
+West Virginia,Wood,39.2,37.5
+West Virginia,Wyoming,41.2,45.0
+Wisconsin,Adams,40.1,40.0
+Wisconsin,Ashland,36.5,34.8
+Wisconsin,Barron,35.6,37.0
+Wisconsin,Bayfield,37.2,35.4
+Wisconsin,Brown,36.4,35.0
+Wisconsin,Buffalo,39.3,35.8
+Wisconsin,Burnett,34.8,35.2
+Wisconsin,Calumet,39.0,36.0
+Wisconsin,Chippewa,34.8,36.9
+Wisconsin,Clark,36.7,39.5
+Wisconsin,Columbia,39.0,37.0
+Wisconsin,Crawford,35.6,32.9
+Wisconsin,Dane,31.0,31.8
+Wisconsin,Dodge,40.1,41.2
+Wisconsin,Door,34.9,35.7
+Wisconsin,Douglas,35.8,36.5
+Wisconsin,Dunn,36.8,37.2
+Wisconsin,Eau Claire,34.5,34.2
+Wisconsin,Florence,35.6,35.9
+Wisconsin,Fond du Lac,39.5,38.7
+Wisconsin,Forest,36.2,38.7
+Wisconsin,Grant,35.9,34.8
+Wisconsin,Green,36.7,33.3
+Wisconsin,Green Lake,39.5,38.2
+Wisconsin,Iowa,35.7,33.7
+Wisconsin,Iron,38.0,34.5
+Wisconsin,Jackson,38.4,41.2
+Wisconsin,Jefferson,36.2,38.3
+Wisconsin,Juneau,37.7,40.2
+Wisconsin,Kenosha,35.1,37.2
+Wisconsin,Kewaunee,37.9,36.5
+Wisconsin,La Crosse,34.5,31.8
+Wisconsin,Lafayette,36.8,35.1
+Wisconsin,Langlade,37.3,37.3
+Wisconsin,Lincoln,37.7,35.6
+Wisconsin,Manitowoc,37.4,34.7
+Wisconsin,Marathon,34.0,32.2
+Wisconsin,Marinette,37.1,35.7
+Wisconsin,Marquette,41.2,38.7
+Wisconsin,Menominee,36.0,50.0
+Wisconsin,Milwaukee,33.8,42.0
+Wisconsin,Monroe,37.1,37.0
+Wisconsin,Oconto,37.3,36.6
+Wisconsin,Oneida,35.6,33.0
+Wisconsin,Outagamie,36.6,35.5
+Wisconsin,Ozaukee,30.7,28.6
+Wisconsin,Pepin,37.7,35.4
+Wisconsin,Pierce,37.0,33.3
+Wisconsin,Polk,37.4,33.3
+Wisconsin,Portage,35.8,35.1
+Wisconsin,Price,34.9,35.5
+Wisconsin,Racine,37.6,38.1
+Wisconsin,Richland,34.8,37.4
+Wisconsin,Rock,36.6,36.3
+Wisconsin,Rusk,36.4,37.6
+Wisconsin,Sauk,35.3,38.5
+Wisconsin,Sawyer,35.5,37.4
+Wisconsin,Shawano,36.7,36.8
+Wisconsin,Sheboygan,35.3,32.5
+Wisconsin,St. Croix,37.7,32.6
+Wisconsin,Taylor,35.8,37.3
+Wisconsin,Trempealeau,40.5,37.8
+Wisconsin,Vernon,35.1,36.4
+Wisconsin,Vilas,35.3,32.7
+Wisconsin,Walworth,35.6,33.5
+Wisconsin,Washburn,36.5,34.7
+Wisconsin,Washington,34.6,35.0
+Wisconsin,Waukesha,32.5,29.5
+Wisconsin,Waupaca,36.5,36.8
+Wisconsin,Waushara,39.3,38.5
+Wisconsin,Winnebago,37.4,36.2
+Wisconsin,Wood,33.1,34.7
+Wyoming,Albany,25.7,31.4
+Wyoming,Big Horn,36.2,33.9
+Wyoming,Campbell,40.5,37.0
+Wyoming,Carbon,35.2,36.9
+Wyoming,Converse,36.5,37.0
+Wyoming,Crook,35.8,35.5
+Wyoming,Fremont,31.9,34.2
+Wyoming,Goshen,36.5,36.7
+Wyoming,Hot Springs,32.3,35.7
+Wyoming,Johnson,34.7,31.4
+Wyoming,Laramie,32.1,33.2
+Wyoming,Lincoln,32.6,29.0
+Wyoming,Natrona,34.0,34.4
+Wyoming,Niobrara,36.7,37.0
+Wyoming,Park,28.2,27.3
+Wyoming,Platte,31.7,34.0
+Wyoming,Sheridan,33.4,30.3
+Wyoming,Sublette,29.8,28.0
+Wyoming,Sweetwater,34.7,36.0
+Wyoming,Teton,21.6,19.6
+Wyoming,Uinta,36.5,34.8
+Wyoming,Washakie,32.4,34.7
+Wyoming,Weston,36.8,35.9
