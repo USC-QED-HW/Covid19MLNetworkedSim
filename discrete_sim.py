@@ -64,16 +64,16 @@ class Node:
 def set_initial_infected(nodes, inf):
     while (inf > 0):
         i = random.randint(0, len(nodes) - 1)
-        if (nodes[i].comp.value == 0):
+        if (nodes[i].comp == 0):
             nodes[i].set_comp(1)
             inf -= 1
 
 def step(mp: ModelParameters, nodes):
     for node in nodes:
-        if (node.comp.value == 0):
+        if (node.comp == 0):
             if (random.random() < (mp.infectiousness * node.num_neighbors(1))):
                 node.next_comp = 1
-        elif (node.comp.value == 1):
+        elif (node.comp == 1):
             x = random.random()
             if (x < mp.i_d):
                 node.next_comp = 2
