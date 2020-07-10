@@ -2,10 +2,11 @@
 
 NETWORK_DIR ?= networks/
 RESULTS_DIR ?= datasets/synthetic/
-N ?= 10000
+N ?= 100000
 
 parallel:
 	./parallel_synda.sh $(N)
+	tar -zcvf datasets/synthetic.tar.gz $(RESULTS_DIR)*
 
 clean:
 	$(RM) -R ./datasets/synthetic
