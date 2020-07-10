@@ -6,7 +6,7 @@ N ?= 100000
 
 parallel:
 	./parallel_synda.sh $(N)
-	tar -zcvf datasets/synthetic.tar.gz $(RESULTS_DIR)*
+	tar -zcvf datasets/synthetic.tar.gz $(RESULTS_DIR)
 
 clean:
 	$(RM) -R ./datasets/synthetic
