@@ -41,6 +41,8 @@ class Node:
         self.comp = 0
         self.next_comp = 0
         self.neighbors = []
+        # added for continuous sim
+        self.num = 0
 
     def add_edge(self, other):
         self.neighbors.append(other)
@@ -59,6 +61,9 @@ class Node:
     def set_comp(self, comp):
         self.comp = comp
         self.next_comp = comp
+
+    def set_num(self, num):
+        self.num = num
 
 
 def set_initial_infected(nodes, inf):
