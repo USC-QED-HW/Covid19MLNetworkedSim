@@ -4,7 +4,7 @@
 import random
 from enum import Enum
 
-T_COLUMNS = ['timestamp', 'susceptible', 'infected', 'dead', 'recovered']
+T_COLUMNS = ['susceptible', 'infected', 'dead', 'recovered']
 P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness', 'i_d', 'i_r']
 
 '''
@@ -96,7 +96,7 @@ def run_model(mp: ModelParameters, nodes):
         # print(results)
         if (maxtime - time_left) % delta == 0:
             idx = (maxtime - time_left) // delta
-            timeseries_info[idx] = [maxtime - time_left] + results
+            timeseries_info[idx] = results
         time_left -= 1
         step(mp, nodes)
     # print("done")

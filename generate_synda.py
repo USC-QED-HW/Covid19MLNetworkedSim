@@ -54,9 +54,6 @@ def reset_network(net):
     for node in net:
         node.set_comp(0)
 
-def random_fsm_prob():
-    return max(0.0001, random.uniform(0.0, 0.5))
-
 """
 Returns the time-series data and parameters from a simulation with randomized parameters.
 """
@@ -72,23 +69,20 @@ def random_simulation(model, graphs):
         network_name, network = random.choice(list(graphs.items()))
 
         # Grossman paper has inf=3.
-        inf = random.randint(1, 10)
+        inf = random.randint(2, 10)
 
-        infectiousness = random.uniform(0.01, 0.12)
-
-        gamma = random.uniform(0.1, 1.0)
 
         mp = model_module.ModelParameters()
-        mp.population = len(network)
+
+        mp.population       = len(network)
         mp.initial_infected = inf
-        mp.infectiousness = infectiousness
-        mp.gamma = gamma
-        mp.i_d = random_fsm_prob()
-        mp.i_r = random_fsm_prob()
+        mp.infectiousness   = random.uniform(0.01, 0.25)
+        mp.i_d              = random.uniform(0.0001, 0.25)
+        mp.i_r              = random.uniform(0.001, 0.25)
 
         if model == ModelType.DISCRETE:
             mp.delta = 1 # sample every step of the simulation
-            mp.maxtime = 1000
+            mp.maxtime = 500
         elif model == ModelType.CONTINUOUS:
             mp.time = 1000
             mp.sample_time = 1
@@ -96,13 +90,6 @@ def random_simulation(model, graphs):
         timeseries_tbl = model_module.run_model(mp, network)
         reset_network(network)
         parameters_tbl = [None]*len(P_COLUMNS)
-
-        if model == ModelType.CONTINUOUS:
-            n = len(timeseries_tbl)
-            dt = mp.sample_time
-
-            for i in range(n):
-                timeseries_tbl[i].insert(0, dt * i)
 
         mp.network_name = network_name
         mp.backend = model
@@ -150,7 +137,6 @@ def main():
 
         subdir = os.path.join(results_dir, sim_id)
 
-        # Create subdirectory (wont exist because UUID collisions are neigh impossible)
         os.makedirs(subdir)
 
         timeseries_path = os.path.join(subdir, 'timeseries.csv')

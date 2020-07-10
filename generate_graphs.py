@@ -28,6 +28,7 @@ def replace_dir(dir_name):
     # At this point, even if tmp is still being deleted,
     # there is no name collision.
     os.makedirs(NETWORK_FOLDER)
+
 def dist(node1: tuple, node2: tuple):
     return ((node1[0] - node2[0])**2 + (node1[1] - node2[1])**2)**(1/2)
 
