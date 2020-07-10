@@ -8,6 +8,7 @@ from tqdm import tqdm
 import os
 import tempfile
 import shutil
+import math
 
 def replace_dir(dir_name):
     # Remove directory if it exists and create it
@@ -30,7 +31,8 @@ def replace_dir(dir_name):
 def dist(node1: tuple, node2: tuple):
     return ((node1[0] - node2[0])**2 + (node1[1] - node2[1])**2)**(1/2)
 
-def gn_setup(n, radius):
+def gn_setup(n, kmean):
+    radius = (kmean/(n*math.pi))**(1/2)
     adj_list = setup_adj_list(n)
     nodes = [None] * n
     for i in range(n):
@@ -52,12 +54,6 @@ def er_setup(n, k_mean):
     adj_list = setup_adj_list(n)
     edges = (int) (k_mean * n / 2)
     count = 0
-    for i in range(n):
-        j = random.randint(0, n - 1)
-        while (i == j or adj_list[j].count(i) > 0):
-            j = random.randint(0, n - 1)
-        adj_list[i].append(j)
-        count += 1
     while (count < edges):
         i = random.randint(0, n - 1)
         j = random.randint(0, n - 1)
@@ -124,10 +120,10 @@ def setup_adj_list(n):
 if __name__ == "__main__":
     POPULATION_SIZES = [300, 600, 1000, 2000, 4000, 7000, 10000]
     KMEAN = 6
-    R = 0.1
-    K = 4
+    #R = 0.1
+    K = 6
     BETA = 0.2
-    M = 2
+    M = 3
     NETWORK_FOLDER = "networks"
     graphs = ['ERDOS-RENYI', 'GEOMETRIC-RANDOM', 'BARABASI-ALBERT', 'WATTS-STROGATZ']
 
@@ -144,7 +140,7 @@ if __name__ == "__main__":
         if graph == 'ERDOS-RENYI':
             adj_list = er_setup(size, KMEAN)
         elif graph == 'GEOMETRIC-RANDOM':
-            adj_list = gn_setup(size, R)
+            adj_list = gn_setup(size, KMEAN)
         elif graph == 'BARABASI-ALBERT':
             adj_list = ba_setup(size, M)
         elif graph == 'WATTS-STROGATZ':

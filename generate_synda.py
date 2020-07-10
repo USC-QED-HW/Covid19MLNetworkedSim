@@ -83,15 +83,8 @@ def random_simulation(model, graphs):
         mp.initial_infected = inf
         mp.infectiousness = infectiousness
         mp.gamma = gamma
-        mp.e_c = random_fsm_prob()
-        mp.c_i = random_fsm_prob()
-        mp.c_r = random_fsm_prob()
-        mp.i_h = random_fsm_prob()
-        mp.h_u = random_fsm_prob()
-        mp.u_d = random_fsm_prob()
+        mp.i_d = random_fsm_prob()
         mp.i_r = random_fsm_prob()
-        mp.h_r = random_fsm_prob()
-        mp.u_r = random_fsm_prob()
 
         if model == ModelType.DISCRETE:
             mp.delta = 1 # sample every step of the simulation
