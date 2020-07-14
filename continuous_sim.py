@@ -46,10 +46,9 @@ def next_event(node, start_time, mp):
         inf_rate = mp.infectiousness * node.num_neighbors(1)
         state_list.append(State_Info(inf_rate, 1))
     elif node.comp == 1:
-        state_list.append(State_Info(mp.i_r, 3))
-        state_list.append(State_Info(mp.i_d, 2))
+        state_list.append(State_Info(mp.i_out * (mp.i_rec_prop), 3))
+        state_list.append(State_Info(mp.i_out * (1 - mp.i_rec_prop), 2))
     else:
-        #print("DEAD OR RECOVERED")
         state_list.append(State_Info(-1, node.comp))
 
     return generate_time(state_list, start_time, node.num)
@@ -103,10 +102,9 @@ def run_model(mp: ModelParameters, nodes):
             #UPDATE THE SIM
             prev[old_state]-=1
             prev[new_state]+=1
-            #print(global_time, prev)
 
             nodes[current_event[2]].comp = new_state
-            #IF YOU ARE EXPOSED, YOU HAVE ENTERED THE TRANSMISSION STAGE
+            #TRANSMISSION
             if new_state == 1:
                 for n in nodes[current_event[2]].neighbors:
                     e=next_event(n, global_time, mp)
@@ -115,5 +113,4 @@ def run_model(mp: ModelParameters, nodes):
         #GENERATE NEW EVENT
         e=next_event(nodes[current_event[2]], global_time, mp)
         q.put(e)
-
     return res
