@@ -28,10 +28,15 @@ class ModelType(Enum):
 """
 Runs setup code needed depending on the model.
 """
-def setup(network_dir, results_dir):
+def setup(model, network_dir, results_dir):
     global T_COLUMNS, P_COLUMNS
+
     T_COLUMNS = discrete.T_COLUMNS
     P_COLUMNS = discrete.P_COLUMNS
+
+    if model == ModelType.CONTINUOUS:
+        P_COLUMNS = continuous.P_COLUMNS
+
     graphs = dict()
 
     # Load in all the graphs
@@ -77,8 +82,13 @@ def random_simulation(model, graphs):
         mp.population       = len(network)
         mp.initial_infected = inf
         mp.infectiousness   = random.uniform(0.01, 0.25)
-        mp.i_d              = random.uniform(0.0001, 0.25)
-        mp.i_r              = random.uniform(0.001, 0.25)
+
+        if model == ModelType.DISCRETE:
+            mp.i_d              = random.uniform(0.0001, 0.25)
+            mp.i_r              = random.uniform(0.001, 0.25)
+        elif model == ModelType.CONTINUOUS:
+            mp.i_out            = random.uniform(0.0001, 2)
+            mp.i_rec_prop       = random.uniform(0.0001, 1)
 
         if model == ModelType.DISCRETE:
             mp.delta = 1 # sample every step of the simulation
@@ -130,7 +140,7 @@ def main():
     network_dir = args.network_dir
     results_dir = args.results_dir
 
-    graphs = setup(network_dir, results_dir)
+    graphs = setup(model, network_dir, results_dir)
 
     for i in trange(N):
         tt, pt, sim_id = random_simulation(model, graphs)

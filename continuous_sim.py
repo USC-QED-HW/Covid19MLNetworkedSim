@@ -10,7 +10,9 @@ from enum import Enum
 import pandas
 import multiprocessing
 from multiprocessing import *
-from discrete_sim import T_COLUMNS, P_COLUMNS, ModelParameters
+from discrete_sim import T_COLUMNS, ModelParameters
+
+P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness', 'i_out', 'i_rec_prop']
 
 class State_Info():
     def __init__(self, inf_rate, state):

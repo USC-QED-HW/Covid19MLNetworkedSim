@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 import random
 import pickle
+import argparse
 from enum import Enum
 from tqdm import tqdm
+from pathlib import Path
 import os
 import tempfile
 import shutil
@@ -12,7 +14,7 @@ import math
 def replace_dir(dir_name):
     # Remove directory if it exists and create it
     if (os.path.exists(dir_name)):
-        # `tempfile.mktemp` Returns an absolute pathname of a file that 
+        # `tempfile.mktemp` Returns an absolute pathname of a file that
         # did not exist at the time the call is made. We pass
         # dir=os.path.dirname(dir_name) here to ensure we will move
         # to the same filesystem. Otherwise, shutil.copy2 will be used
@@ -80,7 +82,8 @@ def ws_setup(n, k, beta):
     return adj_list
 
 
-def ba_setup(n, m):
+def ba_setup(n, k):
+    m = k // 2
     adj_list = setup_adj_list(n)
     edges = [0] * n
     total_edges = 0
@@ -117,36 +120,36 @@ def setup_adj_list(n):
         adj_list[i] = []
     return adj_list
 
+def create_filename(*args):
+    s = args[0]
+    for arg in args[1:]:
+        s += '-' + str(arg)
+    return s
+
 if __name__ == "__main__":
-    POPULATION_SIZES = [300, 600, 1000, 2000, 4000, 7000, 10000]
-    KMEAN = 6
-    #R = 0.1
-    K = 6
-    BETA = 0.2
-    M = 3
-    NETWORK_FOLDER = "networks"
-    graphs = ['ERDOS-RENYI', 'GEOMETRIC-RANDOM', 'BARABASI-ALBERT', 'WATTS-STROGATZ']
+    parser = argparse.ArgumentParser(description='''Generate pickles for graphs''')
 
-    N = len(POPULATION_SIZES) * len(graphs)
+    parser.add_argument('-O','--outdir', type=str, help='output directory for graph')
+    parser.add_argument('-G', '--graph', type=str, help='type of network')
+    parser.add_argument('-K', '--k', type=int, help='average number of connected nodes')
+    parser.add_argument('-N', '--number', type=int, help='population of nodes')
 
-    replace_dir(NETWORK_FOLDER)
+    args = parser.parse_args()
 
-    for i in tqdm(range(N)):
-        size = POPULATION_SIZES[i // len(graphs)]
-        graph = graphs[i % len(graphs)]
+    filename = Path(args.outdir) / create_filename(args.graph,
+                                                   args.k,
+                                                   '%04d' % args.number)
 
-        adj_list = None
+    adj_list = None
+    if args.graph == 'ER':
+        adj_list = er_setup(args.number, args.k)
+    elif args.graph == 'WS':
+        adj_list = ws_setup(args.number, args.k, beta=0.2)
+    elif args.graph == 'BA':
+        adj_list = ba_setup(args.number, args.k)
+    elif args.graph == 'GN':
+        adj_list = gn_setup(args.number, kmean=args.k)
 
-        if graph == 'ERDOS-RENYI':
-            adj_list = er_setup(size, KMEAN)
-        elif graph == 'GEOMETRIC-RANDOM':
-            adj_list = gn_setup(size, KMEAN)
-        elif graph == 'BARABASI-ALBERT':
-            adj_list = ba_setup(size, M)
-        elif graph == 'WATTS-STROGATZ':
-            adj_list = ws_setup(size, K, BETA)
-        else:
-            raise Exception('Invalid graph')
-
-        with open(f"{NETWORK_FOLDER}/{graph}-{size:05}.pkl", 'wb') as output_file:
-            pickle.dump(adj_list, output_file)
+    with open(filename, 'wb') as output_file:
+        pickle.dump(adj_list, output_file)
+    print(filename)

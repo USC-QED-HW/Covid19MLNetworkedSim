@@ -1,8 +1,13 @@
-.PHONY: clean discrete continuous
+.PHONY: clean discrete continuous networks
 
 NETWORK_DIR ?= networks/
 RESULTS_DIR ?= datasets/synthetic/
 N ?= 100000
+
+networks:
+	$(RM) -R $(NETWORK_DIR)
+	mkdir $(NETWORK_DIR)
+	./parallel_graphs.sh
 
 parallel:
 	./parallel_synda.sh $(N)
