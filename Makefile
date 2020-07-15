@@ -1,24 +1,23 @@
-.PHONY: clean discrete continuous networks
+.PHONY: clean datasets networks all
 
 NETWORK_DIR ?= networks/
 RESULTS_DIR ?= datasets/synthetic/
-N ?= 100000
+N ?= 10000
+
+all: clean networks datasets
 
 networks:
 	$(RM) -R $(NETWORK_DIR)
 	mkdir $(NETWORK_DIR)
 	./parallel_graphs.sh
 
-parallel:
-	./parallel_synda.sh $(N)
-	tar -zcvf datasets/synthetic.tar.gz $(RESULTS_DIR)
+datasets: $(NETWORK_DIR)
+	$(RM) -R $(RESULTS_DIR)
+	mkdir $(RESULTS_DIR)
+	./parallel_synda.sh $(RESULTS_DIR) $(N)
+	./create_tar.sh $(RESULTS_DIR)
 
 clean:
-	$(RM) -R ./datasets/synthetic
-	$(RM) ./datasets/synthetic.tar.gz
-
-continuous:
-	./generate_synda.py -n $(N) -m CONTINUOUS --network-dir $(NETWORK_DIR) --results-dir $(RESULTS_DIR)
-
-discrete:
-	./generate_synda.py -n $(N) -m DISCRETE --network-dir $(NETWORK_DIR) --results-dir $(RESULTS_DIR)
+	$(RM) -R ./$(NETWORK_DIR)
+	$(RM) -R ./$(RESULTS_DIR)
+	$(RM) ./datasets/synthetic*.tar.gz

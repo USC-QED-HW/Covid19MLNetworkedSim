@@ -2,16 +2,14 @@
 # -*- coding: utf-8 -*-
 
 from tqdm import trange
-from uuid import uuid4
 from enum import Enum
+from pathlib import Path
 from deserialize_network import deserialize_network
 import argparse
-import sys
 import os
 import pickle
 import random
 import csv
-import copy
 import continuous_sim as continuous
 import discrete_sim as discrete
 
@@ -28,8 +26,13 @@ class ModelType(Enum):
 """
 Runs setup code needed depending on the model.
 """
-def setup(model, network_dir, results_dir):
+def setup(args):
     global T_COLUMNS, P_COLUMNS
+
+    model = args.model
+    network_dir = args.network_dir
+    graph_type = args.graph_type
+    results_dir = args.results_dir
 
     T_COLUMNS = discrete.T_COLUMNS
     P_COLUMNS = discrete.P_COLUMNS
@@ -37,47 +40,37 @@ def setup(model, network_dir, results_dir):
     if model == ModelType.CONTINUOUS:
         P_COLUMNS = continuous.P_COLUMNS
 
-    graphs = dict()
+    fn = Path(network_dir) / graph_type
 
-    # Load in all the graphs
-    for file in os.listdir(network_dir):
-        filepath = os.path.join(network_dir, file)
+    with open(fn, 'rb') as f:
+        graph = deserialize_network(pickle.load(f))
 
-        with open(filepath, 'rb') as f:
-            graphs[file] = deserialize_network(pickle.load(f))
+    output_path = Path(results_dir) / os.path.basename(fn)
 
-    if len(graphs) == 0:
-        raise Exception(f"No graphs found in {network_dir}")
+    os.makedirs(output_path)
 
-    # Create a results directory if it does not exist
-    if not os.path.exists(results_dir):
-        os.makedirs(results_dir)
+    return graph, output_path
 
-    return graphs
-
-def reset_network(net):
-    for node in net:
-        node.set_comp(0)
+"""
+Resets the network
+"""
+def reset_network(graph):
+    for node in graph:
+        node.comp = 0
 
 """
 Returns the time-series data and parameters from a simulation with randomized parameters.
 """
-def random_simulation(model, graphs):
+def random_simulation(model, network, network_name):
     if model == ModelType.DISCRETE or model == ModelType.CONTINUOUS:
-        simulation_id = uuid4().hex
-
         model_module = discrete
 
         if model == ModelType.CONTINUOUS:
             model_module = continuous
 
-        network_name, network = random.choice(list(graphs.items()))
-
         # Grossman paper has inf=3.
-        inf = random.randint(2, 10)
-
-
-        mp = model_module.ModelParameters()
+        inf                 = random.randint(2, 10)
+        mp                  = model_module.ModelParameters()
 
         mp.population       = len(network)
         mp.initial_infected = inf
@@ -107,7 +100,7 @@ def random_simulation(model, graphs):
         for idx, col in enumerate(P_COLUMNS):
             parameters_tbl[idx] = getattr(mp, col)
 
-        return (timeseries_tbl, parameters_tbl, simulation_id)
+        return (timeseries_tbl, parameters_tbl)
 
     else:
         raise Exception('Unknown simulation type')
@@ -116,36 +109,39 @@ def random_simulation(model, graphs):
 Runs if this file is ran as a script (rather than a module).
 """
 def main():
-    parser = argparse.ArgumentParser(description='''Generate synthetic data using graph-based,
-        Monte Carlo epidemic simulations''')
+    parser = argparse.ArgumentParser(description='''Generate synthetic data using simulation''')
 
-    parser.add_argument('--number', '-n', type=int,
-                        help='number of datasets to generate (default is 1)',
-                        default=1)
-
-    parser.add_argument('--model', '-m', type=ModelType, choices=list(ModelType),
-                        default=ModelType.DISCRETE,
+    parser.add_argument('--model', '-M', type=ModelType, choices=list(ModelType),
+                        default=ModelType.CONTINUOUS,
                         help='which type of model to use (default is discrete)')
 
-    parser.add_argument('--network-dir', type=str, default='networks/',
+    parser.add_argument('--n', '-N', type=int, help='number of datasets to generate')
+
+    parser.add_argument('--network-dir', '-W', type=str, default='networks/',
                         help='directory which networks are stored in (default is networks/)')
 
-    parser.add_argument('--results-dir', type=str, default='datasets/synthetic/',
+    parser.add_argument('--graph-type', '-G', type=str, help='what type of graph to use')
+
+    parser.add_argument('--results-dir', '-R', type=str, default='datasets/synthetic/',
                         help='directory which simulation results are stored in (default is datasets/synthetic/)')
 
     args = parser.parse_args()
 
-    N = args.number
-    model = args.model
-    network_dir = args.network_dir
-    results_dir = args.results_dir
+    # model       = args.model
+    # network_dir = args.network_dir
+    # results_dir = args.results_dir
 
-    graphs = setup(model, network_dir, results_dir)
+    model      = args.model
+    N          = args.n
+    graph_type = args.graph_type
 
-    for i in trange(N):
-        tt, pt, sim_id = random_simulation(model, graphs)
+    graph, output_path = setup(args)
+    l = len(str(N))
 
-        subdir = os.path.join(results_dir, sim_id)
+    for sim in trange(N):
+        tt, pt = random_simulation(model, graph, graph_type)
+
+        subdir = os.path.join(output_path, f"%0{l}d" % sim)
 
         os.makedirs(subdir)
 

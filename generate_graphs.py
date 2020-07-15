@@ -152,4 +152,3 @@ if __name__ == "__main__":
 
     with open(filename, 'wb') as output_file:
         pickle.dump(adj_list, output_file)
-    print(filename)
