@@ -100,6 +100,7 @@ def retrieve_acs5():
         county              = county.replace(' County', '')
         county              = county.replace(' Municipality', '')
         county              = county.replace(' Municipio', '')
+        county              = county.replace(' Parish', '')
         county              = strip_accents(county)
 
         median_income       = none_cast(raw_subject[i + 1][1], int)
