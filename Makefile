@@ -20,4 +20,3 @@ datasets: $(NETWORK_DIR)
 clean:
 	$(RM) -R ./$(NETWORK_DIR)
 	$(RM) -R ./$(RESULTS_DIR)
-	$(RM) ./datasets/synthetic*.tar.gz

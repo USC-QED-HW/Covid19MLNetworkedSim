@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-from tqdm import trange
 from enum import Enum
 from pathlib import Path
 from deserialize_network import deserialize_network
@@ -29,16 +27,12 @@ Runs setup code needed depending on the model.
 def setup(args):
     global T_COLUMNS, P_COLUMNS
 
-    model = args.model
-    network_dir = args.network_dir
-    graph_type = args.graph_type
-    results_dir = args.results_dir
-
-    T_COLUMNS = discrete.T_COLUMNS
-    P_COLUMNS = discrete.P_COLUMNS
-
-    if model == ModelType.CONTINUOUS:
-        P_COLUMNS = continuous.P_COLUMNS
+    model_module = continuous if args.model == ModelType.CONTINUOUS else discrete
+    network_dir  = args.network_dir
+    graph_type   = args.graph_type
+    results_dir  = args.results_dir
+    T_COLUMNS    = model_module.T_COLUMNS
+    P_COLUMNS    = model_module.P_COLUMNS
 
     fn = Path(network_dir) / graph_type
 
@@ -69,8 +63,8 @@ def random_simulation(model, network, network_name):
             model_module = continuous
 
         # Grossman paper has inf=3.
-        inf                 = random.randint(2, 10)
-        mp                  = model_module.ModelParameters()
+        inf = random.choice([2, 4, 7, 10])
+        mp  = model_module.ModelParameters()
 
         mp.population       = len(network)
         mp.initial_infected = inf
@@ -80,7 +74,7 @@ def random_simulation(model, network, network_name):
             mp.i_d              = random.uniform(0.0001, 0.25)
             mp.i_r              = random.uniform(0.001, 0.25)
         elif model == ModelType.CONTINUOUS:
-            mp.i_out            = random.uniform(0.0001, 2)
+            mp.i_out            = random.uniform(0.0001, 1)
             mp.i_rec_prop       = random.uniform(0.0001, 1)
 
         if model == ModelType.DISCRETE:
@@ -127,10 +121,6 @@ def main():
 
     args = parser.parse_args()
 
-    # model       = args.model
-    # network_dir = args.network_dir
-    # results_dir = args.results_dir
-
     model      = args.model
     N          = args.n
     graph_type = args.graph_type
@@ -138,7 +128,7 @@ def main():
     graph, output_path = setup(args)
     l = len(str(N))
 
-    for sim in trange(N):
+    for sim in range(N):
         tt, pt = random_simulation(model, graph, graph_type)
 
         subdir = os.path.join(output_path, f"%0{l}d" % sim)
@@ -160,6 +150,7 @@ def main():
             writer.writerow(P_COLUMNS)
             writer.writerow(pt)
 
+    print(output_path)
 
 if __name__ == "__main__":
     main()
