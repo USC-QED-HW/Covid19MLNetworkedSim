@@ -2,17 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import random
-import time
 import queue
 import numpy as np
 import copy
 from enum import Enum
-import pandas
-import multiprocessing
-from multiprocessing import *
-from discrete_sim import T_COLUMNS, ModelParameters
+from discrete_sim import ModelParameters
 
+T_COLUMNS = ['susceptible', 'infected', 'recovered', 'dead']
 P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness', 'i_out', 'i_rec_prop']
+
 
 class State_Info():
     def __init__(self, inf_rate, state):
@@ -48,8 +46,8 @@ def next_event(node, start_time, mp):
         inf_rate = mp.infectiousness * node.num_neighbors(1)
         state_list.append(State_Info(inf_rate, 1))
     elif node.comp == 1:
-        state_list.append(State_Info(mp.i_out * (mp.i_rec_prop), 3))
-        state_list.append(State_Info(mp.i_out * (1 - mp.i_rec_prop), 2))
+        state_list.append(State_Info(mp.i_out * (mp.i_rec_prop), 2))
+        state_list.append(State_Info(mp.i_out * (1 - mp.i_rec_prop), 3))
     else:
         state_list.append(State_Info(-1, node.comp))
 
@@ -64,7 +62,6 @@ def set_initial_infected(nodes, inf):
 
 def run_model(mp: ModelParameters, nodes):
     set_initial_infected(nodes, mp.initial_infected)
-
     res = []
     results = [mp.population-mp.initial_infected,mp.initial_infected,0,0]
     res.append(results)
@@ -115,4 +112,7 @@ def run_model(mp: ModelParameters, nodes):
         #GENERATE NEW EVENT
         e=next_event(nodes[current_event[2]], global_time, mp)
         q.put(e)
+        
+    if prev[1] == 0:
+        res.append(prev)
     return res
