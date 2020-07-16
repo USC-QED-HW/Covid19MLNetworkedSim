@@ -146,8 +146,5 @@ datasets/synthetic/
 # Don't add any pngs
 *.png
 
-# Don't add any dataset tarballs
-datasets/synthetic*.tar.gz
-
 # Don't add county plot data
 datasets/*.zip
