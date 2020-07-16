@@ -75,7 +75,7 @@ def random_simulation(model, network, network_name):
             mp.i_r              = random.uniform(0.001, 0.25)
         elif model == ModelType.CONTINUOUS:
             mp.i_out            = random.uniform(0.0001, 1)
-            mp.i_rec_prop       = random.uniform(0.0001, 1)
+            mp.i_rec_prop       = random.uniform(0.85, 1)
 
         if model == ModelType.DISCRETE:
             mp.delta = 1 # sample every step of the simulation

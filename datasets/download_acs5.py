@@ -2,6 +2,7 @@
 
 import requests
 import os
+import unicodedata
 import os.path as path
 import pandas as pd
 from os.path import join, dirname
@@ -21,6 +22,21 @@ VARIABLE_NAMES = {
     'married_female': 'DP02_0032PE',
     'married_male': 'DP02_0026PE'
 }
+
+"""
+Fix Puerto Rican accents
+"""
+def strip_accents(text):
+    try:
+        text = unicode(text, 'utf-8')
+    except NameError: # unicode is a default on python 3
+        pass
+
+    text = unicodedata.normalize('NFD', text)\
+        .encode('ascii', 'ignore')\
+        .decode("utf-8")
+
+    return str(text)
 
 def ljoin(*args):
     return ','.join(list(args))
@@ -82,6 +98,9 @@ def retrieve_acs5():
         fips                = raw_subject[i + 1][2] + raw_subject[i + 1][3]
         county, state       = raw_subject[i + 1][0].split(', ')
         county              = county.replace(' County', '')
+        county              = county.replace(' Municipality', '')
+        county              = county.replace(' Municipio', '')
+        county              = strip_accents(county)
 
         median_income       = none_cast(raw_subject[i + 1][1], int)
 
