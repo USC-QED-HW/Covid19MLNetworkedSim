@@ -8,6 +8,8 @@ import os
 import pickle
 import random
 import csv
+import math
+import numpy as np
 import continuous_sim as continuous
 import discrete_sim as discrete
 
@@ -68,21 +70,22 @@ def random_simulation(model, network, network_name):
 
         mp.population       = len(network)
         mp.initial_infected = inf
-        mp.infectiousness   = random.uniform(0.01, 0.25)
+        mp.infectiousness   = np.random.uniform(0.01, 0.25)
 
         if model == ModelType.DISCRETE:
-            mp.i_d              = random.uniform(0.0001, 0.25)
-            mp.i_r              = random.uniform(0.001, 0.25)
+            mp.i_d              = np.random.uniform(0.0001, 0.25)
+            mp.i_r              = np.random.uniform(0.001, 0.25)
         elif model == ModelType.CONTINUOUS:
-            mp.i_out            = random.uniform(0.0001, 1)
-            mp.i_rec_prop       = random.uniform(0.85, 1)
+            mp.i_out            = np.random.uniform(0.0001, 1)
+            # normal distribution, mu = 0.94, sigma = 0.2
+            mp.i_rec_prop       = np.random.normal(0.94, 0.2) # probability that when a person leaves the infected compartment they recover
 
         if model == ModelType.DISCRETE:
-            mp.delta = 1 # sample every step of the simulation
-            mp.maxtime = 500
+            mp.delta = 1 # 1 step = 1 day
+            mp.maxtime = math.ceil(mp.delta * 365) # at most simulation will run 365 steps = 365 days
         elif model == ModelType.CONTINUOUS:
-            mp.time = 500
-            mp.sample_time = 1/10 # sample every step of the simulation
+            mp.sample_time = 1/10 # 1/10 steps = 1 day
+            mp.time = math.ceil(mp.sample_time * 365) # at most simulation will run 365 days = 37 steps
 
         timeseries_tbl = model_module.run_model(mp, network)
         reset_network(network)
