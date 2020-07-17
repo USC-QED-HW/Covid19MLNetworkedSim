@@ -10,6 +10,7 @@ import random
 import csv
 import math
 import numpy as np
+import scipy.stats as stats
 import continuous_sim as continuous
 import discrete_sim as discrete
 
@@ -57,7 +58,7 @@ def reset_network(graph):
 """
 Returns the time-series data and parameters from a simulation with randomized parameters.
 """
-def random_simulation(model, network, network_name):
+def random_simulation(model, network, network_name, X):
     if model == ModelType.DISCRETE or model == ModelType.CONTINUOUS:
         model_module = discrete
 
@@ -77,15 +78,15 @@ def random_simulation(model, network, network_name):
             mp.i_r              = np.random.uniform(0.001, 0.25)
         elif model == ModelType.CONTINUOUS:
             mp.i_out            = np.random.uniform(0.0001, 1)
-            # normal distribution, mu = 0.94, sigma = 0.2
-            mp.i_rec_prop       = np.random.normal(0.94, 0.2) # probability that when a person leaves the infected compartment they recover
+
+            mp.i_rec_prop       = X.rvs() # probability that when a person leaves the infected compartment they recover
 
         if model == ModelType.DISCRETE:
             mp.delta = 1 # 1 step = 1 day
             mp.maxtime = math.ceil(mp.delta * 365) # at most simulation will run 365 steps = 365 days
         elif model == ModelType.CONTINUOUS:
             mp.sample_time = 1/10 # 1/10 steps = 1 day
-            mp.time = math.ceil(mp.sample_time * 365) # at most simulation will run 365 days = 37 steps
+            mp.time = math.ceil(mp.sample_time * 365) # at most simulation will run 371 days = 37 steps
 
         timeseries_tbl = model_module.run_model(mp, network)
         reset_network(network)
@@ -131,8 +132,15 @@ def main():
     graph, output_path = setup(args)
     l = len(str(N))
 
+    mu = 0.94
+    upper = 1
+    lower = mu - (upper - mu)
+    sigma = 0.2
+
+    X = stats.truncnorm((lower - mu) / sigma, (upper - mu) / sigma, loc=mu, scale=sigma)
+
     for sim in range(N):
-        tt, pt = random_simulation(model, graph, graph_type)
+        tt, pt = random_simulation(model, graph, graph_type, X)
 
         subdir = os.path.join(output_path, f"%0{l}d" % sim)
 
