@@ -78,8 +78,7 @@ def random_simulation(model, network, network_name, X):
             mp.i_r              = np.random.uniform(0.001, 0.25)
         elif model == ModelType.CONTINUOUS:
             mp.i_out            = np.random.uniform(0.0001, 1)
-
-            mp.i_rec_prop       = X.rvs() # probability that when a person leaves the infected compartment they recover
+            mp.i_rec_prop       = X.rvs()[0] # probability that when a person leaves the infected compartment they recover
 
         if model == ModelType.DISCRETE:
             mp.delta = 1 # 1 step = 1 day
