@@ -6,11 +6,32 @@ import queue
 import numpy as np
 import copy
 from enum import Enum
-from discrete_sim import ModelParameters
+#from discrete_sim import ModelParameters
 
-T_COLUMNS = ['susceptible', 'infected', 'recovered', 'dead']
+T_COLUMNS = ['susceptible', 'c_infected', 'recovered', 'dead']
 P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness', 'i_out', 'i_rec_prop']
 
+class ModelParameters:
+    #number of nodes in the network (10^2, 10^5)
+    population: int
+
+    #number of infected nodes at the beginning of the simulation (0,small)
+    initial_infected: int
+
+    #probability of infection per infected neighbor (0,1)
+    infectiousness: float
+
+    #probability of moving from infected to dead (0-1)
+    i_d: float
+
+    #probability of moving from infected to recovered (0-1)
+    i_r: float
+
+    # maximum number of steps the epidemic will run for (in case it never terminates)
+    maxtime: int
+
+    # determines the sample rate of the simulation, time_series information should only be captured every delta steps of the simulation
+    delta: int
 
 class State_Info():
     def __init__(self, inf_rate, state):
@@ -63,8 +84,12 @@ def set_initial_infected(nodes, inf):
 def run_model(mp: ModelParameters, nodes):
     set_initial_infected(nodes, mp.initial_infected)
     res = []
+    c_inf_res = []
     results = [mp.population-mp.initial_infected,mp.initial_infected,0,0]
+    c_inf_results = [mp.population-mp.initial_infected,mp.initial_infected,0,0]
     res.append(results)
+    c_inf_res.append(c_inf_results)
+
     q=queue.PriorityQueue()
     markers=0
     for a in range(int(mp.time/mp.sample_time)):
@@ -81,6 +106,7 @@ def run_model(mp: ModelParameters, nodes):
 
     global_time=0
     prev=copy.deepcopy(res[len(res)-1])
+    c_inf_prev=copy.deepcopy(res[len(res)-1])
 
     while (global_time <= mp.time) and prev[1] != 0:
         current_event = q.get()
@@ -92,6 +118,9 @@ def run_model(mp: ModelParameters, nodes):
         if current_event[2] == -1 and current_event[0] != 0:
             res.append(prev)
             prev=copy.deepcopy(res[len(res)-1])
+
+            c_inf_res.append(c_inf_prev)
+            c_inf_prev=copy.deepcopy(c_inf_res[len(c_inf_res)-1])
             continue
 
         old_state = nodes[current_event[2]].comp
@@ -101,6 +130,10 @@ def run_model(mp: ModelParameters, nodes):
             #UPDATE THE SIM
             prev[old_state]-=1
             prev[new_state]+=1
+
+            if old_state == 0:
+                c_inf_prev[old_state]-=1
+            c_inf_prev[new_state]+=1
 
             nodes[current_event[2]].comp = new_state
             #TRANSMISSION
@@ -115,4 +148,7 @@ def run_model(mp: ModelParameters, nodes):
         
     if prev[1] == 0:
         res.append(prev)
-    return res
+        c_inf_res.append(c_inf_prev)
+
+    # sub, c_inf, rec, dead
+    return c_inf_res
