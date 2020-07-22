@@ -22,10 +22,13 @@ class ModelParameters:
     infectiousness: float
 
     #probability of moving from infected to dead (0-1)
-    i_d: float
+    i_out: float
 
     #probability of moving from infected to recovered (0-1)
-    i_r: float
+    i_rec_prop: float
+
+    #what percentage of normal interactions an infected person maintains (0-1)
+    normal: float
 
     # maximum number of steps the epidemic will run for (in case it never terminates)
     maxtime: int
@@ -64,7 +67,7 @@ def next_event(node, start_time, mp):
     if node.comp == 0:
         if node.num_neighbors(1) == 0:
             return 99999999999999999999999, 0
-        inf_rate = mp.infectiousness * node.num_neighbors(1)
+        inf_rate = mp.infectiousness * node.num_neighbors(1) * mp.normal
         state_list.append(State_Info(inf_rate, 1))
     elif node.comp == 1:
         state_list.append(State_Info(mp.i_out * (mp.i_rec_prop), 2))
