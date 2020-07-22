@@ -5,7 +5,7 @@ import random
 from enum import Enum
 
 T_COLUMNS = ['susceptible', 'infected', 'dead', 'recovered']
-P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness', 'i_d', 'i_r']
+P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness', 'i_d', 'i_r', 'int_time', 'gamma']
 
 '''
     SUSCEPTIBLE = 0
@@ -35,6 +35,12 @@ class ModelParameters:
 
     # determines the sample rate of the simulation, time_series information should only be captured every delta steps of the simulation
     delta: int
+
+    #time of intervention (0-maxtime)
+    int_time: int
+
+    #intensiy of intervention (0-1)
+    gamma: float
 
 class Node:
     def __init__(self):
@@ -73,11 +79,15 @@ def set_initial_infected(nodes, inf):
             nodes[i].set_comp(1)
             inf -= 1
 
-def step(mp: ModelParameters, nodes):
+def step(mp: ModelParameters, nodes, time):
     for node in nodes:
         if (node.comp == 0):
-            if (random.random() < (mp.infectiousness * node.num_neighbors(1))):
-                node.next_comp = 1
+            if (time < mp.int_time):    
+                if (random.random() < (mp.infectiousness * node.num_neighbors(1))):
+                    node.next_comp = 1
+            else:
+                if (random.random() < (mp.infectiousness * node.num_neighbors(1) * mp.gamma)):
+                    node.next_comp = 1
         elif (node.comp == 1):
             x = random.random()
             if (x < mp.i_d):
@@ -98,12 +108,10 @@ def run_model(mp: ModelParameters, nodes):
         results = [0]*4
         for node in nodes:
             results[node.comp]+=1
-        # print(results)
         if (maxtime - time_left) % delta == 0:
             idx = (maxtime - time_left) // delta
             timeseries_info[idx] = results
         time_left -= 1
-        step(mp, nodes)
-    # print("done")
+        step(mp, nodes, maxtime-time_left)
     timeseries_info = [inf for inf in timeseries_info if inf is not None]
     return timeseries_info
