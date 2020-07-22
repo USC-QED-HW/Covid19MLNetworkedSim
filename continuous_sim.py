@@ -22,10 +22,11 @@ class ModelParameters:
     infectiousness: float
 
     #probability of moving from infected to dead (0-1)
-    i_d: float
+    i_out: float
 
     #probability of moving from infected to recovered (0-1)
-    i_r: float
+    i_rec_prop: float
+
 
     # maximum number of steps the epidemic will run for (in case it never terminates)
     maxtime: int
