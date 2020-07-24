@@ -11,6 +11,9 @@ networks:
 	mkdir $(NETWORK_DIR)
 	./parallel_graphs.sh
 
+us_historical:
+	python fetch_us_historical.py datasets/us_historical.csv
+
 datasets: $(NETWORK_DIR)
 	$(RM) -R $(RESULTS_DIR)
 	mkdir $(RESULTS_DIR)

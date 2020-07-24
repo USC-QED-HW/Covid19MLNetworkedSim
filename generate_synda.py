@@ -74,6 +74,7 @@ def random_simulation(model, network, network_name, X):
         mp.infectiousness   = np.random.uniform(0.01, 0.25)
 
         # https://rt.live/ - based on lower and upper bounds from website
+        # Based on data last collected from 7/21/20 at 5:55AM
         # lower bound (lowest estimate for utah)
         # upper bound (highest esimate for kentucky)
         r0 = np.random.uniform(0.72, 1.64)
