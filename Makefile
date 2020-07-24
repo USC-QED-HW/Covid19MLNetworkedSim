@@ -1,4 +1,4 @@
-.PHONY: clean datasets networks all
+.PHONY: clean datasets networks all us_historical world_historical
 
 NETWORK_DIR ?= networks/
 RESULTS_DIR ?= datasets/synthetic/
@@ -13,6 +13,9 @@ networks:
 
 us_historical:
 	python fetch_us_historical.py datasets/us_historical.csv
+
+world_historical:
+	python fetch_world_historical.py datasets/world_historical.csv
 
 datasets: $(NETWORK_DIR)
 	$(RM) -R $(RESULTS_DIR)
