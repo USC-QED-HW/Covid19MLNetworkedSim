@@ -41,5 +41,6 @@ def import_synthetic(archive='synthetic-1595746230.3535712.tar.gz'):
         features['k']                = pd.Categorical(features['k'])
         features['population']       = pd.Categorical(features['population'])
         features['initial_infected'] = pd.Categorical(features['initial_infected'])
+        features.set_index('case')
 
     return X, features
