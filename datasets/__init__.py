@@ -3,12 +3,24 @@
 
 import os
 import tarfile
+import numpy as np
 import pandas as pd
-from tqdm import tqdm
 
-def import_synthetic(archive='synthetic-1595746230.3535712.tar.gz'):
-    X = []
-    fn = os.path.join(os.path.dirname(__file__), archive)
+def synthetic_numpy(X, y):
+    y = y.copy()
+
+    y['network'] = y['network'].cat.codes
+    y['k'] = y['k'].cat.codes
+    y['population'] = y['population'].cat.codes
+    y['initial_infected'] = y['initial_infected'].cat.codes
+
+    return [x.loc[:, 'step':].to_numpy() for x in X], y.loc[:, 'population':].to_numpy()
+
+def import_synthetic(archive='synthetic-1595746230.3535712.tar.gz', relative=False):
+    fn = archive
+
+    if not relative:
+        fn = os.path.join(os.path.dirname(__file__), archive)
 
     with tarfile.open(fn, 'r:gz') as tb:
         features = tb.extractfile('features.csv')
@@ -24,23 +36,12 @@ def import_synthetic(archive='synthetic-1595746230.3535712.tar.gz'):
 
         features.drop(columns=remove_cols, inplace=True)
 
-        features['network'] = None
-        features['k']       = None
-
-        for case in tqdm(features['case'].unique()):
-            network, k, _ = case.split('-')
-
-            features.loc[features['case'] == case, 'network'] = network
-            features.loc[features['case'] == case, 'k']       = k
-
-            tdf = timeseries.loc[timeseries['case'] == case].sort_values(by=['step'])
-
-            X.append(tdf)
+        features['network'] = features.apply(lambda row: row['case'].split('-')[0], axis=1)
+        features['k']       = features.apply(lambda row: row['case'].split('-')[1], axis=1)
 
         features['network']          = pd.Categorical(features['network'])
         features['k']                = pd.Categorical(features['k'])
         features['population']       = pd.Categorical(features['population'])
         features['initial_infected'] = pd.Categorical(features['initial_infected'])
-        features.set_index('case')
 
-    return X, features
+    return [v for k, v in timeseries.groupby(['case'])], features
