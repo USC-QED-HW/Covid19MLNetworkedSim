@@ -37,6 +37,8 @@ def setup(args):
     T_COLUMNS    = model_module.T_COLUMNS
     P_COLUMNS    = model_module.P_COLUMNS
 
+    T_COLUMNS.insert(0, "step")
+
     fn = Path(network_dir) / graph_type
 
     with open(fn, 'rb') as f:
@@ -96,11 +98,14 @@ def random_simulation(model, network, network_name, X):
             mp.maxtime = 500 # at most simulation will run 500 steps
         elif model == ModelType.CONTINUOUS:
             mp.sample_time = 1/10 # 1/10 steps = 1 day
-            mp.time = 500 # at most simulation will run 500 steps = 5000 in-simulation days
+            mp.time = 40 # at most simulation will run 40 steps (maximum of 400 samples)
 
         timeseries_tbl = model_module.run_model(mp, network)
         reset_network(network)
         parameters_tbl = [None]*len(P_COLUMNS)
+
+        for i, r in enumerate(timeseries_tbl):
+            r.insert(0, i)
 
         mp.network_name = network_name
         mp.backend = model

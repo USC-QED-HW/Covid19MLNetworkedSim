@@ -61,7 +61,7 @@ def generate_time(state_list, start_time, num, eventid):
     return smallest_time+start_time, smallest_state, num, eventid
 
 def next_event(node, start_time, mp):
-    node.set_eventID(node.eventID+1)
+    node.eventID = node.eventID+1
     state_list = []
     if node.comp == 0:
         if node.num_neighbors(1) == 0:
@@ -147,7 +147,7 @@ def run_model(mp: ModelParameters, nodes):
         #GENERATE NEW EVENT
         e=next_event(nodes[current_event[2]], global_time, mp)
         q.put(e)
-        
+
     if prev[1] == 0:
         res.append(prev)
         c_inf_res.append(c_inf_prev)

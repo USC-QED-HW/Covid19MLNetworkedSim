@@ -43,6 +43,7 @@ class Node:
         self.neighbors = []
         # added for continuous sim
         self.num = 0
+        self.eventID = 0
 
     def add_edge(self, other):
         self.neighbors.append(other)
