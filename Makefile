@@ -4,7 +4,7 @@ NETWORK_DIR ?= networks/
 RESULTS_DIR ?= datasets/synthetic/
 N ?= 10000
 
-all: clean networks datasets
+all: networks datasets historical
 historical: us_historical world_historical
 
 networks:
@@ -27,3 +27,4 @@ datasets: $(NETWORK_DIR)
 clean:
 	$(RM) -R ./$(NETWORK_DIR)
 	$(RM) -R ./$(RESULTS_DIR)
+	$(RM) ./datasets/*historical.csv

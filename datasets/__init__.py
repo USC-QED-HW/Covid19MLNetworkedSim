@@ -6,6 +6,9 @@ import tarfile
 import numpy as np
 import pandas as pd
 
+def length_distribution(Xn):
+    return np.array([x.shape[0] for x in Xn])
+
 def synthetic_numpy(X, y):
     y = y.copy()
 
@@ -16,7 +19,7 @@ def synthetic_numpy(X, y):
 
     return [x.loc[:, 'step':].to_numpy() for x in X], y.loc[:, 'population':].to_numpy()
 
-def import_synthetic(archive='synthetic-1595746230.3535712.tar.gz', relative=False):
+def import_synthetic(archive='synthetic-1595799389.927907.tar.gz', relative=False):
     fn = archive
 
     if not relative:
