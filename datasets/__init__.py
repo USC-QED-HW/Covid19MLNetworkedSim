@@ -7,6 +7,14 @@ import numpy as np
 import pandas as pd
 from typing import List
 
+def to_compartment_fraction(Xn: np.ndarray) -> np.ndarray:
+    Xf = Xn.copy()
+    for n in range(Xf.shape[0]):
+        divisor = np.sum(Xf[n][0])
+        Xf[n, :, 1:] /= divisor
+
+    return Xf
+
 def resample_lengths(Xn: List[np.ndarray]) -> np.ndarray:
     longest = max(Xn, key=lambda xn: xn.shape[0]).shape[0]
     new_Xn = np.zeros((len(Xn), longest, Xn[0].shape[1]))
@@ -31,7 +39,7 @@ def synthetic_numpy(X: List[pd.DataFrame], y: pd.DataFrame) -> (np.ndarray, np.n
     yn = y.loc[:, 'population':].to_numpy()
     Xn = [x.loc[:, 'step':].to_numpy() for x in X]
 
-    return Xn, yn
+    return resample_lengths(Xn), yn
 
 def import_synthetic(archive='synthetic-1595799389.927907.tar.gz', relative=False) -> (pd.DataFrame, pd.DataFrame):
     fn = archive
