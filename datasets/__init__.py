@@ -6,6 +6,7 @@ import tarfile
 import numpy as np
 import pandas as pd
 from typing import List
+from sklearn.model_selection import train_test_split
 
 # Split dataset into train, test, and validation
 # Dataset is split into ratio (50% train, 40% test, 10% validation)
