@@ -5,11 +5,12 @@ import os
 import tarfile
 import numpy as np
 import pandas as pd
+from typing import List
 
 def length_distribution(Xn):
     return np.array([x.shape[0] for x in Xn])
 
-def synthetic_numpy(X, y):
+def synthetic_numpy(X: List[pd.DataFrame], y: pd.DataFrame) -> (np.ndarray, np.ndarray):
     y = y.copy()
 
     y['network'] = y['network'].cat.codes
@@ -17,7 +18,7 @@ def synthetic_numpy(X, y):
     y['population'] = y['population'].cat.codes
     y['initial_infected'] = y['initial_infected'].cat.codes
 
-    return [x.loc[:, 'step':].to_numpy() for x in X], y.loc[:, 'population':].to_numpy()
+    return np.stack([x.loc[:, 'step':].to_numpy() for x in X], axis=0), y.loc[:, 'population':].to_numpy()
 
 def import_synthetic(archive='synthetic-1595799389.927907.tar.gz', relative=False):
     fn = archive
