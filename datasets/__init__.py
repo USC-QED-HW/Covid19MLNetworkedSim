@@ -8,6 +8,14 @@ import pandas as pd
 from typing import List
 from sklearn.model_selection import train_test_split
 
+# Get list of X values from dataset
+def getX(dataset: np.ndarray) -> np.ndarray:
+    return np.array(list(train_[:, 0]))
+
+# Get list of y values from dataset
+def getY(dataset: np.ndarray) -> np.ndarray:
+    return np.array(list(train_[:, 1]))
+
 # Split dataset into train, test, and validation
 # Dataset is split into ratio (50% train, 40% test, 10% validation)
 def split_dataset(Xn: np.ndarray, yn: np.ndarray, train=0.5, test=0.4) -> (np.ndarray, np.ndarray, np.ndarray):
