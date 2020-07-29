@@ -23,7 +23,7 @@ def split_dataset(Xn: np.ndarray, yn: np.ndarray, train=0.5, test=0.4) -> (np.nd
     assert(train + test < 1)
 
     X_train, X_test, y_train, y_test = train_test_split(Xn, yn, test_size=1-train)
-    X_test, X_valid, y_test, y_valid = train_test_split(X_test, y_test, test_size=test/train)
+    X_test, X_valid, y_test, y_valid = train_test_split(X_test, y_test, test_size=1-(test/train))
 
     return np.array(list(zip(X_train, y_train))), np.array(list(zip(X_test, y_test))), np.array(list(zip(X_valid, y_valid)))
 def to_compartment_fraction(Xn: np.ndarray) -> np.ndarray:
