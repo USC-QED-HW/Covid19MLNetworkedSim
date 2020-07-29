@@ -150,7 +150,7 @@ def main():
     mu = 0.94
     upper = 1
     lower = 0
-    sigma = 0.2
+    sigma = 0.02
 
     X = stats.truncnorm((lower - mu) / sigma, (upper - mu) / sigma, loc=mu, scale=sigma)
 
