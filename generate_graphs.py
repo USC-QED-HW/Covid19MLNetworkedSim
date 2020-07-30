@@ -10,6 +10,12 @@ import os
 import tempfile
 import shutil
 import math
+import numpy
+import scipy.integrate as integrate
+from random import random
+from numpy import sqrt, arcsin, sin, arccos, pi, exp
+
+ACCEPTED_LOSS = 0.001
 
 def replace_dir(dir_name):
     # Remove directory if it exists and create it
@@ -33,8 +39,42 @@ def replace_dir(dir_name):
 def dist(node1: tuple, node2: tuple):
     return ((node1[0] - node2[0])**2 + (node1[1] - node2[1])**2)**(1/2)
 
+def integrand_edges (x, r):
+    return (r ** 2) * ((pi - phi(x, r) / 2) + sin(phi(x, r)) / 2) 
+
+def phi (x, r):
+    return 2 * arcsin(sqrt((r ** 2) - (x ** 2)) / r)
+
+def integrand_corners(x, y, r):
+    return (x * y / 2) + (r ** 2) / 2 * (arccos(theta(x, y, r) - sqrt(1 - theta(x, y, r) ** 2)))
+
+def theta (x, y, r):
+    return 1 - ((x ** 2 + y ** 2) / (2 * r ** 2))
+
+def center (r):
+    return pi * (r ** 2) * ((1 - 2 * r) ** 2)
+
+def edges (r):
+    ntgrl = integrate.quad(integrand_edges, 0, r, args = (r,))
+    #print("estimated error for edges: " + str(ntgrl[1]))
+    return 4 * (1 - 2 * r) * ntgrl[0]
+
+def corners (r):
+    ntgrl = integrate.dblquad(integrand_corners, 0,  r, 0, r, args = (r, ))
+    #print("estimated error for corners: " + str(ntgrl[1]))
+    return 4 * ntgrl[0] 
+
+def calc_k (n, r):
+    return (n - 1) * (center(r) + edges(r) + corners(r))
+
 def gn_setup(n, kmean):
-    radius = (kmean/(n*math.pi))**(1/2)
+    loss = 100
+    r = 0.1
+    while abs(loss) > ACCEPTED_LOSS: 
+        val = calc_k(n, r)
+        loss = k - val
+        r += (sigmoid(loss) - 0.5) / 100
+    radius = r
     adj_list = setup_adj_list(n)
     nodes = [None] * n
     for i in range(n):

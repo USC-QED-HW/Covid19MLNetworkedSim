@@ -15,9 +15,6 @@ P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infec
 '''
 
 class ModelParameters:
-    #number of nodes in the network (10^2, 10^5)
-    population: int
-
     #number of infected nodes at the beginning of the simulation (0,small)
     initial_infected: int
 
@@ -99,8 +96,8 @@ def step(mp: ModelParameters, nodes, time):
 
 def run_model(mp: ModelParameters, nodes):
     maxtime, time_left = mp.maxtime, mp.maxtime
-    delta = mp.delta
-    timeseries_info = [None]*(maxtime // delta)
+    #delta = mp.delta
+    #timeseries_info = [None]*(maxtime // delta)
 
     set_initial_infected(nodes, mp.initial_infected)
     results = [-1]*4
@@ -108,10 +105,50 @@ def run_model(mp: ModelParameters, nodes):
         results = [0]*4
         for node in nodes:
             results[node.comp]+=1
-        if (maxtime - time_left) % delta == 0:
-            idx = (maxtime - time_left) // delta
-            timeseries_info[idx] = results
+        print(results, maxtime-time_left)
+        #if (maxtime - time_left) % delta == 0:
+        #    idx = (maxtime - time_left) // delta
+        #    timeseries_info[idx] = results
         time_left -= 1
         step(mp, nodes, maxtime-time_left)
-    timeseries_info = [inf for inf in timeseries_info if inf is not None]
-    return timeseries_info
+    #timeseries_info = [inf for inf in timeseries_info if inf is not None]
+    #return timeseries_info
+
+def setup_adj_list(n):
+    adj_list = [None] * n
+    for i in range(n):
+        adj_list[i] = []
+    return adj_list
+
+def er_setup(n, k_mean):
+    adj_list = setup_adj_list(n)
+    edges = (int) (k_mean * n / 2)
+    count = 0
+    while (count < edges):
+        i = random.randint(0, n - 1)
+        j = random.randint(0, n - 1)
+        if (not(i == j or adj_list[i].count(j) > 0 or adj_list[j].count(i) > 0)):
+            adj_list[i].append(j)
+            count += 1
+    return adj_list
+
+def deserialize_network (adj_list: list):
+    nodes = [None] * len(adj_list)
+    for i in range(len(adj_list)):
+        nodes[i] = Node()
+    for i in range(len(adj_list)):
+        for j in adj_list[i]:
+            nodes[i].add_edge(nodes[j])
+    return nodes
+
+
+mp = ModelParameters()
+mp.initial_infected = 4
+mp.infectiousness = 0.03
+mp.i_d = 0.004
+mp.i_r = 0.08
+mp.maxtime = 1000
+mp.int_time = 75
+mp.gamma = 0.5
+nodes = deserialize_network(er_setup(1000, 6))
+run_model(mp, nodes)
