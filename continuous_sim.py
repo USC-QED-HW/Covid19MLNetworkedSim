@@ -6,6 +6,7 @@ import queue
 import numpy as np
 import copy
 from enum import Enum
+import matplotlib.pyplot as plt
 #from discrete_sim import ModelParameters
 
 T_COLUMNS = ['susceptible', 'c_infected', 'recovered', 'dead']
@@ -36,6 +37,9 @@ class ModelParameters:
     # determines the sample rate of the simulation, time_series information should only be captured every delta steps of the simulation
     delta: int
 
+    # intervention time
+    intime: float
+
 class State_Info():
     def __init__(self, inf_rate, state):
         self.inf_rate = inf_rate
@@ -45,7 +49,7 @@ class State_Info():
         otherPriority = (other.inf_rate, other.state)
         return selfPriority < otherPriority
 
-def generate_time(state_list, start_time, num):
+def generate_time(state_list, start_time, num, eventid):
 
     if state_list[0].inf_rate == -1:
         return 99999999999999999999999, state_list[0].state
@@ -60,14 +64,15 @@ def generate_time(state_list, start_time, num):
         elif fire_time < smallest_time:
             smallest_time = fire_time
             smallest_state = a.state
-    return smallest_time+start_time, smallest_state, num
+    return smallest_time+start_time, smallest_state, num, eventid
 
-def next_event(node, start_time, mp):
+def next_event(node, start_time, mp, intervention):
+    node.set_eventID(node.eventID+1)
     state_list = []
     if node.comp == 0:
         if node.num_neighbors(1) == 0:
             return 99999999999999999999999, 0
-        inf_rate = mp.infectiousness * node.num_neighbors(1) * mp.normal
+        inf_rate = mp.infectiousness * node.num_neighbors(1) * intervention
         state_list.append(State_Info(inf_rate, 1))
     elif node.comp == 1:
         state_list.append(State_Info(mp.i_out * (mp.i_rec_prop), 2))
@@ -75,7 +80,7 @@ def next_event(node, start_time, mp):
     else:
         state_list.append(State_Info(-1, node.comp))
 
-    return generate_time(state_list, start_time, node.num)
+    return generate_time(state_list, start_time, node.num, node.eventID)
 
 def set_initial_infected(nodes, inf):
     while (inf > 0):
@@ -98,12 +103,14 @@ def run_model(mp: ModelParameters, nodes):
     for a in range(int(mp.time/mp.sample_time)):
         q.put((mp.sample_time*a,-1,-1))
     q.put((mp.time,-1,-1))
+    q.put((mp.time * mp.intime, -2, -1))
 
+    intervention = 1
     #SETUP
     counter=0
     for node in nodes:
         node.set_num(counter)
-        e=next_event(node, 0, mp)
+        e=next_event(node, 0, mp, intervention)
         counter+=1
         q.put(e)
 
@@ -119,6 +126,11 @@ def run_model(mp: ModelParameters, nodes):
 
         #SAMPLING
         if current_event[2] == -1 and current_event[0] != 0:
+            # intervention
+            if current_event[1] == -2:
+                intervention = mp.normal
+                continue
+
             res.append(prev)
             prev=copy.deepcopy(res[len(res)-1])
 
@@ -129,10 +141,11 @@ def run_model(mp: ModelParameters, nodes):
         old_state = nodes[current_event[2]].comp
         new_state = current_event[1]
 
-        if new_state > old_state and old_state != 2:
+        if new_state > old_state and old_state != 2 and nodes[current_event[2]].eventID == current_event[3]:
             #UPDATE THE SIM
             prev[old_state]-=1
             prev[new_state]+=1
+            #print(prev)
 
             if old_state == 0:
                 c_inf_prev[old_state]-=1
@@ -142,16 +155,15 @@ def run_model(mp: ModelParameters, nodes):
             #TRANSMISSION
             if new_state == 1:
                 for n in nodes[current_event[2]].neighbors:
-                    e=next_event(n, global_time, mp)
+                    e=next_event(n, global_time, mp, intervention)
                     q.put(e)
 
         #GENERATE NEW EVENT
-        e=next_event(nodes[current_event[2]], global_time, mp)
+        e=next_event(nodes[current_event[2]], global_time, mp, intervention)
         q.put(e)
         
     if prev[1] == 0:
         res.append(prev)
         c_inf_res.append(c_inf_prev)
-
     # sub, c_inf, rec, dead
     return c_inf_res
