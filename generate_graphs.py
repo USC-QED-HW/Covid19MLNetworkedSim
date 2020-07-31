@@ -40,15 +40,15 @@ def dist(node1: tuple, node2: tuple):
     return ((node1[0] - node2[0])**2 + (node1[1] - node2[1])**2)**(1/2)
 
 def integrand_edges (x, r):
-    return (r ** 2) * ((pi - phi(x, r) / 2) + sin(phi(x, r)) / 2) 
+    return (r ** 2) * ((pi - theta(x, r) / 2) + sin(theta(x, r)) / 2) 
 
-def phi (x, r):
+def theta (x, r):
     return 2 * arcsin(sqrt((r ** 2) - (x ** 2)) / r)
 
 def integrand_corners(x, y, r):
-    return (x * y / 2) + (r ** 2) / 2 * (arccos(theta(x, y, r) - sqrt(1 - theta(x, y, r) ** 2)))
+    return (x * y / 2) + (r ** 2) / 2 * (arccos(phi(x, y, r) - sqrt(1 - phi(x, y, r) ** 2)))
 
-def theta (x, y, r):
+def phi (x, y, r):
     return 1 - ((x ** 2 + y ** 2) / (2 * r ** 2))
 
 def center (r):
