@@ -213,8 +213,9 @@ class SyntheticDataset:
     Initializes the synthetic dataset.
 
     archive: Path to archive file that holds synthetic dataset.
+    cumulative: If false, sets the timeseries data to be new infected/dead/recovered by step rather than cumulative.
     """
-    def __init__(self, archive: str = None):
+    def __init__(self, archive: str = None, cumulative: bool = True):
         if archive is None:
             archive = os.path.join(os.path.dirname(__file__), 'synthetic-1595799389.927907.tar.gz')
 
@@ -245,5 +246,16 @@ class SyntheticDataset:
             self.X = timeseries
 
             self.X_index = [v for k, v in timeseries.groupby(['case'])]
+
+            if not cumulative:
+                for i in range(len(self)):
+                    x, y = self[i]
+                    x['c_infected'] = x['c_infected'].diff()
+                    x['recovered']  = x['recovered'].diff()
+                    x['dead']       = x['dead'].diff()
+
+                    x.loc[0, 'c_infected'] = y['initial_infected']
+                    x.loc[0, 'recovered']  = 0
+                    x.loc[0, 'dead']       = 0
 
             timeseries.index = timeseries.step
