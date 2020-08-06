@@ -1,0 +1,7 @@
+train:
+  main: train
+  flags-import: all
+  requires:
+    - file: datasets/synthetic-1595801342.297447.tar.gz
+      target-type: link
+      unpack: no

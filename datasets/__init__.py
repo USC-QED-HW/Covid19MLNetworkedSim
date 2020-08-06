@@ -48,12 +48,15 @@ class SyntheticSplit:
     Returns both the X and y tensors for given column name.
 
     column_name: Name of column to return.
+    N: if not None, returns first N datasets
     """
-    def tensors(self, column_name: str = None) -> np.ndarray:
+    def tensors(self, column_name: str = None, N: int = None) -> np.ndarray:
         if column_name is None:
             return self.X, self.y
 
-        return self.X, self.feature_tensor(column_name)
+        if N is None:
+            return self.X, self.feature_tensor(column_name)
+        return self.X[:N], self.feature_tensor(column_name)[:N]
 
     """
     Returns an np.array based on column name.
@@ -66,11 +69,11 @@ class SyntheticSplit:
             return self.categorical_tensor(column_name)
         return self.quantitative_tensor(column_name)
 
-    def __init__(self, split, parent):
+    def __init__(self, x, y, parent):
         self.parent = parent
 
-        self.X = np.array([list(row) for row in split[:, 0]])
-        self.y = np.array([list(row) for row in split[:, 1]])
+        self.X = x
+        self.y = y
 
         self.column_index = {v: k for k, v in enumerate(parent.variables)}
 
@@ -144,14 +147,18 @@ class SyntheticDataset:
 
         whole = list(zip(Xn, yn))
         l = len(whole)
-
         split = np.split(whole, [int(l*train), int(l*test + l*train)])
-        split = tuple(SyntheticSplit(x, self) for x in split)
+
+        split_ = []
+
+        for ds in split:
+            X, y = map(np.array, zip(*ds))
+            split_.append(SyntheticSplit(X, y, self))
 
         if valid:
-            return split
+            return tuple(split_)
 
-        return split[:-1]
+        return tuple(split_[:-1])
 
     """
     Returns the X (data) and y (features) from the dataset by index.
@@ -217,7 +224,7 @@ class SyntheticDataset:
     """
     def __init__(self, archive: str = None, cumulative: bool = True):
         if archive is None:
-            archive = os.path.join(os.path.dirname(__file__), 'synthetic-1595799389.927907.tar.gz')
+            archive = os.path.join(os.path.dirname(__file__), 'synthetic-1595801342.297447.tar.gz')
 
         with tarfile.open(archive, 'r:gz') as tb:
             features = tb.extractfile('features.csv')
