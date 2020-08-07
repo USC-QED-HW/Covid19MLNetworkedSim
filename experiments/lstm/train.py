@@ -119,7 +119,7 @@ if __name__ == "__main__":
     parser.add_argument('--lstm_hidden', type=int, default=16)
 
     # Rate of learning in ADAM gradient descent
-    parser.add_argument('--learning_rate', type=float, default=0.0001)
+    parser.add_argument('--learning_rate', type=float, default=0.01)
 
     # Whether or not to add gradient clipping
     parser.add_argument('--gradient_clipping', type=bool, default=True)
@@ -153,9 +153,9 @@ if __name__ == "__main__":
 
     train, test, valid = synda.split(valid=True, train=train_percentage, test=test_percentage)
 
-    print("train %: {}".format(train_percentage)))
-    print("test %: {}".format(test_percentage)))
-    print("valid %: {}".format(validation_percentage)))
+    print("train %: {}".format(train_percentage))
+    print("test %: {}".format(test_percentage))
+    print("valid %: {}".format(validation_percentage))
 
     # Split train into X and y
     X, y = train.tensors(variable)
