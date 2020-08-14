@@ -20,7 +20,7 @@ class Split(namedtuple('Split', 'X y')):
     """
 
     def variable(self, var_name: str) -> np.ndarray:
-        return self.y.loc[:, var_name].to_numpy()
+        return self.y.loc[:, var_name]
 
 
 def serialize_np(x):
@@ -51,6 +51,10 @@ class SyntheticDataset:
     @property
     def variables(self):
         return self.y.columns
+    
+    @property
+    def categorical_variables(self):
+        return list(filter(lambda x: self.y[x].dtype.name == 'category', self.variables))
 
     @property
     def compartments(self):
