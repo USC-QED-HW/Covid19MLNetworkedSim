@@ -1,12 +1,8 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
-import sys
 import os
-import time
 import argparse
-import pandas as pd
-import numpy as np
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
@@ -32,31 +28,30 @@ def build_model(input_shape, output_shape):
         model.add(Dropout(percent_dropout))
 
     model.add(LSTM(lstm_hidden))
+    model.add(Dropout(percent_dropout))
 
     for i in range(num_dense-1):
         model.add(Dense(dense_hidden, activation='relu'))
 
-    model.add(Dense(output_shape, activation='relu'))
+    if categorical:
+        model.add(Dense(output_shape, activation='softmax'))
+    else:
+        model.add(Dense(output_shape, activation='relu'))
 
     return model
 
 def determine_model_type(X, y, ds, variable):
     X_shape = X.shape[1:]
-    categorical = False
-
-    if variable in ds.categorical_vars:
-        categorical = True
-
     loss = None
     metrics = []
 
     if categorical:
         loss = keras.losses.CategoricalCrossentropy()
-        metrics = [keras.metrics.Accuracy()]
+        metrics = ['accuracy']
         y_shape = len(ds.y[variable].cat.categories)
     else:
         loss = keras.losses.MeanSquaredError()
-        metrics = [keras.metrics.RootMeanSquaredError()]
+        metrics = []
         y_shape = 1
 
     return X_shape, y_shape, loss, metrics
@@ -72,11 +67,14 @@ def determine_optimizer():
 def train_model(model, X, y, X_val, y_val):
     model.fit(X, y, epochs=epochs, batch_size=batch_size, verbose=1, validation_data=(X_val, y_val))
 
-def test_model(model, X, y):
-    loss, _ = model.evaluate(X, y, verbose=1)
-    print("testing_loss: {}".format(loss))
-
 if __name__ == "__main__":
+    # Seed random number generators to start w/ same weights + biases
+    MAGIC = 0xDEADBEEF
+    from numpy.random import seed
+    seed(MAGIC)
+    from tensorflow.random import set_seed
+    set_seed(MAGIC)
+
     # Variable choices
     variables = [
         'i_rec_prop',
@@ -139,9 +137,11 @@ if __name__ == "__main__":
     cumulative        = args.cumulative
     variable          = args.variable
 
-
     # Import synthetic data set
     synda = SyntheticDataset('synthetic-1595801342.297447.tar.gz', cumulative=cumulative)
+
+    # Tell if variable is categorical or not
+    categorical = variable in synda.categorical_vars
 
     # Data set size
     print("dataset_size: {}".format(len(synda)))
@@ -153,9 +153,8 @@ if __name__ == "__main__":
 
     train, test, valid = synda.split(valid=True, train=train_percentage, test=test_percentage)
 
-    print("train %: {}".format(train_percentage))
-    print("test %: {}".format(test_percentage))
-    print("valid %: {}".format(validation_percentage))
+    print("train_size: {}".format(len(train)))
+    print("valid_size: {}".format(len(valid)))
 
     # Split train into X and y
     X, y = train.tensors(variable)
@@ -180,6 +179,3 @@ if __name__ == "__main__":
 
     # Run model .fit
     train_model(model, X, y, X_val, y_val)
-
-    # Test model
-    test_model(model, X_test, y_test)

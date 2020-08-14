@@ -3,19 +3,20 @@
 from enum import Enum
 from pathlib import Path
 from deserialize_network import deserialize_network
+from datasets import preprocess_timeseries, serialize_np
 import argparse
-import os
 import pickle
 import random
-import csv
-import math
+import sqlite3
 import numpy as np
+import pandas as pd
 import scipy.stats as stats
 import continuous_sim as continuous
 import discrete_sim as discrete
 
 T_COLUMNS = None
 P_COLUMNS = None
+
 
 class ModelType(Enum):
     DISCRETE = 'DISCRETE'
@@ -24,159 +25,175 @@ class ModelType(Enum):
     def __str__(self):
         return self.name
 
+
 """
 Runs setup code needed depending on the model.
 """
+
+
 def setup(args):
     global T_COLUMNS, P_COLUMNS
 
     model_module = continuous if args.model == ModelType.CONTINUOUS else discrete
-    network_dir  = args.network_dir
-    graph_type   = args.graph_type
-    results_dir  = args.results_dir
-    T_COLUMNS    = model_module.T_COLUMNS
-    P_COLUMNS    = model_module.P_COLUMNS
+    network_dir = args.network_dir
+    graph_type = args.graph_type
+    # T_COLUMNS = model_module.T_COLUMNS
+    # P_COLUMNS = model_module.P_COLUMNS
 
-    T_COLUMNS.insert(0, "step")
+    # T_COLUMNS.insert(0, "step")
 
     fn = Path(network_dir) / graph_type
 
     with open(fn, 'rb') as f:
         graph = deserialize_network(pickle.load(f))
 
-    output_path = Path(results_dir) / os.path.basename(fn)
+    return graph
 
-    os.makedirs(output_path)
-
-    return graph, output_path
 
 """
 Resets the network
 """
+
+
 def reset_network(graph):
     for node in graph:
         node.comp = 0
 
+
 """
 Returns the time-series data and parameters from a simulation with randomized parameters.
 """
-def random_simulation(model, network, network_name, X):
-    if model == ModelType.DISCRETE or model == ModelType.CONTINUOUS:
-        model_module = discrete
 
-        if model == ModelType.CONTINUOUS:
-            model_module = continuous
 
-        # Grossman paper has inf=3.
-        inf = random.choice([2, 4, 7, 10])
-        mp  = model_module.ModelParameters()
+def random_simulation(args, graph, X):
+    model = args.model
+    network_name = args.graph_type
+    index = args.index
+    incidences = args.incidences
 
-        mp.population       = len(network)
-        mp.initial_infected = inf
-        mp.infectiousness   = np.random.uniform(0.01, 0.25)
+    model_module = discrete
 
-        # https://rt.live/ - based on lower and upper bounds from website
-        # Based on data last collected from 7/21/20 at 5:55AM
-        # lower bound (lowest estimate for utah)
-        # upper bound (highest esimate for kentucky)
-        r0 = np.random.uniform(0.72, 1.64)
+    if model == ModelType.CONTINUOUS:
+        model_module = continuous
 
-        # R0 = k_mean * (infectiousness / (infectiousness + i_out))
-        # i_out = infectiousness * ((kmean - r0) / r0)
-        kmean = int(network_name.split('-')[1])
+    # Grossman paper has inf=3.
+    inf = random.choice([2, 4, 7, 10])
+    mp = model_module.ModelParameters()
 
-        if model == ModelType.DISCRETE:
-            mp.i_d              = np.random.uniform(0.0001, 0.25)
-            mp.i_r              = np.random.uniform(0.001, 0.25)
-        elif model == ModelType.CONTINUOUS:
-            # mp.i_out            = np.random.uniform(0.0001, 1)
-            mp.i_out            = mp.infectiousness * ((kmean - r0) / r0)
-            mp.i_rec_prop       = X.rvs() # probability that when a person leaves the infected compartment they recover
+    mp.population = len(graph)
+    mp.initial_infected = inf
+    mp.infectiousness = np.random.uniform(0.01, 0.25)
 
-        if model == ModelType.DISCRETE:
-            mp.delta = 1 # 1 step = 1 day
-            mp.maxtime = 500 # at most simulation will run 500 steps
-        elif model == ModelType.CONTINUOUS:
-            mp.sample_time = 1/10 # 1/10 steps = 1 day
-            mp.time = 40 # at most simulation will run 40 steps (maximum of 400 samples)
+    # https://rt.live/ - based on lower and upper bounds from website
+    # Based on data last collected from 7/21/20 at 5:55AM
+    # lower bound (lowest estimate for utah)
+    # upper bound (highest esimate for kentucky)
+    r0 = np.random.uniform(0.72, 1.64)
 
-        timeseries_tbl = model_module.run_model(mp, network)
-        reset_network(network)
-        parameters_tbl = [None]*len(P_COLUMNS)
+    # R0 = k_mean * (infectiousness / (infectiousness + i_out))
+    # i_out = infectiousness * ((kmean - r0) / r0)
+    k = int(network_name.split('-')[1])
+    network = network_name.split('-')[0]
 
-        for i, r in enumerate(timeseries_tbl):
-            r.insert(0, i)
+    if model == ModelType.DISCRETE:
+        mp.i_d = np.random.uniform(0.0001, 0.25)
+        mp.i_r = np.random.uniform(0.001, 0.25)
+    elif model == ModelType.CONTINUOUS:
+        # mp.i_out            = np.random.uniform(0.0001, 1)
+        mp.i_out = mp.infectiousness * ((k - r0) / r0)
+        # probability that when a person leaves the infected compartment they recover
+        mp.i_rec_prop = X.rvs()
 
-        mp.network_name = network_name
-        mp.backend = model
+    if model == ModelType.DISCRETE:
+        mp.delta = 1  # 1 step = 1 day
+        mp.maxtime = 500  # at most simulation will run 500 steps
+    elif model == ModelType.CONTINUOUS:
+        mp.sample_time = 1/10  # 1/10 steps = 1 day
+        # at most simulation will run 40 steps (maximum of 400 samples)
+        mp.time = int(mp.sample_time * incidences)
 
-        for idx, col in enumerate(P_COLUMNS):
-            parameters_tbl[idx] = getattr(mp, col)
+    timeseries = model_module.run_model(mp, graph)
+    reset_network(graph)
 
-        return (timeseries_tbl, parameters_tbl)
+    for i, r in enumerate(timeseries):
+        r.insert(0, i)
+    
+    timeseries = np.array(timeseries, np.float64)
+    timeseries = preprocess_timeseries(timeseries, incidences)
+    timeseries = serialize_np(timeseries)
 
-    else:
-        raise Exception('Unknown simulation type')
+    ret = pd.Series({
+        "case": network_name + "-" + str(index),
+        "population": mp.population,
+        "backend": str(model),
+        "initial_infected": mp.initial_infected,
+        "network": network,
+        "k": k,
+        "infectiousness": mp.infectiousness,
+        "i_out": mp.i_out,
+        "i_rec_prop": mp.i_rec_prop,
+        "timeseries": timeseries
+    })
+
+    ret.name = ret.case
+
+    return ret
+
 
 """
 Runs if this file is ran as a script (rather than a module).
 """
+
+
 def main():
-    parser = argparse.ArgumentParser(description='''Generate synthetic data using simulation''')
+    parser = argparse.ArgumentParser()
 
-    parser.add_argument('--model', '-M', type=ModelType, choices=list(ModelType),
-                        default=ModelType.CONTINUOUS,
-                        help='which type of model to use (default is discrete)')
+    # parser.add_argument('--n', '-N', type=int, help='number of datasets to generate')
+    # parser.add_argument('--network-dir', '-W', type=str, default='networks/')
+    # parser.add_argument('--results-dir', '-R', type=str, default='datasets/synthetic/')
 
-    parser.add_argument('--n', '-N', type=int, help='number of datasets to generate')
-
-    parser.add_argument('--network-dir', '-W', type=str, default='networks/',
-                        help='directory which networks are stored in (default is networks/)')
-
-    parser.add_argument('--graph-type', '-G', type=str, help='what type of graph to use')
-
-    parser.add_argument('--results-dir', '-R', type=str, default='datasets/synthetic/',
-                        help='directory which simulation results are stored in (default is datasets/synthetic/)')
+    parser.add_argument('--model', type=ModelType,
+                        default=ModelType.CONTINUOUS)
+    parser.add_argument('--network-dir', '-W', type=str, default='networks/')
+    parser.add_argument('--graph-type', type=str)
+    parser.add_argument('--index', type=int)
+    parser.add_argument('--database-name', type=str)
+    parser.add_argument('--table-name', type=str)
+    parser.add_argument('--incidences', type=int)
+    parser.add_argument('--batch_size', type=int)
+    parser.add_argument('--max', type=int, default=None)
 
     args = parser.parse_args()
 
-    model      = args.model
-    N          = args.n
-    graph_type = args.graph_type
+    tb_name = args.table_name
+    db_name = args.database_name
+    batch_size = args.batch_size
 
-    graph, output_path = setup(args)
-    l = len(str(N))
+    graph = setup(args)
 
     mu = 0.94
     upper = 1
     lower = 0
     sigma = 0.02
 
-    X = stats.truncnorm((lower - mu) / sigma, (upper - mu) / sigma, loc=mu, scale=sigma)
+    X = stats.truncnorm((lower - mu) / sigma,
+                        (upper - mu) / sigma, loc=mu, scale=sigma)
 
-    for sim in range(N):
-        tt, pt = random_simulation(model, graph, graph_type, X)
+    table = []
+    index = args.index
 
-        subdir = os.path.join(output_path, f"%0{l}d" % sim)
+    for _ in range(index, min(args.max, index + batch_size)):
+        series = random_simulation(args, graph, X)
+        table.append(series)
+        args.index += 1
+    
+    table = pd.concat(table, axis=1).T
 
-        os.makedirs(subdir)
+    conn = sqlite3.connect(db_name)
+    table.to_sql(tb_name, con=conn, index=False, if_exists='append')
 
-        timeseries_path = os.path.join(subdir, 'timeseries.csv')
-        features_path = os.path.join(subdir, 'features.csv')
+    conn.close()
 
-        with open(timeseries_path, 'w') as f:
-            writer = csv.writer(f)
-            writer.writerow(T_COLUMNS)
-
-            for row in tt:
-                writer.writerow(row)
-
-        with open(features_path, 'w') as f:
-            writer = csv.writer(f)
-            writer.writerow(P_COLUMNS)
-            writer.writerow(pt)
-
-    # print(output_path)
 
 if __name__ == "__main__":
     main()

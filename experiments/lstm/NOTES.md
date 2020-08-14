@@ -1,4 +1,12 @@
 - Loss for estimating "infectiousness" and "i_out" variables doesn't seem to improve after 32 epochs.
 - SGD optimizer cannot go below ~5e-3 for mean squared error, and ~0.07 for root mean squared error ("infectiousness"). Choose ADAM for continuous variables.
-
 - Ask QED lab about how to choose optimizer (SGD/ADAM/???) and whether or not to use early stopping (non reproducible experiments).
+- Use less hidden nodes. Use GRUs.
+- Use a scheduled learning rate. (starting w/ .01).
+- Smooth loss function. Look at different loss functions.
+- Use partial dataset for initial search.
+- Use 32, 64, 128 batch size if I have lots of memory. See how long each epoch takes.
+- Starting w/ 0.2 dropout go to ~0.5. Usually in between. Prevents overfitting.
+- Advantage to using multiple LSTM layers (deeper networks) will help with underfitting. Model might need more layers to learn.
+- If validation accuracy > training accuracy is underfitting.
+- High dropout makes underfitting.

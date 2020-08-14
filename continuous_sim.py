@@ -7,7 +7,6 @@ import numpy as np
 import copy
 from enum import Enum
 import matplotlib.pyplot as plt
-#from discrete_sim import ModelParameters
 
 T_COLUMNS = ['susceptible', 'c_infected', 'recovered', 'dead']
 P_COLUMNS = ['population', 'backend', 'initial_infected', 'network_name', 'infectiousness', 'i_out', 'i_rec_prop']

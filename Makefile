@@ -1,8 +1,10 @@
 .PHONY: clean datasets networks all us_historical world_historical historical
 
 NETWORK_DIR ?= networks/
-RESULTS_DIR ?= datasets/synthetic/
 N ?= 10000
+OUTPUT_DIR ?= datasets/
+INCIDENCES ?= 401
+BATCH_SIZE ?= 256
 
 all: networks datasets historical
 historical: us_historical world_historical
@@ -18,13 +20,8 @@ us_historical:
 world_historical:
 	python fetch_world_historical.py datasets/world_historical.csv
 
-datasets: $(NETWORK_DIR)
-	$(RM) -R $(RESULTS_DIR)
-	mkdir $(RESULTS_DIR)
-	bash parallel_synda.sh $(RESULTS_DIR) $(N)
-	python aggregate_synda.py $(RESULTS_DIR)
+datasets:
+	bash parallel_synda.sh $(OUTPUT_DIR) $(N) $(BATCH_SIZE) $(INCIDENCES)
 
 clean:
-	$(RM) -R ./$(NETWORK_DIR)
-	$(RM) -R ./$(RESULTS_DIR)
-	$(RM) ./datasets/*historical.csv
+	$(RM) ./datasets/synda.db

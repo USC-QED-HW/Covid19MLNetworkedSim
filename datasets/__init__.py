@@ -4,6 +4,46 @@ import os
 import tarfile
 import numpy as np
 import pandas as pd
+import zlib
+import pickle
+
+from typing import *
+
+serialize_np = lambda x: zlib.compress(pickle.dumps(x))
+deserialize_np = lambda x: pickle.loads(zlib.decompress(x))
+
+# NOTE(kosi): Assume that first column is STEP in timeseries data.
+def preprocess_timeseries(ts: np.ndarray, incidences: int) -> np.ndarray:
+    ts[:, 1:] = ts[:, 1:] / ts[0, 1:].sum()
+
+    old_ax = np.linspace(0, ts.shape[0], ts.shape[0])
+    new_ax = np.linspace(0, ts.shape[0], incidences)
+
+    z = np.zeros((incidences, ts.shape[1]))
+
+    for compartment in range(ts.shape[1]):
+        z[:, compartment] = np.interp(new_ax, old_ax, ts[:, compartment])
+
+    return z
+
+
+"""
+Resamples time-series data so that they are all the same duration.
+
+X: list of ndarrays that represent time-series data
+"""
+def __resample(X: list) -> np.ndarray:
+    longest = max(X, key=lambda xn: xn.shape[0]).shape[0]
+    new_Xn = np.zeros((len(X), longest, X[0].shape[1]))
+
+    for k, xn in enumerate(X):
+        old_ax = np.linspace(0, xn.shape[0], xn.shape[0])
+        new_ax = np.linspace(0, xn.shape[0], longest)
+
+        for i in range(xn.shape[1]):
+            new_Xn[k, :, i] = np.interp(new_ax, old_ax, xn[:, i])
+
+    return new_Xn
 
 """
 Represents a split of a synthetic dataset.
@@ -119,7 +159,7 @@ class SyntheticDataset:
         return list(filter(lambda x: self.y[x].dtype.name == 'category' , self.variables))
 
     """
-    Preprocess and split dataset to be used by a machine learning library.
+    Split dataset to be used by a machine learning library.
 
     train: Percentage of dataset to split into training data. (default=0.7)
     test: Percentage of dataset to split into testing data. (default=0.2)
@@ -163,7 +203,7 @@ class SyntheticDataset:
     """
     Returns the X (data) and y (features) from the dataset by index.
     """
-    def __getitem__(self, index: int) -> (pd.DataFrame, pd.DataFrame):
+    def __getitem__(self, index: int) -> Tuple[pd.DataFrame, pd.DataFrame]:
         return self.X_index[index], self.y.iloc[index]
 
     """
@@ -186,35 +226,6 @@ class SyntheticDataset:
     """
     def get_category_by_code(self, column_name: str, code: int) -> str:
         return self.y[column_name].cat.categories[code]
-
-    """
-    Resamples time-series data so that they are all the same duration.
-
-    X: list of ndarrays that represent time-series data
-    """
-    def __resample(X: list) -> np.ndarray:
-        longest = max(X, key=lambda xn: xn.shape[0]).shape[0]
-        new_Xn = np.zeros((len(X), longest, X[0].shape[1]))
-
-        for k, xn in enumerate(X):
-            old_ax = np.linspace(0, xn.shape[0], xn.shape[0])
-            new_ax = np.linspace(0, xn.shape[0], longest)
-
-            for i in range(xn.shape[1]):
-                new_Xn[k, :, i] = np.interp(new_ax, old_ax, xn[:, i])
-
-        return new_Xn
-
-    """
-    Converts each timeseries data to fractions.
-    """
-    def __fraction(X: np.ndarray) -> np.ndarray:
-        Xf = X.copy()
-        for n in range(X.shape[0]):
-            divisor = np.sum(X[n][0])
-            X[n, :, 1:] /= divisor
-
-        return X
 
     """
     Initializes the synthetic dataset.
