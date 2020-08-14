@@ -26,7 +26,7 @@ CREATE TABLE ${table_name} (
     infectiousness REAL,
     i_out REAL,
     i_rec_prop REAL,
-    timeseries BLOB
+    timeseries TEXT
 );
 EOF
 
@@ -39,8 +39,20 @@ parallel --bar -j"$virtual_cores" \
 	$(ls -1q "$networks_dir")
 
 # Output whole thing to csv
-sqlite3 -header -csv "$database_name" "SELECT * FROM ${table_name}" > \
-    "$output_dir"synthetic-dataset-${N}.csv
+(
+sqlite3 -header -csv "$database_name"<<EOF
+SELECT [case],
+	population,
+	initial_infected,
+	network,
+	k,
+	infectiousness,
+	i_out,
+	i_rec_prop,
+	timeseries 
+FROM DATASET_100
+EOF
+) > "$output_dir"synthetic-dataset-${N}.csv
 
-# gzip it
-gzip "$output_dir"synthetic-dataset-${N}.csv
+# gzip to max compression (hopefully to fit in github file)
+gzip -9 "$output_dir"synthetic-dataset-${N}.csv

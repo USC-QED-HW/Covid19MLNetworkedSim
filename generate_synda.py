@@ -14,9 +14,6 @@ import scipy.stats as stats
 import continuous_sim as continuous
 import discrete_sim as discrete
 
-T_COLUMNS = None
-P_COLUMNS = None
-
 
 class ModelType(Enum):
     DISCRETE = 'DISCRETE'
@@ -32,15 +29,8 @@ Runs setup code needed depending on the model.
 
 
 def setup(args):
-    global T_COLUMNS, P_COLUMNS
-
-    model_module = continuous if args.model == ModelType.CONTINUOUS else discrete
     network_dir = args.network_dir
     graph_type = args.graph_type
-    # T_COLUMNS = model_module.T_COLUMNS
-    # P_COLUMNS = model_module.P_COLUMNS
-
-    # T_COLUMNS.insert(0, "step")
 
     fn = Path(network_dir) / graph_type
 
@@ -117,7 +107,7 @@ def random_simulation(args, graph, X):
 
     for i, r in enumerate(timeseries):
         r.insert(0, i)
-    
+
     timeseries = np.array(timeseries, np.float64)
     timeseries = preprocess_timeseries(timeseries, incidences)
     timeseries = serialize_np(timeseries)
@@ -186,7 +176,7 @@ def main():
         series = random_simulation(args, graph, X)
         table.append(series)
         args.index += 1
-    
+
     table = pd.concat(table, axis=1).T
 
     conn = sqlite3.connect(db_name)
