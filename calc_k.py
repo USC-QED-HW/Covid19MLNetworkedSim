@@ -1,6 +1,6 @@
 import numpy
 import scipy.integrate as integrate
-from random import random
+from random import random, randint
 from numpy import sqrt, arcsin, sin, arccos, pi, exp
 
 def integrand_edges (x, r):
@@ -58,8 +58,9 @@ def get_ks(n, r, runs):
         total += get_k(n, r)
     return total/runs
 
-def dumb_math(n, r):
-    return (n-1) * (pi * (r ** 2))
+def dumb_math(n, k):
+    return sqrt(k/((n-1)*pi))
+
 
 def sigmoid (x):
     return 1 / (1 + exp(-x))
@@ -82,7 +83,24 @@ def approx_r (n, k, accepted):
         loss = k - val
         r += (sigmoid(loss) - 0.5) / 100
     return r
-    
-r = approx_r (1000, 6, 0.0001)
 
-print(get_ks(1000, r, 20))
+def test_error(runs):
+    loss = 0
+    dumb_loss = 0
+    pm = 0
+    dumb_pm = 0
+    for i in range(runs):
+        n = randint(500,1500)
+        k = random() * 20
+        r = approx_r (n, k, 0.0001)
+        dumb_r = dumb_math(n, k)
+        error = get_ks(n, r, 10) - k
+        dumb_error = get_ks(n, dumb_r, 10) - k
+        pm += error
+        dumb_pm += dumb_error
+        loss += abs(error)
+        dumb_loss += abs(dumb_error)
+        #print(n, k, r, error)
+    return loss/runs, dumb_loss/runs, pm/runs, dumb_pm/runs
+print(test_error(10))
+    
